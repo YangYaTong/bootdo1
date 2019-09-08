@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.contractBorrow.dao.BorrowDao">
+
+	<select id="get" resultType="com.bootdo.contractBorrow.domain.BorrowDO">
+		select `borrow_id`,`name`,`contract_id`,`lender_id`,`lender_name`,`certifier_name`,`certifier`,`plan_reback_time`,`reback_time`,`state`,`type`,`creatied_user`,`creatied_time`,`modified_time`,`modified_user` from contract_borrow where borrow_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.contractBorrow.domain.BorrowDO">
+		select `borrow_id`,`name`,`contract_id`,`lender_id`,`lender_name`,`certifier_name`,`certifier`,`plan_reback_time`,`reback_time`,`state`,`type`,`creatied_user`,`creatied_time`,`modified_time`,`modified_user` from contract_borrow
+        <where>  
+		  		  <if test="borrowId != null and borrowId != ''"> and borrow_id = #{borrowId} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="lenderId != null and lenderId != ''"> and lender_id = #{lenderId} </if>
+		  		  <if test="lenderName != null and lenderName != ''"> and lender_name = #{lenderName} </if>
+		  		  <if test="certifierName != null and certifierName != ''"> and certifier_name = #{certifierName} </if>
+		  		  <if test="certifier != null and certifier != ''"> and certifier = #{certifier} </if>
+		  		  <if test="planRebackTime != null and planRebackTime != ''"> and plan_reback_time = #{planRebackTime} </if>
+		  		  <if test="rebackTime != null and rebackTime != ''"> and reback_time = #{rebackTime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by borrow_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract_borrow
+		 <where>  
+		  		  <if test="borrowId != null and borrowId != ''"> and borrow_id = #{borrowId} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="lenderId != null and lenderId != ''"> and lender_id = #{lenderId} </if>
+		  		  <if test="lenderName != null and lenderName != ''"> and lender_name = #{lenderName} </if>
+		  		  <if test="certifierName != null and certifierName != ''"> and certifier_name = #{certifierName} </if>
+		  		  <if test="certifier != null and certifier != ''"> and certifier = #{certifier} </if>
+		  		  <if test="planRebackTime != null and planRebackTime != ''"> and plan_reback_time = #{planRebackTime} </if>
+		  		  <if test="rebackTime != null and rebackTime != ''"> and reback_time = #{rebackTime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.contractBorrow.domain.BorrowDO" useGeneratedKeys="true" keyProperty="borrowId">
+		insert into contract_borrow
+		(
+			`name`, 
+			`contract_id`, 
+			`lender_id`, 
+			`lender_name`, 
+			`certifier_name`, 
+			`certifier`, 
+			`plan_reback_time`, 
+			`reback_time`, 
+			`state`, 
+			`type`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_time`, 
+			`modified_user`
+		)
+		values
+		(
+			#{name}, 
+			#{contractId}, 
+			#{lenderId}, 
+			#{lenderName}, 
+			#{certifierName}, 
+			#{certifier}, 
+			#{planRebackTime}, 
+			#{rebackTime}, 
+			#{state}, 
+			#{type}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedTime}, 
+			#{modifiedUser}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.contractBorrow.domain.BorrowDO">
+		update contract_borrow 
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="lenderId != null">`lender_id` = #{lenderId}, </if>
+			<if test="lenderName != null">`lender_name` = #{lenderName}, </if>
+			<if test="certifierName != null">`certifier_name` = #{certifierName}, </if>
+			<if test="certifier != null">`certifier` = #{certifier}, </if>
+			<if test="planRebackTime != null">`plan_reback_time` = #{planRebackTime}, </if>
+			<if test="rebackTime != null">`reback_time` = #{rebackTime}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}</if>
+		</set>
+		where borrow_id = #{borrowId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract_borrow where borrow_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract_borrow where borrow_id in 
+		<foreach item="borrowId" collection="array" open="(" separator="," close=")">
+			#{borrowId}
+		</foreach>
+	</delete>
+
+</mapper>

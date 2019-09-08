@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <!-- 全局js -->
+    <script src="/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- ECharts -->
+    <script src="/js/plugins/echarts/echarts-all.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <!-- 自定义js -->
+    <script src="/js/content.js?v=1.0.0"></script>
+
+
+    <!-- ECharts demo data -->
+    <script src="/js/demo/echarts-demo.js"></script>
+</head>
+<body>
+
+<div id="main1" style="wide :600px;height: 480px">
+
+<title>echarts的柱状图的测试案例</title>
+
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/line', // 使用柱状图就加载bar模块，按需加载
+        ],
+        function (ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('main1'));
+            //x轴的参数列表
+            var  xAxisData =["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","帽子","围巾"];//后期这里是动态从数据库获取的json数据
+            
+            
+            var data =[5, 20, 50, 10, 24, 20,24,32];
+            
+
+            //设置数据
+            var option = {
+            	    title: {
+            	        text: '年合同收入与支出对比'
+            	    },
+            	    tooltip: {
+            	        trigger: 'axis'
+            	    },
+            	    legend: {
+            	        data:['合同收入','合同支出']
+            	    },
+            	    grid: {
+            	        left: '3%',
+            	        right: '4%',
+            	        bottom: '3%',
+            	        containLabel: true
+            	    },
+            	    toolbox: {
+            	        feature: {
+            	            saveAsImage: {}
+            	        }
+            	    },
+            	    xAxis: {
+            	        type: 'category',
+            	        boundaryGap: false,
+            	        data: ['1','2','3','4','5','6','7','8','9','10','11','12']
+            	    },
+            	    yAxis: {
+            	        type: 'value'
+            	    },
+            	    series: [
+            	        {
+            	            name:'合同收入',
+            	            type:'line',
+            	            stack: '总量',
+            	            data:[120, 132, 101, 134, 90, 230, 210,345,435,56,57,879]
+            	        },
+            	        {
+            	            name:'合同支出',
+            	            type:'line',
+            	            stack: '总量',
+            	            data:[220, 182, 191, 234, 290, 330, 310,90, 230, 210,764,76]
+            	        }
+            	    ]
+            	};
+            // 为echarts对象加载数据
+            myChart.setOption(option);
+        }
+
+    );
+</script>
+
+
+
+
+
+</div>
+
+<div id="main" style="wide :600px;height: 480px">
+
+<title>echarts的柱状图的测试案例</title>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+        ],
+        function (ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('main'));
+            //x轴的参数列表
+            var  xAxisData =["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","帽子","围巾"];//后期这里是动态从数据库获取的json数据
+            
+            
+            var data =[5, 20, 50, 10, 24, 20,24,32];
+            
+
+            //设置数据
+            var option = {
+                title: {
+                    text: '树形图表：渐变色 阴影 点击缩放',
+                    subtext: "冬季服装日销售统计"
+                },
+                tooltip: {  //提示
+                    show: true
+                },
+                legend: {   //设置图例
+                    data:['销量']
+                },
+                //设置坐标轴
+                xAxis : [
+                    {
+                        type : 'category',
+                        data :xAxisData  //这里就是刚刚我们设置的x轴的数据
+                    }
+                ],
+
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                //设置数据
+                series : [
+                    {//树形的
+                        "name":"销量",
+                        "type":"bar",  //type=bar就是树形图标
+                        "data":data
+                    }
+                ]
+            };
+            // 为echarts对象加载数据
+            myChart.setOption(option);
+        }
+
+    );
+</script>
+
+
+
+
+
+</div>
+
+</body>
+</html>

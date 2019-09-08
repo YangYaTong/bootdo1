@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<br>
+						<div class="form-group" id="contract_money">	
+						
+							</div>
+						
+						
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="receiveName" name="receiveName" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款方式：</label>
+								<div class="col-sm-8">
+								
+									
+									 <select data-placeholder="--选择收款方式--" name="typeId" id="typeId"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择收款方式--</option>
+                                </select>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">所属合同：</label>
+								<div class="col-sm-8">
+								 <select data-placeholder="--选择所属合同--" name="contractId" id="contractId"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择合同--</option>
+                                </select>
+								
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划收款金额：</label>
+								<div class="col-sm-8">
+									
+									<input id="planMoney" name="planMoney"  onchange="this.value=cc(this.value)" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际收款金额：</label>
+								<div class="col-sm-8">
+								<input id="actualMoney" name="actualMoney"  onchange="this.value=cc(this.value)" class="form-control" type="text" required>
+									
+								</div>
+							</div>
+									<div class="form-group">	
+								<label class="col-sm-3 control-label">计划开票金额：</label>
+								<div class="col-sm-8">
+								<input id="planBill" name="planBill"  onchange="this.value=cc(this.value)" class="form-control" type="text">
+									
+								</div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">实际开票金额：</label>
+								<div class="col-sm-8">
+								<input id="actualBill" name="actualBill"  onchange="this.value=cc(this.value)" class="form-control" type="text" required>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划付款日期：</label>
+								<div class="col-sm-8">
+								
+									 <input type="text" class="laydate-icon  form-control" id="planDate" name="planDate"  placeholder="请选择计划付款时间"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly"/>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际付款日期：</label>
+								<div class="col-sm-8">
+									
+									 <input type="text" class="laydate-icon  form-control" id="actualDate" name="actualDate"  placeholder="请选择实际付款时间"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly" required/>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款公司：</label>
+								<div class="col-sm-8">
+									<input id="payCompany" name="payCompany" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款账号：</label>
+								<div class="col-sm-8">
+									<input id="payCount" name="payCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款银行：</label>
+								<div class="col-sm-8">
+									<input id="payBankname" name="payBankname" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款账号：</label>
+								<div class="col-sm-8">
+									<input id="acceptCount" name="acceptCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款公司：</label>
+								<div class="col-sm-8">
+									<input id="acceptCompany" name="acceptCompany" class="form-control" type="text">
+								</div>
+							</div>
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款银行：</label>
+								<div class="col-sm-8">
+									<input id="accpetBank" name="accpetBank" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">承办人：</label>
+								<div class="col-sm-8">
+									<input id="underTaker" name="underTaker" class="form-control" type="text">
+								</div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									 <select data-placeholder="--选择财务计划的状态--" name="state" id="state"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="1">已完成</option>
+                                    <option value="0">未完成</option>
+                          
+                                </select>
+								</div>
+							</div>
+														
+										
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/receive/receive/add.js">
+	</script>
+		<!-- 金额转换的js -->
+	<script>
+
+</script>
+</body>
+</html>

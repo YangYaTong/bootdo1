@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="borrow_id" name="borrow_id" th:value="${borrow.borrow_id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" th:value="${borrow.name}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">借阅的合同ID：</label>
+								<div class="col-sm-8">
+									<input id="contractId" name="contractId" th:value="${borrow.contractId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">借阅人：</label>
+								<div class="col-sm-8">
+									<input id="lenderId" name="lenderId" th:value="${borrow.lenderId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">借阅人姓名：</label>
+								<div class="col-sm-8">
+									<input id="lenderName" name="lenderName" th:value="${borrow.lenderName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批准人姓名：</label>
+								<div class="col-sm-8">
+									<input id="certifierName" name="certifierName" th:value="${borrow.certifierName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批准人：</label>
+								<div class="col-sm-8">
+									<input id="certifier" name="certifier" th:value="${borrow.certifier}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划归还时间：</label>
+								<div class="col-sm-8">
+									<input id="planRebackTime" name="planRebackTime" th:value="${borrow.planRebackTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际归还时间：</label>
+								<div class="col-sm-8">
+									<input id="rebackTime" name="rebackTime" th:value="${borrow.rebackTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" th:value="${borrow.state}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">类型：</label>
+								<div class="col-sm-8">
+									<input id="type" name="type" th:value="${borrow.type}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建人：</label>
+								<div class="col-sm-8">
+									<input id="creatiedUser" name="creatiedUser" th:value="${borrow.creatiedUser}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建时间：</label>
+								<div class="col-sm-8">
+									<input id="creatiedTime" name="creatiedTime" th:value="${borrow.creatiedTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改人：</label>
+								<div class="col-sm-8">
+									<input id="modifiedTime" name="modifiedTime" th:value="${borrow.modifiedTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改时间：</label>
+								<div class="col-sm-8">
+									<input id="modifiedUser" name="modifiedUser" th:value="${borrow.modifiedUser}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/contractBorrow/borrow/edit.js">
+	</script>
+</body>
+</html>

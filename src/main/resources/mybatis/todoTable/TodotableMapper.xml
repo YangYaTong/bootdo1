@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.todoTable.dao.TodotableDao">
+
+	<select id="get" resultType="com.bootdo.todoTable.domain.TodotableDO">
+		select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable where todotable_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.todoTable.domain.TodotableDO">
+		select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable
+        <where>  
+		  		  <if test="todotableId != null and todotableId != ''"> and todotable_id = #{todotableId} </if>
+		  		  <if test="todotableName != null and todotableName != ''"> and todotable_name = #{todotableName} </if>
+		  		  <if test="todoType != null and todoType != ''"> and todo_type = #{todoType} </if>
+		  		  <if test="todoDesc != null and todoDesc != ''"> and todo_desc = #{todoDesc} </if>
+		  		  <if test="sendTime != null and sendTime != ''"> and send_time = #{sendTime} </if>
+		  		  <if test="sendUser != null and sendUser != ''"> and send_user = #{sendUser} </if>
+		  		  <if test="receiveUser != null and receiveUser != ''"> and receive_user = #{receiveUser} </if>
+		  		  <if test="openTime != null and openTime != ''"> and open_time = #{openTime} </if>
+		  		  <if test="doneTime != null and doneTime != ''"> and done_time = #{doneTime} </if>
+		  		  <if test="retiveId != null and retiveId != ''"> and retive_id = #{retiveId} </if>
+		  		  <if test="responseId != null and responseId != ''"> and response_id = #{responseId} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by todotable_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract_todotable
+		 <where>  
+		  		  <if test="todotableId != null and todotableId != ''"> and todotable_id = #{todotableId} </if>
+		  		  <if test="todotableName != null and todotableName != ''"> and todotable_name = #{todotableName} </if>
+		  		  <if test="todoType != null and todoType != ''"> and todo_type = #{todoType} </if>
+		  		  <if test="todoDesc != null and todoDesc != ''"> and todo_desc = #{todoDesc} </if>
+		  		  <if test="sendTime != null and sendTime != ''"> and send_time = #{sendTime} </if>
+		  		  <if test="sendUser != null and sendUser != ''"> and send_user = #{sendUser} </if>
+		  		  <if test="receiveUser != null and receiveUser != ''"> and receive_user = #{receiveUser} </if>
+		  		  <if test="openTime != null and openTime != ''"> and open_time = #{openTime} </if>
+		  		  <if test="doneTime != null and doneTime != ''"> and done_time = #{doneTime} </if>
+		  		  <if test="retiveId != null and retiveId != ''"> and retive_id = #{retiveId} </if>
+		  		  <if test="responseId != null and responseId != ''"> and response_id = #{responseId} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.todoTable.domain.TodotableDO" useGeneratedKeys="true" keyProperty="todotableId">
+		insert into contract_todotable
+		(
+			`todotable_name`, 
+			`todo_type`, 
+			`todo_desc`, 
+			`send_time`, 
+			`send_user`, 
+			`receive_user`, 
+			`open_time`, 
+			`done_time`, 
+			`retive_id`, 
+			`response_id`, 
+			`state`, 
+			`remark`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`
+		)
+		values
+		(
+			#{todotableName}, 
+			#{todoType}, 
+			#{todoDesc}, 
+			#{sendTime}, 
+			#{sendUser}, 
+			#{receiveUser}, 
+			#{openTime}, 
+			#{doneTime}, 
+			#{retiveId}, 
+			#{responseId}, 
+			#{state}, 
+			#{remark}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.todoTable.domain.TodotableDO">
+		update contract_todotable 
+		<set>
+			<if test="todotableName != null">`todotable_name` = #{todotableName}, </if>
+			<if test="todoType != null">`todo_type` = #{todoType}, </if>
+			<if test="todoDesc != null">`todo_desc` = #{todoDesc}, </if>
+			<if test="sendTime != null">`send_time` = #{sendTime}, </if>
+			<if test="sendUser != null">`send_user` = #{sendUser}, </if>
+			<if test="receiveUser != null">`receive_user` = #{receiveUser}, </if>
+			<if test="openTime != null">`open_time` = #{openTime}, </if>
+			<if test="doneTime != null">`done_time` = #{doneTime}, </if>
+			<if test="retiveId != null">`retive_id` = #{retiveId}, </if>
+			<if test="responseId != null">`response_id` = #{responseId}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where todotable_id = #{todotableId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract_todotable where todotable_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract_todotable where todotable_id in 
+		<foreach item="todotableId" collection="array" open="(" separator="," close=")">
+			#{todotableId}
+		</foreach>
+	</delete>
+
+</mapper>

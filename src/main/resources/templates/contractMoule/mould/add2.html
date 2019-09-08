@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link rel="stylesheet" href="/js/layui/css/layui.css" media="all">
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+
+
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm" role="form"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板名55称：</label>
+								<div class="col-sm-8">
+									<input id="mouldName" name="mouldName" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板描述：</label>
+								<div class="col-sm-8">
+									<input id="mouldDesc" name="mouldDesc" class="form-control"
+										type="text">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板的主要条款（标的数量）：</label>
+								<div class="col-sm-8">
+
+									<textarea class="form-control" id="maincontent"
+										name="maincontent" rows="8" style="min-width: 90%"></textarea>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的法律编号：</label>
+								<div class="col-sm-8">
+									<input id="attorneyNo" name="attorneyNo" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的付款方式：</label>
+								<div class="col-sm-8">
+									<input id="paymentway" name="paymentway" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的违约责任：</label>
+								<div class="col-sm-8">
+
+									<textarea class="form-control" id="breach" name="breach"
+										rows="8" style="min-width: 90%"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的争议解决方式：</label>
+								<div class="col-sm-8">
+
+									<textarea class="form-control" id="resolution"
+										name="resolution" rows="8" style="min-width: 90%"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的双方一致同意的附加条款：</label>
+								<div class="col-sm-8">
+									<input id="agrement" name="agrement" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的备注：</label>
+								<div class="col-sm-8">
+									<input id="remark" name="remark" class="form-control"
+										type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板合同的约定履行地：</label>
+								<div class="col-sm-8">
+									<input id="place" name="place" class="form-control" type="text">
+								</div>
+							</div>
+							
+							<div class="form-group">
+                            <label class="col-sm-3 control-label">合同类型：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--选择类型--" name="contractType" id="contract_type"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择类型--</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">	
+								<label class="col-sm-3 control-label">资金类型：</label>
+								<div class="col-sm-8">
+								<select data-placeholder="--选择资金类型--" name="contractKind" id="contractKind"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择类型--</option>
+                                </select>
+									
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板中所含表格的书签名：</label>
+								<div class="col-sm-8">
+									<input id="tableTag" name="tableTag" class="form-control"
+										type="text" placeholder="模板中所含表格的书签名，不填则默认为不含有表格" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">模板中所含表格的列名：</label>
+								<div class="col-sm-8">
+									<input id="mouldTable" name="mouldTable" class="form-control"
+										type="text" placeholder="模板中所含表格的列名，请用英文输入法下的逗号隔开，不填则默认为不含有表格">
+								</div>
+							</div>
+
+							<!-- <div class="layui-upload"> -->
+
+							<button type="button" class="layui-btn layui-btn-normal"
+								id="test8">选择文件</button>
+							<br>
+							<br>
+							<button type="button" class="layui-btn" id="test9">开始上传</button>
+							<div class="form-group"></div>
+						</form>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 	</div> -->
+	<div th:include="include::footer"></div>
+	<script type="text/javascript"
+		src="/js/appjs/contractMoule/mould/add.js">
+	</script>
+	<script type="text/javascript" src="/js/layui.js">
+	</script>
+
+
+	<script type="text/javascript">
+	
+	
+	layui.use('upload', function(){
+	  var $ = layui.jquery
+	  ,upload = layui.upload;
+	  //选完文件后不自动上传
+	  upload.render({
+	    elem: '#test8'
+	    ,url: '/contractMoule/mould/upload/'
+	    ,accept: 'file' //普通文件
+	    ,bindAction: '#test9'
+	    , auto: false
+	    ,contentType: 'application/octet-stream'
+	    ,before: function(input){  
+	            var data = {};    
+	             data.mouldName = $('#mouldName').val();  
+	             data.mouldDesc = $('#mouldDesc').val();  
+	             data.maincontent = $('#maincontent').val();   
+	             data.attorneyNo = $('#attorneyNo').val();   
+	             data.paymentway = $('#paymentway').val();   
+	             data.breach = $('#breach').val();   
+	             data.resolution = $('#resolution').val();  
+	             data.agrement = $('#agrement').val();  
+	             data.remark = $('#remark').val();  
+	             data.place = $('#place').val();  
+	             data.mouldTable = $('#mouldTable').val();  
+	             data.tableTag = $('#tableTag').val();  
+	             this.data=data;  
+	      }   
+	    ,done: function(res){
+	    	if (res.code == 0) {
+				parent.layer.msg("操作成功");
+				parent.reLoad();
+	    	}else{
+	    	parent.layer.alert(res.msg)
+	    	}
+	    }
+	  });
+	  
+
+
+	  
+	});
+	</script>
+
+</body>
+</html>

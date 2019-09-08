@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${moneyPool.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" th:value="${moneyPool.name}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">月份（-1表示改数据是年度数据）：</label>
+								<div class="col-sm-8">
+									<input id="month" name="month" th:value="${moneyPool.month}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度：</label>
+								<div class="col-sm-8">
+									<input id="year" name="year" th:value="${moneyPool.year}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际发生额：</label>
+								<div class="col-sm-8">
+									<input id="actualMoney" name="actualMoney" th:value="${moneyPool.actualMoney}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划发生额：</label>
+								<div class="col-sm-8">
+									<input id="planMoney" name="planMoney" th:value="${moneyPool.planMoney}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资金流入：</label>
+								<div class="col-sm-8">
+									<input id="in" name="in" th:value="${moneyPool.in}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资金流出：</label>
+								<div class="col-sm-8">
+									<input id="out" name="out" th:value="${moneyPool.out}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际流入总额：</label>
+								<div class="col-sm-8">
+									<input id="actualTotalIn" name="actualTotalIn" th:value="${moneyPool.actualTotalIn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划流入总额：</label>
+								<div class="col-sm-8">
+									<input id="planTotalIn" name="planTotalIn" th:value="${moneyPool.planTotalIn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际流出总额：</label>
+								<div class="col-sm-8">
+									<input id="actualTotalOut" name="actualTotalOut" th:value="${moneyPool.actualTotalOut}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划流出总额：</label>
+								<div class="col-sm-8">
+									<input id="planTotalOut" name="planTotalOut" th:value="${moneyPool.planTotalOut}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度预算总收入额：</label>
+								<div class="col-sm-8">
+									<input id="budgetIn" name="budgetIn" th:value="${moneyPool.budgetIn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度预算总支出额：</label>
+								<div class="col-sm-8">
+									<input id="budgetOut" name="budgetOut" th:value="${moneyPool.budgetOut}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">分类1：</label>
+								<div class="col-sm-8">
+									<input id="classify1" name="classify1" th:value="${moneyPool.classify1}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">分类2：</label>
+								<div class="col-sm-8">
+									<input id="classify2" name="classify2" th:value="${moneyPool.classify2}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">经费原由-合同：</label>
+								<div class="col-sm-8">
+									<input id="contractid" name="contractid" th:value="${moneyPool.contractid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">运费原由-计划事项：</label>
+								<div class="col-sm-8">
+									<input id="matterId" name="matterId" th:value="${moneyPool.matterId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">经费原由-工程：</label>
+								<div class="col-sm-8">
+									<input id="parojectId" name="parojectId" th:value="${moneyPool.parojectId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建者：</label>
+								<div class="col-sm-8">
+									<input id="creatiedUser" name="creatiedUser" th:value="${moneyPool.creatiedUser}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建时间：</label>
+								<div class="col-sm-8">
+									<input id="creatiedTime" name="creatiedTime" th:value="${moneyPool.creatiedTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改者：</label>
+								<div class="col-sm-8">
+									<input id="modifiedUser" name="modifiedUser" th:value="${moneyPool.modifiedUser}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改时间：</label>
+								<div class="col-sm-8">
+									<input id="modifiedTime" name="modifiedTime" th:value="${moneyPool.modifiedTime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/moneyPool/moneyPool/edit.js">
+	</script>
+</body>
+</html>

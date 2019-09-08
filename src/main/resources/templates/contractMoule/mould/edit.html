@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="mould_id" name="mouldId" th:value="${mould.mouldId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">模板名称：</label>
+								<div class="col-sm-8">
+									<input id="mouldName" name="mouldName" th:value="${mould.mouldName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板描述：</label>
+								<div class="col-sm-8">
+									<input id="mouldDesc" name="mouldDesc" th:value="${mould.mouldDesc}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板路径：</label>
+								<div class="col-sm-8">
+									<input id="mouldPath" name="mouldPath" th:value="${mould.mouldPath}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板的主要条款（标的数量）：</label>
+								<div class="col-sm-8">
+									<input id="maincontent" name="maincontent" th:value="${mould.maincontent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的法律编号：</label>
+								<div class="col-sm-8">
+									<input id="attorneyNo" name="attorneyNo" th:value="${mould.attorneyNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的付款方式：</label>
+								<div class="col-sm-8">
+									<input id="paymentway" name="paymentway" th:value="${mould.paymentway}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的违约责任：</label>
+								<div class="col-sm-8">
+									<input id="breach" name="breach" th:value="${mould.breach}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的争议解决方式：</label>
+								<div class="col-sm-8">
+									<input id="resolution" name="resolution" th:value="${mould.resolution}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的双方一致同意的附加条款：</label>
+								<div class="col-sm-8">
+									<input id="agrement" name="agrement" th:value="${mould.agrement}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的备注：</label>
+								<div class="col-sm-8">
+									<input id="remark" name="remark" th:value="${mould.remark}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">模板合同的约定履行地：</label>
+								<div class="col-sm-8">
+									<input id="place" name="place" th:value="${mould.place}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/contractMoule/mould/edit.js">
+	</script>
+</body>
+</html>

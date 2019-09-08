@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="pishiForm">
+							<input id="todotable_id" name="todotableId"
+								th:value="${todotable.todotableId}" type="hidden">
+						
+								<div class="form-group">
+									<label class="col-sm-3 control-label text-success">请示名称：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary"
+											th:text="${todotable.todotableName}"></span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">合同名称：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.contractName}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">合同类型：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.contractType}"></span>
+									</div>
+								</div>
+								<div class="form-group" id="contract_contractNO">
+									<label class="col-sm-3 control-label ">合同编号：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.contractNo}"></span>
+									</div>
+								</div>
+								<div class="form-group" id="contract_projectId">
+									<label class="col-sm-3 control-label ">所属项目：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.projectId}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">对方公司：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.otherpartId}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">我方公司：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.ourpartId}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">主要条款：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.maincontent}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">金额：</label>
+									<div class="col-sm-8">
+
+										<span class="text-primary" th:text="${contract.cost}"></span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">开始时间：</label>
+									<div class="col-sm-8">
+										<span class="text-primary" th:text="${contract.startIme}"></span>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label ">结束时间：</label>
+									<div class="col-sm-8">
+										<span class="text-primary" th:text="${contract.endTime}"></span>
+
+									</div>
+								</div>
+								<div id="contract_annexes_div">
+			<table id="contract_annexes"  border="1px solid #ccc"   >
+					<caption>附件列表</caption>
+					<thead id="annexes_thead">
+					
+					</thead>
+					<tbody id="annexes_tbody"></tbody>
+					
+					</table>
+		
+		</div>
+						
+						
+						
+			
+							<div class="form-group">
+								<label class="col-sm-3 control-label text-success">批复结论：</label>
+								<div class="col-sm-8">
+									<div class="radio">
+										<label> <input type="radio" name="result"
+											id="optionsRadios1" value="yes" checked> 同意
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="result"
+											id="optionsRadios2" value="no"> 不同意
+										</label>
+									</div>
+
+
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label text-success">批复意见：</label>
+								<div class="col-sm-8">
+
+									<textarea class="form-control" id="opinion" name="opinion"
+										rows="8" style="min-width: 90%"></textarea>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="button" class="btn btn-primary" onclick="pishi()">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript"
+		src="/js/appjs/todoTable/todotable/contractpishi.js">
+	</script>
+	<script th:inline="javascript">
+
+var contract=[[${contract}]];
+
+</script>
+
+</body>
+</html>

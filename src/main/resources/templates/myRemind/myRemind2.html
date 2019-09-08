@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+<link href="/css/layui.css"  th:href="@{/css/layui.css}"  rel="stylesheet"/> 
+</head>
+<body class="gray-bg">
+	
+	
+	
+	
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+  <legend>默认风格的Tab</legend>
+</fieldset>
+	
+	<fieldset class="layui-elem-field">                                 
+  <legend>合同到期提醒</legend>
+  <div class="layui-field-box">
+    你可以在这里放任何内容，比如表单神马的
+  </div>
+</fieldset>
+
+<a href="#nowhere">
+<span class="glyphicon glyphicon-time"></span> 你的XX合同将于2019——7-30日到期
+</a>
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  警告提示
+</div>	
+<div class="alert alert-success" role="alert">
+  <span class="glyphicon glyphicon-time">大减价！！！</span><a href="#nowhere" class="alert-link">点击购买</a>
+</div>
+<div class="alert alert-info" role="alert">
+  <span>大减价！！！</span><a href="#nowhere" class="alert-link">点击购买</a>
+</div>
+<div class="alert alert-warning" role="alert">
+  <span>大减价！！！</span><a href="#nowhere" class="alert-link">点击购买</a>
+</div>
+<div class="alert alert-danger" role="alert">
+  <span>大减价！！！</span><a href="#nowhere" class="alert-link">点击购买</a>
+</div>
+
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success"  style="width: 40%">
+    40% 
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-info"   style="width: 20%">
+    20% 
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-warning"   style="width: 60%">
+    60%
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-danger"   style="width: 80%">
+    80%
+  </div>
+</div>
+
+<style>
+  body{
+    padding-top:70px;
+  }
+</style>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <button class="btn btn-info">菜单1</button>
+  <button class="btn btn-success">菜单2</button>
+  <button class="btn btn-danger">菜单3</button>
+</nav>
+ 
+<div style="white-space:pre">
+  很多内容 ，下拉才看得见，下拉时，置顶菜单不消失
+  很多内容 ，下拉才看得见，下拉时，置顶菜单不消失
+  很多内容 ，下拉才看得见，下拉时，置顶菜单不消失
+  很多内容 ，下拉才看得见，下拉时，置顶菜单不消失
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">面板标题</div>
+  <div class="panel-body">
+    面板内容
+  </div>
+</div>
+	
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/layui.js"></script>
+		<script type="text/javascript"
+		src="/js/appjs/myRemind/myRemind.js"></script>
+	
+</body>
+</html>

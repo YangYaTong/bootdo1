@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="pay_id" name="payId" th:value="${payment.payId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="paymentName" name="paymentName" th:value="${payment.paymentName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款方式：</label>
+								<div class="col-sm-8">
+									<input id="paytypeId" name="paytypeId" th:value="${payment.paytypeId}" class="form-control" type="text">
+								</div>
+							</div>
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">所属合同：</label>
+								<div class="col-sm-8">
+									<input id="cntractId" name="contractId" th:value="${payment.contractId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划付款金额：</label>
+								<div class="col-sm-8">
+									<input id="planMoney" name="planMoney" th:value="${payment.planMoney}" onchange="this.value=cc(this.value)"  class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际付款金额：</label>
+								<div class="col-sm-8">
+									<input id="actualMoney" name="actualMoney" th:value="${payment.actualMoney}"  onchange="this.value=cc(this.value)" class="form-control" type="text">
+								</div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">计划发票金额：</label>
+								<div class="col-sm-8">
+									<input id="planBill" name="planBill"  onchange="this.value=cc(this.value)" th:value="${payment.planBill}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际发票金额：</label>
+								<div class="col-sm-8">
+									<input id="actualBill" name="actualBill" onchange="this.value=cc(this.value)" th:value="${payment.actualBill}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">编号：</label>
+								<div class="col-sm-8">
+									<input id="payNo" name="payNo" th:value="${payment.payNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划付款日期：</label>
+								<div class="col-sm-8">
+									<input type="text" class="laydate-icon  form-control" id="planDate" name="planDate"  placeholder="请选择计划付款时间" th:value="${payment.planDate}"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly" required/>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际付款日期：</label>
+								<div class="col-sm-8">
+									<input type="text" class="laydate-icon  form-control" id="actualDate" name="actualDate"  placeholder="请选择实际付款时间" th:value="${payment.actualDate}" 
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly" required/>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款公司：</label>
+								<div class="col-sm-8">
+									<input id="acceptCompany" name="acceptCompany" th:value="${payment.acceptCompany}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款账号：</label>
+								<div class="col-sm-8">
+									<input id="acceptCount" name="acceptCount" th:value="${payment.acceptCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款银行：</label>
+								<div class="col-sm-8">
+									<input id="acceptBankname" name="acceptBankname" th:value="${payment.acceptBankname}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款原由：</label>
+								<div class="col-sm-8">
+									<input id="payReason" name="payReason" th:value="${payment.payReason}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">承办人：</label>
+								<div class="col-sm-8">
+									<input id="underTaker" name="underTaker" th:value="${payment.underTaker}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">审核人：</label>
+								<div class="col-sm-8">
+									<input id="checker" name="checker" th:value="${payment.checker}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">承办科室：</label>
+								<div class="col-sm-8">
+									<input id="undertakerOffice" name="undertakerOffice" th:value="${payment.undertakerOffice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">附件：</label>
+								<div class="col-sm-8">
+									<input id="mainPaper" name="mainPaper" th:value="${payment.mainPaper}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">父ID：</label>
+								<div class="col-sm-8">
+									<input id="parentId" name="parentId" th:value="${payment.parentId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">备注：</label>
+								<div class="col-sm-8">
+									<input id="remark" name="remark" th:value="${payment.remark}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" th:value="${payment.state}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">标签：</label>
+								<div class="col-sm-8">
+									<input id="myself" name="myself" th:value="${payment.myself}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批准人：</label>
+								<div class="col-sm-8">
+									<input id="approver" name="approver" th:value="${payment.approver}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/payment/payment/edit.js">
+	</script>
+</body>
+</html>

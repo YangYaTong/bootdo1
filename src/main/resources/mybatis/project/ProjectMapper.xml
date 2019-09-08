@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.project.dao.ProjectDao">
+
+	<select id="get" resultType="com.bootdo.project.domain.ProjectDO">
+		select `pID`,`PTypeID`,`projectName`,`projectTypeID`,`sourceID`,`projectDESC`,`planCost`,`mainPaper`,`secondaryPaper`,`otherPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime`,`actualCost`,`parentID`,`planStartTime`,`startTime`,`planEndTime`,`endTime`,`state`,`projectNO`,`office`,`leader`,`myself`,`host` from project where pID = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.project.domain.ProjectDO">
+		select `pID`,`PTypeID`,`projectName`,`projectTypeID`,`sourceID`,`projectDESC`,`planCost`,`mainPaper`,`secondaryPaper`,`otherPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime`,`actualCost`,`parentID`,`planStartTime`,`startTime`,`planEndTime`,`endTime`,`state`,`projectNO`,`office`,`leader`,`myself`,`host` from project
+        <where>  
+		  		  <if test="pid != null and pid != ''"> and pID = #{pid} </if>
+		  		  <if test="ptypeid != null and ptypeid != ''"> and PTypeID = #{ptypeid} </if>
+		  		  <if test="name != null and name != ''"> and projectName like concat(concat("%",#{name}),"%") </if>
+		  		  <if test="projecttypeid != null and projecttypeid != ''"> and projectTypeID = #{projecttypeid} </if>
+		  		  <if test="sourceid != null and sourceid != ''"> and sourceID = #{sourceid} </if>
+		  		  <if test="projectdesc != null and projectdesc != ''"> and projectDESC = #{projectdesc} </if>
+		  		  <if test="plancost != null and plancost != ''"> and planCost = #{plancost} </if>
+		  		  <if test="mainpaper != null and mainpaper != ''"> and mainPaper = #{mainpaper} </if>
+		  		  <if test="secondarypaper != null and secondarypaper != ''"> and secondaryPaper = #{secondarypaper} </if>
+		  		  <if test="otherpaper != null and otherpaper != ''"> and otherPaper = #{otherpaper} </if>
+		  		  <if test="creatieduser != null and creatieduser != ''"> and creatiedUser = #{creatieduser} </if>
+		  		  <if test="creatiedtime != null and creatiedtime != ''"> and creatiedTime = #{creatiedtime} </if>
+		  		  <if test="modifieduser != null and modifieduser != ''"> and modifiedUser = #{modifieduser} </if>
+		  		  <if test="modifiedtime != null and modifiedtime != ''"> and modifiedTime = #{modifiedtime} </if>
+		  		  <if test="actualcost != null and actualcost != ''"> and actualCost = #{actualcost} </if>
+		  		  <if test="parentid != null and parentid != ''"> and parentID = #{parentid} </if>
+		  		  <if test="planstarttime != null and planstarttime != ''"> and planStartTime = #{planstarttime} </if>
+		  		  <if test="starttime != null and starttime != ''"> and startTime = #{starttime} </if>
+		  		  <if test="planendtime != null and planendtime != ''"> and planEndTime = #{planendtime} </if>
+		  		  <if test="endtime != null and endtime != ''"> and endTime = #{endtime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="projectno != null and projectno != ''"> and projectNO = #{projectno} </if>
+		  		  <if test="office != null and office != ''"> and office = #{office} </if>
+		  		  <if test="leader != null and leader != ''"> and leader = #{leader} </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="host != null and host != ''"> and host = #{host} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by pID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from project
+		 <where>  
+		  		  <if test="pid != null and pid != ''"> and pID = #{pid} </if>
+		  		  <if test="ptypeid != null and ptypeid != ''"> and PTypeID = #{ptypeid} </if>
+		  		  <if test="projectname != null and projectname != ''"> and projectName = #{projectname} </if>
+		  		  <if test="projecttypeid != null and projecttypeid != ''"> and projectTypeID = #{projecttypeid} </if>
+		  		  <if test="sourceid != null and sourceid != ''"> and sourceID = #{sourceid} </if>
+		  		  <if test="projectdesc != null and projectdesc != ''"> and projectDESC = #{projectdesc} </if>
+		  		  <if test="plancost != null and plancost != ''"> and planCost = #{plancost} </if>
+		  		  <if test="mainpaper != null and mainpaper != ''"> and mainPaper = #{mainpaper} </if>
+		  		  <if test="secondarypaper != null and secondarypaper != ''"> and secondaryPaper = #{secondarypaper} </if>
+		  		  <if test="otherpaper != null and otherpaper != ''"> and otherPaper = #{otherpaper} </if>
+		  		  <if test="creatieduser != null and creatieduser != ''"> and creatiedUser = #{creatieduser} </if>
+		  		  <if test="creatiedtime != null and creatiedtime != ''"> and creatiedTime = #{creatiedtime} </if>
+		  		  <if test="modifieduser != null and modifieduser != ''"> and modifiedUser = #{modifieduser} </if>
+		  		  <if test="modifiedtime != null and modifiedtime != ''"> and modifiedTime = #{modifiedtime} </if>
+		  		  <if test="actualcost != null and actualcost != ''"> and actualCost = #{actualcost} </if>
+		  		  <if test="parentid != null and parentid != ''"> and parentID = #{parentid} </if>
+		  		  <if test="planstarttime != null and planstarttime != ''"> and planStartTime = #{planstarttime} </if>
+		  		  <if test="starttime != null and starttime != ''"> and startTime = #{starttime} </if>
+		  		  <if test="planendtime != null and planendtime != ''"> and planEndTime = #{planendtime} </if>
+		  		  <if test="endtime != null and endtime != ''"> and endTime = #{endtime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="projectno != null and projectno != ''"> and projectNO = #{projectno} </if>
+		  		  <if test="office != null and office != ''"> and office = #{office} </if>
+		  		  <if test="leader != null and leader != ''"> and leader = #{leader} </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="host != null and host != ''"> and host = #{host} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.project.domain.ProjectDO" useGeneratedKeys="true" keyProperty="pid">
+		insert into project
+		(
+			`PTypeID`, 
+			`projectName`, 
+			`projectTypeID`, 
+			`sourceID`, 
+			`projectDESC`, 
+			`planCost`, 
+			`mainPaper`, 
+			`secondaryPaper`, 
+			`otherPaper`, 
+			`creatiedUser`, 
+			`creatiedTime`, 
+			`modifiedUser`, 
+			`modifiedTime`, 
+			`actualCost`, 
+			`parentID`, 
+			`planStartTime`, 
+			`startTime`, 
+			`planEndTime`, 
+			`endTime`, 
+			`state`, 
+			`projectNO`, 
+			`office`, 
+			`leader`, 
+			`myself`, 
+			`host`
+		)
+		values
+		(
+			#{ptypeid}, 
+			#{projectname}, 
+			#{projecttypeid}, 
+			#{sourceid}, 
+			#{projectdesc}, 
+			#{plancost}, 
+			#{mainpaper}, 
+			#{secondarypaper}, 
+			#{otherpaper}, 
+			#{creatieduser}, 
+			#{creatiedtime}, 
+			#{modifieduser}, 
+			#{modifiedtime}, 
+			#{actualcost}, 
+			#{parentid}, 
+			#{planstarttime}, 
+			#{starttime}, 
+			#{planendtime}, 
+			#{endtime}, 
+			#{state}, 
+			#{projectno}, 
+			#{office}, 
+			#{leader}, 
+			#{myself}, 
+			#{host}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.project.domain.ProjectDO">
+		update project 
+		<set>
+			<if test="ptypeid != null">`PTypeID` = #{ptypeid}, </if>
+			<if test="projectname != null">`projectName` = #{projectname}, </if>
+			<if test="projecttypeid != null">`projectTypeID` = #{projecttypeid}, </if>
+			<if test="sourceid != null">`sourceID` = #{sourceid}, </if>
+			<if test="projectdesc != null">`projectDESC` = #{projectdesc}, </if>
+			<if test="plancost != null">`planCost` = #{plancost}, </if>
+			<if test="mainpaper != null">`mainPaper` = #{mainpaper}, </if>
+			<if test="secondarypaper != null">`secondaryPaper` = #{secondarypaper}, </if>
+			<if test="otherpaper != null">`otherPaper` = #{otherpaper}, </if>
+			<if test="creatieduser != null">`creatiedUser` = #{creatieduser}, </if>
+			<if test="creatiedtime != null">`creatiedTime` = #{creatiedtime}, </if>
+			<if test="modifieduser != null">`modifiedUser` = #{modifieduser}, </if>
+			<if test="modifiedtime != null">`modifiedTime` = #{modifiedtime}, </if>
+			<if test="actualcost != null">`actualCost` = #{actualcost}, </if>
+			<if test="parentid != null">`parentID` = #{parentid}, </if>
+			<if test="planstarttime != null">`planStartTime` = #{planstarttime}, </if>
+			<if test="starttime != null">`startTime` = #{starttime}, </if>
+			<if test="planendtime != null">`planEndTime` = #{planendtime}, </if>
+			<if test="endtime != null">`endTime` = #{endtime}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="projectno != null">`projectNO` = #{projectno}, </if>
+			<if test="office != null">`office` = #{office}, </if>
+			<if test="leader != null">`leader` = #{leader}, </if>
+			<if test="myself != null">`myself` = #{myself}, </if>
+			<if test="host != null">`host` = #{host}</if>
+		</set>
+		where pID = #{pid}
+	</update>
+	
+	<delete id="remove">
+		delete from project where pID = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from project where pID in 
+		<foreach item="pid" collection="array" open="(" separator="," close=")">
+			#{pid}
+		</foreach>
+	</delete>
+	
+
+	
+	<select id="findAll" resultType="com.bootdo.project.domain.ProjectDO">
+		select `pID`,`PTypeID`,`projectName`,`projectTypeID`,`sourceID`,`projectDESC`,`planCost`,`mainPaper`,`secondaryPaper`,`otherPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime`,`actualCost`,`parentID`,`planStartTime`,`startTime`,`planEndTime`,`endTime`,`state`,`projectNO`,`office`,`leader`,`myself`,`host` from project
+        
+                order by #{pid}
+           
+	</select>
+	
+
+</mapper>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+ <link rel="stylesheet" href="/css/layui.css"  media="all">
+	 
+<body class="gray-bg">
+
+<table>
+<thead>
+<tr>
+<th>附件名</th><th>附件描述</th><th>附件</th><th>创建时间</th>
+</tr>
+</thead>
+<tbod id="t_body"></tbody>
+
+
+</table>  
+      
+</body>
+<div th:include="include::footer"></div>
+
+<script type="text/javascript">
+$(function() {
+	load();
+});
+function load() {
+	var list=[[${annexeslist}]];
+	for (var i = 0; i < list.length; i++) {
+		var html = '<tr>'
+           +' <td>#{name}</td>'
+           +' <td>#{}</td>'
+           +' <td><img></td>'
+           +' <td>#{creatiedTime}</td>'
+           +'</tr> ';
+		html=html.replace(/#{id}/g,list[i].id);
+		html=html.replace(/#{name}/g,list[i].name);
+	//给tbody添加内容
+		$("#t_body").append(html);
+
+   }	
+	
+}
+
+</script>
+	
+
+</body>
+</html>

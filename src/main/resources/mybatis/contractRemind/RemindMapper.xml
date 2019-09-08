@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.contractRemind.dao.RemindDao">
+
+	<select id="get" resultType="com.bootdo.contractRemind.domain.RemindDO">
+		select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where remind_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.contractRemind.domain.RemindDO">
+		select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind
+        <where>  
+		  		  <if test="remindId != null and remindId != ''"> and remind_id = #{remindId} </if>
+		  		  <if test="remindName != null and remindName != ''"> and remind_name = #{remindName} </if>
+		  		  <if test="remindType != null and remindType != ''"> and remind_type = #{remindType} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+		  		  <if test="remindMoney != null and remindMoney != ''"> and remind_money = #{remindMoney} </if>
+		  		  <if test="remindDate != null and remindDate != ''"> and remind_date = #{remindDate} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by remind_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract_remind
+		 <where>  
+		  		  <if test="remindId != null and remindId != ''"> and remind_id = #{remindId} </if>
+		  		  <if test="remindName != null and remindName != ''"> and remind_name = #{remindName} </if>
+		  		  <if test="remindType != null and remindType != ''"> and remind_type = #{remindType} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+		  		  <if test="remindMoney != null and remindMoney != ''"> and remind_money = #{remindMoney} </if>
+		  		  <if test="remindDate != null and remindDate != ''"> and remind_date = #{remindDate} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.contractRemind.domain.RemindDO" useGeneratedKeys="true" keyProperty="remindId">
+		insert into contract_remind
+		(
+			`remind_name`, 
+			`remind_type`, 
+			`user_id`, 
+			`contract_id`, 
+			`matter_id`, 
+			`remind_money`, 
+			`remind_date`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`, 
+			`project_id`, 
+			`remark`
+		)
+		values
+		(
+			#{remindName}, 
+			#{remindType}, 
+			#{userId}, 
+			#{contractId}, 
+			#{matterId}, 
+			#{remindMoney}, 
+			#{remindDate}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}, 
+			#{projectId}, 
+			#{remark}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.contractRemind.domain.RemindDO">
+		update contract_remind 
+		<set>
+			<if test="remindName != null">`remind_name` = #{remindName}, </if>
+			<if test="remindType != null">`remind_type` = #{remindType}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="matterId != null">`matter_id` = #{matterId}, </if>
+			<if test="remindMoney != null">`remind_money` = #{remindMoney}, </if>
+			<if test="remindDate != null">`remind_date` = #{remindDate}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}, </if>
+			<if test="projectId != null">`project_id` = #{projectId}, </if>
+			<if test="remark != null">`remark` = #{remark}</if>
+		</set>
+		where remind_id = #{remindId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract_remind where remind_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract_remind where remind_id in 
+		<foreach item="remindId" collection="array" open="(" separator="," close=")">
+			#{remindId}
+		</foreach>
+	</delete>
+	
+	<select id="findAll" resultType="com.bootdo.contractRemind.domain.RemindDO">
+		select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind
+        
+                order by remind_id
+            
+	</select>
+	
+		<select id="getByUserId" resultType="com.bootdo.contractRemind.domain.RemindDO">
+		select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind
+          where user_id=#{userId}
+                order by remind_id
+            
+	</select>
+	
+	<delete id="removeByContractId">
+		delete from contract_remind where contract_id = #{contractId}
+	</delete>
+	
+	<delete id="batchRemoveByContractIds">
+		delete from contract_remind where contract_id = 
+		<foreach item="contractId" collection="array" open="(" separator="," close=")">
+			#{contractId}
+		</foreach>
+	</delete>
+
+</mapper>

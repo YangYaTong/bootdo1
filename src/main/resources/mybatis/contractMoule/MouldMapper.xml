@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.contractMoule.dao.MouldDao">
+
+	<select id="get" resultType="com.bootdo.contractMoule.domain.MouldDO">
+		select `mould_id`,`mould_name`,`mould_desc`,`mould_path`,`maincontent`,`attorney_no`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`table_tag`,`mould_table`,`place`,`contract_type`,`contract_kind`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_mould where mould_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.contractMoule.domain.MouldDO">
+		select `mould_id`,`mould_name`,`mould_desc`,`mould_path`,`maincontent`,`attorney_no`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`table_tag`,`mould_table`,`place`,`contract_type`,`contract_kind`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_mould
+        <where>  
+		  		  <if test="mouldId != null and mouldId != ''"> and mould_id = #{mouldId} </if>
+		  		  <if test="mouldName != null and mouldName != ''"> and mould_name = #{mouldName} </if>
+		  		  <if test="mouldDesc != null and mouldDesc != ''"> and mould_desc = #{mouldDesc} </if>
+		  		  <if test="mouldPath != null and mouldPath != ''"> and mould_path = #{mouldPath} </if>
+		  		  <if test="maincontent != null and maincontent != ''"> and maincontent = #{maincontent} </if>
+		  		  <if test="attorneyNo != null and attorneyNo != ''"> and attorney_no = #{attorneyNo} </if>
+		  		  <if test="paymentway != null and paymentway != ''"> and paymentway = #{paymentway} </if>
+		  		  <if test="breach != null and breach != ''"> and breach = #{breach} </if>
+		  		  <if test="resolution != null and resolution != ''"> and resolution = #{resolution} </if>
+		  		  <if test="agrement != null and agrement != ''"> and agrement = #{agrement} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="tableTag != null and tableTag != ''"> and table_tag = #{tableTag} </if>
+		  		  <if test="mouldTable != null and mouldTable != ''"> and mould_table = #{mouldTable} </if>
+		  		  <if test="place != null and place != ''"> and place = #{place} </if>
+		  		  <if test="contractType != null and contractType != ''"> and contract_type = #{contractType} </if>
+		  		  <if test="contractKind != null and contractKind != ''"> and contract_kind = #{contractKind} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by mould_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract_mould
+		 <where>  
+		  		  <if test="mouldId != null and mouldId != ''"> and mould_id = #{mouldId} </if>
+		  		  <if test="mouldName != null and mouldName != ''"> and mould_name = #{mouldName} </if>
+		  		  <if test="mouldDesc != null and mouldDesc != ''"> and mould_desc = #{mouldDesc} </if>
+		  		  <if test="mouldPath != null and mouldPath != ''"> and mould_path = #{mouldPath} </if>
+		  		  <if test="maincontent != null and maincontent != ''"> and maincontent = #{maincontent} </if>
+		  		  <if test="attorneyNo != null and attorneyNo != ''"> and attorney_no = #{attorneyNo} </if>
+		  		  <if test="paymentway != null and paymentway != ''"> and paymentway = #{paymentway} </if>
+		  		  <if test="breach != null and breach != ''"> and breach = #{breach} </if>
+		  		  <if test="resolution != null and resolution != ''"> and resolution = #{resolution} </if>
+		  		  <if test="agrement != null and agrement != ''"> and agrement = #{agrement} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="tableTag != null and tableTag != ''"> and table_tag = #{tableTag} </if>
+		  		  <if test="mouldTable != null and mouldTable != ''"> and mould_table = #{mouldTable} </if>
+		  		  <if test="place != null and place != ''"> and place = #{place} </if>
+		  		  <if test="contractType != null and contractType != ''"> and contract_type = #{contractType} </if>
+		  		  <if test="contractKind != null and contractKind != ''"> and contract_kind = #{contractKind} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.contractMoule.domain.MouldDO" useGeneratedKeys="true" keyProperty="mouldId">
+		insert into contract_mould
+		(
+			`mould_name`, 
+			`mould_desc`, 
+			`mould_path`, 
+			`maincontent`, 
+			`attorney_no`, 
+			`paymentway`, 
+			`breach`, 
+			`resolution`, 
+			`agrement`, 
+			`remark`, 
+			`table_tag`, 
+			`mould_table`, 
+			`place`, 
+			`contract_type`, 
+			`contract_kind`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`
+		)
+		values
+		(
+			#{mouldName}, 
+			#{mouldDesc}, 
+			#{mouldPath}, 
+			#{maincontent}, 
+			#{attorneyNo}, 
+			#{paymentway}, 
+			#{breach}, 
+			#{resolution}, 
+			#{agrement}, 
+			#{remark}, 
+			#{tableTag}, 
+			#{mouldTable}, 
+			#{place}, 
+			#{contractType}, 
+			#{contractKind}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.contractMoule.domain.MouldDO">
+		update contract_mould 
+		<set>
+			<if test="mouldName != null">`mould_name` = #{mouldName}, </if>
+			<if test="mouldDesc != null">`mould_desc` = #{mouldDesc}, </if>
+			<if test="mouldPath != null">`mould_path` = #{mouldPath}, </if>
+			<if test="maincontent != null">`maincontent` = #{maincontent}, </if>
+			<if test="attorneyNo != null">`attorney_no` = #{attorneyNo}, </if>
+			<if test="paymentway != null">`paymentway` = #{paymentway}, </if>
+			<if test="breach != null">`breach` = #{breach}, </if>
+			<if test="resolution != null">`resolution` = #{resolution}, </if>
+			<if test="agrement != null">`agrement` = #{agrement}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="tableTag != null">`table_tag` = #{tableTag}, </if>
+			<if test="mouldTable != null">`mould_table` = #{mouldTable}, </if>
+			<if test="place != null">`place` = #{place}, </if>
+			<if test="contractType != null">`contract_type` = #{contractType}, </if>
+			<if test="contractKind != null">`contract_kind` = #{contractKind}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where mould_id = #{mouldId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract_mould where mould_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract_mould where mould_id in 
+		<foreach item="mouldId" collection="array" open="(" separator="," close=")">
+			#{mouldId}
+		</foreach>
+	</delete>
+	<select id="findAll" resultType="com.bootdo.contractMoule.domain.MouldDO">
+		select `mould_id`,`mould_name`,`mould_desc`,`mould_path`,`maincontent`,`attorney_no`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`table_tag`,`mould_table`,`place`,`contract_type`,`contract_kind`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_mould 
+        
+                order by mould_id desc
+			
+	</select>
+
+
+</mapper>

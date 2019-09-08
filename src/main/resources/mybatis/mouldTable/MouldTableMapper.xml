@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.mouldTable.dao.MouldTableDao">
+
+	<select id="get" resultType="com.bootdo.mouldTable.domain.MouldTableDO">
+		select `id`,`contract_id`,`mould_id`,`clum_size`,`clum_name`,`clum_content`,`creatied_user`,`creatied_time` from mould_table where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.mouldTable.domain.MouldTableDO">
+		select `id`,`contract_id`,`mould_id`,`clum_size`,`clum_name`,`clum_content`,`creatied_user`,`creatied_time` from mould_table
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="mouldId != null and mouldId != ''"> and mould_id = #{mouldId} </if>
+		  		  <if test="clumSize != null and clumSize != ''"> and clum_size = #{clumSize} </if>
+		  		  <if test="clumName != null and clumName != ''"> and clum_name = #{clumName} </if>
+		  		  <if test="clumContent != null and clumContent != ''"> and clum_content = #{clumContent} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from mould_table
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="mouldId != null and mouldId != ''"> and mould_id = #{mouldId} </if>
+		  		  <if test="clumSize != null and clumSize != ''"> and clum_size = #{clumSize} </if>
+		  		  <if test="clumName != null and clumName != ''"> and clum_name = #{clumName} </if>
+		  		  <if test="clumContent != null and clumContent != ''"> and clum_content = #{clumContent} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.mouldTable.domain.MouldTableDO" useGeneratedKeys="true" keyProperty="id">
+		insert into mould_table
+		(
+			`contract_id`, 
+			`mould_id`, 
+			`clum_size`, 
+			`clum_name`, 
+			`clum_content`, 
+			`creatied_user`, 
+			`creatied_time`
+		)
+		values
+		(
+			#{contractId}, 
+			#{mouldId}, 
+			#{clumSize}, 
+			#{clumName}, 
+			#{clumContent}, 
+			#{creatiedUser}, 
+			#{creatiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.mouldTable.domain.MouldTableDO">
+		update mould_table 
+		<set>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="mouldId != null">`mould_id` = #{mouldId}, </if>
+			<if test="clumSize != null">`clum_size` = #{clumSize}, </if>
+			<if test="clumName != null">`clum_name` = #{clumName}, </if>
+			<if test="clumContent != null">`clum_content` = #{clumContent}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from mould_table where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from mould_table where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	<select id="getLastTableBymouldId" resultType="com.bootdo.mouldTable.domain.MouldTableDO">
+		select `id`,`contract_id`,`mould_id`,`clum_size`,`clum_name`,`clum_content`,`creatied_user`,`creatied_time` from mould_table
+        <where>  
+		  		  <if test="mouldId != null and mouldId != ''"> and mould_id = #{mouldId} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		 </where>
+
+                order by id desc
+			limit 0, 1
+	</select>
+
+</mapper>

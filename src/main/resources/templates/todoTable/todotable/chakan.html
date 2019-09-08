@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+					
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">所属合同ID：</label>
+								<div class="col-sm-8">
+								<span  th:text="${response.relativeId}"  ></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复名称：</label>
+								<div class="col-sm-8">
+								<span  th:text="${response.responseName}" ></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复人：</label>
+								<div class="col-sm-8">
+								<span  th:text="${response.maker}" ></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复意见：</label>
+								<div class="col-sm-8">
+									<span  th:text="${response.opinion}" ></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复结论：</label>
+								<div class="col-sm-8">
+								<span  th:text="${response.result}" ></span>
+									
+								</div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">批复时间：</label>
+								<div class="col-sm-8">
+								<span  th:text="${response.creatiedTime}" ></span>
+									
+								</div>
+							</div>
+														
+																					
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/todoTable/todotable/chakan.js">
+	</script>
+</body>
+</html>

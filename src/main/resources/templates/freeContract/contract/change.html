@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+				<!-- 合同修改前的信息展示start -->
+				<div id ="contract_info_div">
+						<table id="contract_info"  border="1px solid #ccc"  >
+					</table>	
+				</div>
+				<!-- 合同修改前的信息展示end -->
+				
+				
+				<!-- 合同信息变更类型选择区start -->
+			<div id ="contract_update_div">
+				<div class="form-group">	
+                                <div class="col-sm-8" >
+                                        <label > 基本信息变更&nbsp;&nbsp;&nbsp;<input id="checkbox1"
+                                                type="radio" name="contractChange" value="1"  />
+                                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label > 合同归档&nbsp;&nbsp;&nbsp;<input id="checkbox2"
+                                                type="radio" name="contractChange" value="2" checked="checked" />
+                                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <label > 合同标记为异常&nbsp;&nbsp;&nbsp;<input id="checkbox3"
+                                                type="radio" name="contractChange" value="3"  />
+                                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                           
+                                </div>
+                            </div>
+									<div class="form-group"  id="div_state" style="display:none;" >	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" class="form-control" type="text">
+								</div>
+							</div>	
+			</div>	
+			<!-- 合同信息变更类型选择区end -->
+				
+				<!-- 合同的基本信息变更 start-->
+				<br>
+				<br>
+				<br>
+				<br>
+					<div id="ibox-content" >
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="contract_id" name="contractId" th:value="${contract.contractId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">合同名称：</label>
+								<div class="col-sm-8">
+									<input id="contractName" name="contractName" th:value="${contract.contractName}" class="form-control" type="text">
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">合同编号：</label>
+								<div class="col-sm-8">
+									<input id="contractNo" name="contractNo" th:value="${contract.contractNo}" class="form-control" type="text">
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">对方公司：</label>
+								<div class="col-sm-8">
+									<input id="otherpartId" name="otherpartId" th:value="${contract.otherpartId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">我方公司：</label>
+								<div class="col-sm-8">
+									<input id="ourpartId" name="ourpartId" th:value="${contract.ourpartId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">主要条款：</label>
+								<div class="col-sm-8">
+									<input id="maincontent" name="maincontent" th:value="${contract.maincontent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">金额：</label>
+								<div class="col-sm-8">
+									<input id="cost" name="cost" th:value="${contract.cost}" class="form-control" type="text" required>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">合同法律备案号：</label>
+								<div class="col-sm-8">
+									<input id="attorneyNo" name="attorneyNo" th:value="${contract.attorneyNo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">开始时间：</label>
+								<div class="col-sm-8">
+									<input id="startIme" name="startIme" th:value="${contract.startIme}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">结束时间：</label>
+								<div class="col-sm-8">
+									<input id="endTime" name="endTime" th:value="${contract.endTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">约定履行地：</label>
+								<div class="col-sm-8">
+									<input id="place" name="place" th:value="${contract.place}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款方式：</label>
+								<div class="col-sm-8">
+									<input id="paymentway" name="paymentway" th:value="${contract.paymentway}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">合同违约条款：</label>
+								<div class="col-sm-8">
+									<input id="breach" name="breach" th:value="${contract.breach}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">争议解决方式：</label>
+								<div class="col-sm-8">
+									<input id="resolution" name="resolution" th:value="${contract.resolution}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">双方一致条款：</label>
+								<div class="col-sm-8">
+									<input id="agrement" name="agrement" th:value="${contract.agrement}" class="form-control" type="text">
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" th:value="${contract.state}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">是否需要审批：</label>
+								<div class="col-sm-8">
+									<input id="needShengpi" name="needShengpi" th:value="${contract.needShengpi}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">合同的资金种类：</label>
+								<div class="col-sm-8">
+									<input id="contractKind" name="contractKind" th:value="${contract.contractKind}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- 合同的基本信息变更end -->
+					
+					
+					<!-- 合同的归档 -->
+					<div id="finsh-content" >
+					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="button" class="btn btn-primary" onclick="updateState()">确定</button>
+								</div>
+							</div>
+					
+					</div>
+					<!-- 合同的归档end -->
+					<!-- 合同标记为异常 -->
+					<div id="abnormal-content" >
+					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="button" class="btn btn-primary" onclick="updateState()">确定</button>
+								</div>
+							</div>
+					
+					</div>
+					
+					<!-- 合同标记为异常end -->
+					
+					
+					
+					
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/freeContract/contract/change.js">
+	</script>
+	<script th:inline="javascript">
+
+var contract=[[${contract}]];
+</script>
+</body>
+</html>

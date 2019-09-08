@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.receive.dao.ReceiveDao">
+
+	<select id="get"
+		resultType="com.bootdo.receive.domain.ReceiveDO">
+		select
+		`receive_id`,`receive_name`,`receive_no`,`type_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_date`,`actual_date`,`plan_bill`,`actual_bill`,`pay_company`,`pay_account`,`pay_bankname`,`accept_account`,`accept_company`,`pay_reason`,`accpet_bank`,`under_taker`,`checker`,`approver`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`
+		from contract_receive where receive_id = #{value}
+	</select>
+
+	<select id="list"
+		resultType="com.bootdo.receive.domain.ReceiveDO">
+		select
+		`receive_id`,`receive_name`,`receive_no`,`type_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_date`,`actual_date`,`plan_bill`,`actual_bill`,`pay_company`,`pay_account`,`pay_bankname`,`accept_account`,`accept_company`,`pay_reason`,`accpet_bank`,`under_taker`,`checker`,`approver`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`
+		from contract_receive
+		<where>
+			<if test="receiveId != null and receiveId != ''"> and receive_id = #{receiveId} </if>
+			<if test="receiveName != null and receiveName != ''"> and receive_name = #{receiveName} </if>
+			<if test="receiveNo != null and receiveNo != ''"> and receive_no = #{receiveNo} </if>
+			<if test="typeId != null and typeId != ''"> and type_id = #{typeId} </if>
+			<if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+			<if test="planMoney != null and planMoney != ''"> and plan_money = #{planMoney} </if>
+			<if test="actualMoney != null and actualMoney != ''"> and actual_money = #{actualMoney} </if>
+			<if test="planDate != null and planDate != ''"> and plan_date = #{planDate} </if>
+			<if test="actualDate != null and actualDate != ''"> and actual_date = #{actualDate} </if>
+			<if test="planBill != null and planBill != ''"> and plan_bill = #{planBill} </if>
+			<if test="actualBill != null and actualBill != ''"> and actual_bill = #{actualBill} </if>
+			<if test="payCompany != null and payCompany != ''"> and pay_company = #{payCompany} </if>
+			<if test="payAccount != null and payAccount != ''"> and pay_account = #{payAccount} </if>
+			<if test="payBankname != null and payBankname != ''"> and pay_bankname = #{payBankname} </if>
+			<if test="acceptAccount != null and acceptAccount != ''"> and accept_account = #{acceptAccount} </if>
+			<if test="acceptCompany != null and acceptCompany != ''"> and accept_company = #{acceptCompany} </if>
+			<if test="payReason != null and payReason != ''"> and pay_reason = #{payReason} </if>
+			<if test="accpetBank != null and accpetBank != ''"> and accpet_bank = #{accpetBank} </if>
+			<if test="underTaker != null and underTaker != ''"> and under_taker = #{underTaker} </if>
+			<if test="checker != null and checker != ''"> and checker = #{checker} </if>
+			<if test="approver != null and approver != ''"> and approver = #{approver} </if>
+			<if test="undertakerOffice != null and undertakerOffice != ''"> and undertaker_office = #{undertakerOffice} </if>
+			<if test="mainPaper != null and mainPaper != ''"> and main_paper = #{mainPaper} </if>
+			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="office != null and office != ''"> and office = #{office} </if>
+			<if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+			<if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+			<if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+			<if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+			<if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by receive_id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from contract_receive
+		<where>
+			<if test="receiveId != null and receiveId != ''"> and receive_id = #{receiveId} </if>
+			<if test="receiveName != null and receiveName != ''"> and receive_name = #{receiveName} </if>
+			<if test="receiveNo != null and receiveNo != ''"> and receive_no = #{receiveNo} </if>
+			<if test="typeId != null and typeId != ''"> and type_id = #{typeId} </if>
+			<if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+			<if test="planMoney != null and planMoney != ''"> and plan_money = #{planMoney} </if>
+			<if test="actualMoney != null and actualMoney != ''"> and actual_money = #{actualMoney} </if>
+			<if test="planDate != null and planDate != ''"> and plan_date = #{planDate} </if>
+			<if test="actualDate != null and actualDate != ''"> and actual_date = #{actualDate} </if>
+			<if test="planBill != null and planBill != ''"> and plan_bill = #{planBill} </if>
+			<if test="actualBill != null and actualBill != ''"> and actual_bill = #{actualBill} </if>
+			<if test="payCompany != null and payCompany != ''"> and pay_company = #{payCompany} </if>
+			<if test="payAccount != null and payAccount != ''"> and pay_account = #{payAccount} </if>
+			<if test="payBankname != null and payBankname != ''"> and pay_bankname = #{payBankname} </if>
+			<if test="acceptAccount != null and acceptAccount != ''"> and accept_account = #{acceptAccount} </if>
+			<if test="acceptCompany != null and acceptCompany != ''"> and accept_company = #{acceptCompany} </if>
+			<if test="payReason != null and payReason != ''"> and pay_reason = #{payReason} </if>
+			<if test="accpetBank != null and accpetBank != ''"> and accpet_bank = #{accpetBank} </if>
+			<if test="underTaker != null and underTaker != ''"> and under_taker = #{underTaker} </if>
+			<if test="checker != null and checker != ''"> and checker = #{checker} </if>
+			<if test="approver != null and approver != ''"> and approver = #{approver} </if>
+			<if test="undertakerOffice != null and undertakerOffice != ''"> and undertaker_office = #{undertakerOffice} </if>
+			<if test="mainPaper != null and mainPaper != ''"> and main_paper = #{mainPaper} </if>
+			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+			<if test="remark != null and remark != ''"> and remark = #{remark} </if>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="office != null and office != ''"> and office = #{office} </if>
+			<if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+			<if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+			<if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+			<if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+			<if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		</where>
+	</select>
+
+	<insert id="save"
+		parameterType="com.bootdo.receive.domain.ReceiveDO"
+		useGeneratedKeys="true" keyProperty="receiveId">
+		insert into contract_receive
+		(
+		`receive_name`,
+		`receive_no`,
+		`type_id`,
+		`matter_id`,
+		`project_id`,
+		`contract_id`,
+		`plan_money`,
+		`actual_money`,
+		`plan_date`,
+		`actual_date`,
+		`plan_bill`,
+		`actual_bill`,
+		`pay_company`,
+		`pay_account`,
+		`pay_bankname`,
+		`accept_account`,
+		`accept_company`,
+		`pay_reason`,
+		`accpet_bank`,
+		`under_taker`,
+		`checker`,
+		`approver`,
+		`undertaker_office`,
+		`main_paper`,
+		`parent_id`,
+		`remark`,
+		`state`,
+		`myself`,
+		`office`,
+		`is_delete`,
+		`creatied_user`,
+		`creatied_time`,
+		`modified_user`,
+		`modified_time`
+		)
+		values
+		(
+		#{receiveName},
+		#{receiveNo},
+		#{typeId},
+		#{matterId},
+		#{projectId},
+		#{contractId},
+		#{planMoney},
+		#{actualMoney},
+		#{planDate},
+		#{actualDate},
+		#{planBill},
+		#{actualBill},
+		#{payCompany},
+		#{payAccount},
+		#{payBankname},
+		#{acceptAccount},
+		#{acceptCompany},
+		#{payReason},
+		#{accpetBank},
+		#{underTaker},
+		#{checker},
+		#{approver},
+		#{undertakerOffice},
+		#{mainPaper},
+		#{parentId},
+		#{remark},
+		#{state},
+		#{myself},
+		#{office},
+		#{isDelete},
+		#{creatiedUser},
+		#{creatiedTime},
+		#{modifiedUser},
+		#{modifiedTime}
+		)
+	</insert>
+
+	<update id="update"
+		parameterType="com.bootdo.receive.domain.ReceiveDO">
+		update contract_receive
+		<set>
+			<if test="receiveName != null">`receive_name` = #{receiveName}, </if>
+			<if test="receiveNo != null">`receive_no` = #{receiveNo}, </if>
+			<if test="typeId != null">`type_id` = #{typeId}, </if>
+			<if test="matterId != null">`matter_id` = #{matterId}, </if>
+			<if test="projectId != null">`project_id` = #{projectId}, </if>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="planMoney != null">`plan_money` = #{planMoney}, </if>
+			<if test="actualMoney != null">`actual_money` = #{actualMoney}, </if>
+			<if test="planDate != null">`plan_date` = #{planDate}, </if>
+			<if test="actualDate != null">`actual_date` = #{actualDate}, </if>
+			<if test="planBill != null">`plan_bill` = #{planBill}, </if>
+			<if test="actualBill != null">`actual_bill` = #{actualBill}, </if>
+			<if test="payCompany != null">`pay_company` = #{payCompany}, </if>
+			<if test="payAccount != null">`pay_account` = #{payAccount}, </if>
+			<if test="payBankname != null">`pay_bankname` = #{payBankname}, </if>
+			<if test="acceptAccount != null">`accept_account` = #{acceptAccount}, </if>
+			<if test="acceptCompany != null">`accept_company` = #{acceptCompany}, </if>
+			<if test="payReason != null">`pay_reason` = #{payReason}, </if>
+			<if test="accpetBank != null">`accpet_bank` = #{accpetBank}, </if>
+			<if test="underTaker != null">`under_taker` = #{underTaker}, </if>
+			<if test="checker != null">`checker` = #{checker}, </if>
+			<if test="approver != null">`approver` = #{approver}, </if>
+			<if test="undertakerOffice != null">`undertaker_office` = #{undertakerOffice}, </if>
+			<if test="mainPaper != null">`main_paper` = #{mainPaper}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="myself != null">`myself` = #{myself}, </if>
+			<if test="office != null">`office` = #{office}, </if>
+			<if test="isDelete != null">`is_delete` = #{isDelete}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where receive_id = #{receiveId}
+	</update>
+
+	<delete id="remove">
+		delete from contract_receive where receive_id =
+		#{value}
+	</delete>
+
+	<delete id="batchRemove">
+		delete from contract_receive where receive_id in
+		<foreach item="receiveId" collection="array" open="("
+			separator="," close=")">
+			#{receiveId}
+		</foreach>
+	</delete>
+
+	<select id="listFinishedReceiveDOByYear"
+		resultType="com.bootdo.receive.domain.ReceiveDO">
+		select
+		`receive_id`,`receive_name`,`receive_no`,`type_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_date`,`actual_date`,`plan_bill`,`actual_bill`,`pay_company`,`pay_account`,`pay_bankname`,`accept_account`,`accept_company`,`pay_reason`,`accpet_bank`,`under_taker`,`checker`,`approver`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`
+		from contract_receive
+		<where>
+			<if test="time != null and time != ''"> and actual_date like concat(#{time},"%")</if>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="office != null and office != ''"> and office = #{office} </if>
+			and is_delete=0
+		</where>
+		order by receive_id desc
+	</select>
+	<update id="isDeleteRemove"
+		parameterType="com.bootdo.receive.domain.ReceiveDO">
+		update contract_receive
+		set `is_delete` = 1
+		where receive_id = #{receiveId}
+	</update>
+
+	<update id="isDeleteBatchRemove"
+		parameterType="com.bootdo.receive.domain.ReceiveDO">
+		update contract_receive
+		set `is_delete` = 1
+		where receive_id in
+		<foreach item="receiveId" collection="array" open="("
+			separator="," close=")">
+			#{receiveId}
+		</foreach>
+	</update>
+
+</mapper>

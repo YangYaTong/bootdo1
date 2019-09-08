@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.freeContract.dao.ContractDao">
+
+	<select id="get" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`budget_id`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract where contract_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`budget_id`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        <where>  
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="contractName != null and contractName != ''"> and contract_name = #{contractName} </if>
+		  		  <if test="contractType != null and contractType != ''"> and contract_type = #{contractType} </if>
+		  		  <if test="contractNo != null and contractNo != ''"> and contract_no = #{contractNo} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="otherpartId != null and otherpartId != ''"> and otherpart_id = #{otherpartId} </if>
+		  		  <if test="ourpartId != null and ourpartId != ''"> and ourpart_id = #{ourpartId} </if>
+		  		  <if test="maincontent != null and maincontent != ''"> and maincontent = #{maincontent} </if>
+		  		  <if test="cost != null and cost != ''"> and cost = #{cost} </if>
+		  		  <if test="budgetId != null and budgetId != ''"> and budget_id = #{budgetId} </if>
+		  		  <if test="invatationNo != null and invatationNo != ''"> and invatation_no = #{invatationNo} </if>
+		  		  <if test="attorneyNo != null and attorneyNo != ''"> and attorney_no = #{attorneyNo} </if>
+		  		  <if test="startIme != null and startIme != ''"> and start_ime = #{startIme} </if>
+		  		  <if test="endTime != null and endTime != ''"> and end_time = #{endTime} </if>
+		  		  <if test="place != null and place != ''"> and place = #{place} </if>
+		  		  <if test="paymentway != null and paymentway != ''"> and paymentway = #{paymentway} </if>
+		  		  <if test="breach != null and breach != ''"> and breach = #{breach} </if>
+		  		  <if test="resolution != null and resolution != ''"> and resolution = #{resolution} </if>
+		  		  <if test="agrement != null and agrement != ''"> and agrement = #{agrement} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="signDate != null and signDate != ''"> and sign_date = #{signDate} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="mainpaper != null and mainpaper != ''"> and mainPaper = #{mainpaper} </if>
+		  		  <if test="modelId != null and modelId != ''"> and model_id = #{modelId} </if>
+		  		  <if test="secondarypaper != null and secondarypaper != ''"> and secondaryPaper = #{secondarypaper} </if>
+		  		  <if test="otherpaper != null and otherpaper != ''"> and otherPaper = #{otherpaper} </if>
+		  		  <if test="needCost != null and needCost != ''"> and need_Cost = #{needCost} </if>
+		  		  <if test="actualCost != null and actualCost != ''"> and actual_Cost = #{actualCost} </if>
+		  		  <if test="needBill != null and needBill != ''"> and need_bill = #{needBill} </if>
+		  		  <if test="actualBill != null and actualBill != ''"> and actual_bill = #{actualBill} </if>
+		  		  <if test="moneyProgress != null and moneyProgress != ''"> and money_progress = #{moneyProgress} </if>
+		  		  <if test="billProgress != null and billProgress != ''"> and bill_progress = #{billProgress} </if>
+		  		  <if test="charger != null and charger != ''"> and charger = #{charger} </if>
+		  		  <if test="office != null and office != ''"> and office = #{office} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="needShengpi != null and needShengpi != ''"> and need_shengpi = #{needShengpi} </if>
+		  		  <if test="contractKind != null and contractKind != ''"> and contract_kind = #{contractKind} </if>
+		  		  <if test="documentPlace != null and documentPlace != ''"> and document_place = #{documentPlace} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by contract_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract
+		 <where>  
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="contractName != null and contractName != ''"> and contract_name = #{contractName} </if>
+		  		  <if test="contractType != null and contractType != ''"> and contract_type = #{contractType} </if>
+		  		  <if test="contractNo != null and contractNo != ''"> and contract_no = #{contractNo} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="otherpartId != null and otherpartId != ''"> and otherpart_id = #{otherpartId} </if>
+		  		  <if test="ourpartId != null and ourpartId != ''"> and ourpart_id = #{ourpartId} </if>
+		  		  <if test="maincontent != null and maincontent != ''"> and maincontent = #{maincontent} </if>
+		  		  <if test="cost != null and cost != ''"> and cost = #{cost} </if>
+		  		  <if test="budgetId != null and budgetId != ''"> and budget_id = #{budgetId} </if>
+		  		  <if test="invatationNo != null and invatationNo != ''"> and invatation_no = #{invatationNo} </if>
+		  		  <if test="attorneyNo != null and attorneyNo != ''"> and attorney_no = #{attorneyNo} </if>
+		  		  <if test="startIme != null and startIme != ''"> and start_ime = #{startIme} </if>
+		  		  <if test="endTime != null and endTime != ''"> and end_time = #{endTime} </if>
+		  		  <if test="place != null and place != ''"> and place = #{place} </if>
+		  		  <if test="paymentway != null and paymentway != ''"> and paymentway = #{paymentway} </if>
+		  		  <if test="breach != null and breach != ''"> and breach = #{breach} </if>
+		  		  <if test="resolution != null and resolution != ''"> and resolution = #{resolution} </if>
+		  		  <if test="agrement != null and agrement != ''"> and agrement = #{agrement} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="signDate != null and signDate != ''"> and sign_date = #{signDate} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="mainpaper != null and mainpaper != ''"> and mainPaper = #{mainpaper} </if>
+		  		  <if test="modelId != null and modelId != ''"> and model_id = #{modelId} </if>
+		  		  <if test="secondarypaper != null and secondarypaper != ''"> and secondaryPaper = #{secondarypaper} </if>
+		  		  <if test="otherpaper != null and otherpaper != ''"> and otherPaper = #{otherpaper} </if>
+		  		  <if test="needCost != null and needCost != ''"> and need_Cost = #{needCost} </if>
+		  		  <if test="actualCost != null and actualCost != ''"> and actual_Cost = #{actualCost} </if>
+		  		  <if test="needBill != null and needBill != ''"> and need_bill = #{needBill} </if>
+		  		  <if test="actualBill != null and actualBill != ''"> and actual_bill = #{actualBill} </if>
+		  		  <if test="moneyProgress != null and moneyProgress != ''"> and money_progress = #{moneyProgress} </if>
+		  		  <if test="billProgress != null and billProgress != ''"> and bill_progress = #{billProgress} </if>
+		  		  <if test="charger != null and charger != ''"> and charger = #{charger} </if>
+		  		  <if test="office != null and office != ''"> and office = #{office} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="needShengpi != null and needShengpi != ''"> and need_shengpi = #{needShengpi} </if>
+		  		  <if test="contractKind != null and contractKind != ''"> and contract_kind = #{contractKind} </if>
+		  		  <if test="documentPlace != null and documentPlace != ''"> and document_place = #{documentPlace} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.freeContract.domain.ContractDO" useGeneratedKeys="true" keyProperty="contractId">
+		insert into contract
+		(
+			`contract_name`, 
+			`contract_type`, 
+			`contract_no`, 
+			`project_id`, 
+			`otherpart_id`, 
+			`ourpart_id`, 
+			`maincontent`, 
+			`cost`, 
+			`budget_id`, 
+			`invatation_no`, 
+			`attorney_no`, 
+			`start_ime`, 
+			`end_time`, 
+			`place`, 
+			`paymentway`, 
+			`breach`, 
+			`resolution`, 
+			`agrement`, 
+			`remark`, 
+			`sign_date`, 
+			`parent_id`, 
+			`myself`, 
+			`mainPaper`, 
+			`model_id`, 
+			`secondaryPaper`, 
+			`otherPaper`, 
+			`need_Cost`, 
+			`actual_Cost`, 
+			`need_bill`, 
+			`actual_bill`, 
+			`money_progress`, 
+			`bill_progress`, 
+			`charger`, 
+			`office`, 
+			`state`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`, 
+			`need_shengpi`, 
+			`contract_kind`, 
+			`document_place`, 
+			`is_delete`
+		)
+		values
+		(
+			#{contractName}, 
+			#{contractType}, 
+			#{contractNo}, 
+			#{projectId}, 
+			#{otherpartId}, 
+			#{ourpartId}, 
+			#{maincontent}, 
+			#{cost}, 
+			#{budgetId}, 
+			#{invatationNo}, 
+			#{attorneyNo}, 
+			#{startIme}, 
+			#{endTime}, 
+			#{place}, 
+			#{paymentway}, 
+			#{breach}, 
+			#{resolution}, 
+			#{agrement}, 
+			#{remark}, 
+			#{signDate}, 
+			#{parentId}, 
+			#{myself}, 
+			#{mainpaper}, 
+			#{modelId}, 
+			#{secondarypaper}, 
+			#{otherpaper}, 
+			#{needCost}, 
+			#{actualCost}, 
+			#{needBill}, 
+			#{actualBill}, 
+			#{moneyProgress}, 
+			#{billProgress}, 
+			#{charger}, 
+			#{office}, 
+			#{state}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}, 
+			#{needShengpi}, 
+			#{contractKind}, 
+			#{documentPlace}, 
+			#{isDelete}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.freeContract.domain.ContractDO">
+		update contract 
+		<set>
+			<if test="contractName != null">`contract_name` = #{contractName}, </if>
+			<if test="contractType != null">`contract_type` = #{contractType}, </if>
+			<if test="contractNo != null">`contract_no` = #{contractNo}, </if>
+			<if test="projectId != null">`project_id` = #{projectId}, </if>
+			<if test="otherpartId != null">`otherpart_id` = #{otherpartId}, </if>
+			<if test="ourpartId != null">`ourpart_id` = #{ourpartId}, </if>
+			<if test="maincontent != null">`maincontent` = #{maincontent}, </if>
+			<if test="cost != null">`cost` = #{cost}, </if>
+			<if test="budgetId != null">`budget_id` = #{budgetId}, </if>
+			<if test="invatationNo != null">`invatation_no` = #{invatationNo}, </if>
+			<if test="attorneyNo != null">`attorney_no` = #{attorneyNo}, </if>
+			<if test="startIme != null">`start_ime` = #{startIme}, </if>
+			<if test="endTime != null">`end_time` = #{endTime}, </if>
+			<if test="place != null">`place` = #{place}, </if>
+			<if test="paymentway != null">`paymentway` = #{paymentway}, </if>
+			<if test="breach != null">`breach` = #{breach}, </if>
+			<if test="resolution != null">`resolution` = #{resolution}, </if>
+			<if test="agrement != null">`agrement` = #{agrement}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="signDate != null">`sign_date` = #{signDate}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="myself != null">`myself` = #{myself}, </if>
+			<if test="mainpaper != null">`mainPaper` = #{mainpaper}, </if>
+			<if test="modelId != null">`model_id` = #{modelId}, </if>
+			<if test="secondarypaper != null">`secondaryPaper` = #{secondarypaper}, </if>
+			<if test="otherpaper != null">`otherPaper` = #{otherpaper}, </if>
+			<if test="needCost != null">`need_Cost` = #{needCost}, </if>
+			<if test="actualCost != null">`actual_Cost` = #{actualCost}, </if>
+			<if test="needBill != null">`need_bill` = #{needBill}, </if>
+			<if test="actualBill != null">`actual_bill` = #{actualBill}, </if>
+			<if test="moneyProgress != null">`money_progress` = #{moneyProgress}, </if>
+			<if test="billProgress != null">`bill_progress` = #{billProgress}, </if>
+			<if test="charger != null">`charger` = #{charger}, </if>
+			<if test="office != null">`office` = #{office}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}, </if>
+			<if test="needShengpi != null">`need_shengpi` = #{needShengpi}, </if>
+			<if test="contractKind != null">`contract_kind` = #{contractKind}, </if>
+			<if test="documentPlace != null">`document_place` = #{documentPlace}, </if>
+			<if test="isDelete != null">`is_delete` = #{isDelete}</if>
+		</set>
+		where contract_id = #{contractId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract where contract_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract where contract_id in 
+		<foreach item="contractId" collection="array" open="(" separator="," close=")">
+			#{contractId}
+		</foreach>
+	</delete>
+	
+				<select id="findAll" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        
+                order by contract_id desc
+			
+	</select>
+	
+	<select id="searchlist" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        <where>  
+		  
+		  		  <if test="name != null and name != ''"> and contract_name like concat(concat("%",#{name}),"%")	 </if>
+		  		  <if test="type != null and type != ''"> and contract_type = #{type} </if>
+		  		  <if test="no != null and no != ''"> and contract_no = #{no} </if>
+		  		  <if test="project != null and project != ''"> and project_id = #{project} </if>
+		  		  <if test="oppositeCompany != null and oppositeCompany != ''"> and otherpart_id = #{oppositeCompany} </if>
+		  		  <if test="ourCompany != null and ourCompany != ''"> and ourpart_id = #{ourCompany} </if>
+		  		  <if test="minMoney != null and minMoney != ''  "> and cost &gt;= #{minMoney} </if>
+		  		  <if test="maxMoney != null and maxMoney != ''  "> and cost &lt;= #{maxMoney} </if>
+		  		  
+		  		   
+		  		  <if test="startTime != null and startTime != ''"> and start_ime &gt;= #{startTime} </if>
+		  		  <if test="endTime != null and endTime != ''"> and end_time &lt;= #{endTime} </if>
+		  		
+		  		  <if test="signDate != null and signDate != ''"> and sign_date = #{signDate} </if>
+		  		and is_delete=0
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by contract_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	<select id="getcontractING" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        where state &lt; #{state}
+                order by contract_id desc
+			
+	</select>
+<insert id="saveDTO" parameterType="com.bootdo.freeContract.DTO.ContractDTO" useGeneratedKeys="true" keyProperty="contractId">
+		insert into contract
+		(
+			`contract_name`, 
+			`contract_type`, 
+			`contract_no`, 
+			`project_id`, 
+			`budget_id`, 
+			`otherpart_id`, 
+			`ourpart_id`, 
+			`maincontent`, 
+			`cost`, 
+			`attorney_no`, 
+			`start_ime`, 
+			`end_time`, 
+			`place`, 
+			`paymentway`, 
+			`breach`, 
+			`resolution`, 
+			`agrement`, 
+			`remark`, 
+			`sign_date`, 
+			`parent_id`, 
+			`myself`, 
+			`mainPaper`, 
+			`model_id`, 
+			`secondaryPaper`, 
+			`otherPaper`, 
+			`need_Cost`, 
+			`actual_Cost`, 
+			`need_bill`, 
+			`actual_bill`, 
+			`money_progress`, 
+			`bill_progress`, 
+			`charger`, 
+			`office`, 
+			`state`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`, 
+			`need_shengpi`, 
+			`contract_kind`, 
+			`document_place`,
+			`is_delete`
+		)
+		values
+		(
+			#{contractName}, 
+			#{contractType}, 
+			#{contractNo}, 
+			#{projectId},
+			#{budgetId},
+			#{otherpartId}, 
+			#{ourpartId}, 
+			#{maincontent}, 
+			#{cost}, 
+			#{attorneyNo}, 
+			#{startIme}, 
+			#{endTime}, 
+			#{place}, 
+			#{paymentway}, 
+			#{breach}, 
+			#{resolution}, 
+			#{agrement}, 
+			#{remark}, 
+			#{signDate}, 
+			#{parentId}, 
+			#{myself}, 
+			#{mainpaper}, 
+			#{modelId}, 
+			#{secondarypaper}, 
+			#{otherpaper}, 
+			#{needCost}, 
+			#{actualCost}, 
+			#{needBill}, 
+			#{actualBill}, 
+			#{moneyProgress}, 
+			#{billProgress}, 
+			#{charger}, 
+			#{office}, 
+			#{state}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}, 
+			#{needShengpi}, 
+			#{contractKind}, 
+			#{documentPlace},
+			#{isDelete}
+		)
+	</insert>
+<select id="searchFulfillingContractByUserId" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        <where>  
+        		  <if test="time != null and time != ''"> and creatied_time  like concat(#{time},"%") </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="state != null and state != ''"> and state &lt;= #{state} </if>
+		  		  <if test="deptId != null and deptId != ''"> and office = #{deptId} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		</where>
+                order by contract_id desc
+
+</select>
+
+<select id="queryByUserIdAndState" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        <where>  
+        		  <if test="time != null and time != ''"> and creatied_time  like concat(#{time},"%") </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="stateMin != null and stateMin != ''"> and state &gt;=  #{stateMin} </if>
+		  		  <if test="stateMax != null and stateMax != ''"> and state &lt;=  #{stateMax} </if>
+		  		  <if test="deptId != null and deptId != ''"> and office = #{deptId} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		</where>
+                order by contract_id desc
+
+</select>
+
+<select id="queryByUserIdAndStateArray" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        <where>  
+        	  		<if test="states != null and states != ''"> 
+        	  			and state in 
+		  		 	 <foreach item="state" collection="states" open="(" separator="," close=")">
+						 #{state} 
+					</foreach>
+		  		  </if>
+        
+        		  <if test="time != null and time != ''"> and creatied_time  like concat(#{time},"%") </if>
+		  		  <if test="myself != null and myself != ''"> and myself = #{myself} </if>
+		  		  <if test="deptId != null and deptId != ''"> and office = #{deptId} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		  		  <if test="contractKind != null">and `contract_kind` = #{contractKind} </if>
+		  	
+		</where>
+                order by contract_id desc
+
+</select>
+
+
+<select id="queryByStateArray" resultType="com.bootdo.freeContract.domain.ContractDO">
+		select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract
+        where  state in
+        	
+		  		 	 <foreach item="state" collection="array" open="(" separator="," close=")">
+						 #{state} 
+					</foreach>
+
+                order by contract_id desc
+
+</select>
+
+</mapper>

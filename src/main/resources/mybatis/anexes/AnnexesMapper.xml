@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.anexes.dao.AnnexesDao">
+
+	<select id="get" resultType="com.bootdo.anexes.domain.AnnexesDO">
+		select `annexes_id`,`project_id`,`contract_id`,`annexes_name`,`annexes_type`,`annexes_desc`,`annexes_path`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`parent_id` from annexes where annexes_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.anexes.domain.AnnexesDO">
+		select `annexes_id`,`project_id`,`contract_id`,`annexes_name`,`annexes_type`,`annexes_desc`,`annexes_path`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`parent_id` from annexes
+        <where>  
+		  		  <if test="annexesId != null and annexesId != ''"> and annexes_id = #{annexesId} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="annexesName != null and annexesName != ''"> and annexes_name = #{annexesName} </if>
+		  		  <if test="annexesType != null and annexesType != ''"> and annexes_type = #{annexesType} </if>
+		  		  <if test="annexesDesc != null and annexesDesc != ''"> and annexes_desc = #{annexesDesc} </if>
+		  		  <if test="annexesPath != null and annexesPath != ''"> and annexes_path = #{annexesPath} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by annexes_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from annexes
+		 <where>  
+		  		  <if test="annexesId != null and annexesId != ''"> and annexes_id = #{annexesId} </if>
+		  		  <if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+		  		  <if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+		  		  <if test="annexesName != null and annexesName != ''"> and annexes_name = #{annexesName} </if>
+		  		  <if test="annexesType != null and annexesType != ''"> and annexes_type = #{annexesType} </if>
+		  		  <if test="annexesDesc != null and annexesDesc != ''"> and annexes_desc = #{annexesDesc} </if>
+		  		  <if test="annexesPath != null and annexesPath != ''"> and annexes_path = #{annexesPath} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.anexes.domain.AnnexesDO" 
+	
+	useGeneratedKeys="true" keyProperty="annexesId">
+		insert into annexes
+		(
+			`project_id`, 
+			`contract_id`, 
+			`annexes_name`, 
+			`annexes_type`, 
+			`annexes_desc`, 
+			`annexes_path`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`, 
+			`parent_id`
+		)
+		values
+		(
+			#{projectId}, 
+			#{contractId}, 
+			#{annexesName}, 
+			#{annexesType}, 
+			#{annexesDesc}, 
+			#{annexesPath}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}, 
+			#{parentId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.anexes.domain.AnnexesDO">
+		update annexes 
+		<set>
+			<if test="projectId != null">`project_id` = #{projectId}, </if>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="annexesName != null">`annexes_name` = #{annexesName}, </if>
+			<if test="annexesType != null">`annexes_type` = #{annexesType}, </if>
+			<if test="annexesDesc != null">`annexes_desc` = #{annexesDesc}, </if>
+			<if test="annexesPath != null">`annexes_path` = #{annexesPath}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}</if>
+		</set>
+		where annexes_id = #{annexesId}
+	</update>
+	
+	<delete id="remove">
+		delete from annexes where annexes_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from annexes where annexes_id in 
+		<foreach item="annexesId" collection="array" open="(" separator="," close=")">
+			#{annexesId}
+		</foreach>
+	</delete>
+	
+	
+	<select id="listByContractId" resultType="com.bootdo.anexes.domain.AnnexesDO">
+		select `annexes_id`,`project_id`,`contract_id`,`annexes_name`,`annexes_type`,`annexes_desc`,`annexes_path`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`parent_id` from annexes
+        
+        where contract_id = #{contractId}
+   
+                order by annexes_id desc
+	
+	</select>
+	
+
+</mapper>

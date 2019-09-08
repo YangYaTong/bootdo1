@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/js/jquery.min.js"></script>  
+<script src="/js/plugins/echarts/echarts-all.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body style="padding:0">  
+<div style="padding:10px;clear: both;">  
+    <div id="psLine" style="height:600px;"></div>  
+</div>  
+</body>  
+
+<script type="text/javascript">  
+    //图表 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var psLineChar = echarts.init(document.getElementById('psLine'));  
+  
+    //查询  
+    function loadDrugs() {  
+        psLineChar.clear();  
+        psLineChar.showLoading({text: '正在努力的读取数据中...'});  
+        $.getJSON('analysis/removecauses', function (data) {  
+        	console.log(JSON.parse(data.option));
+        	var op=JSON.parse(data.option);
+        		    
+                psLineChar.setOption(op, true);  
+                psLineChar.hideLoading();  
+            
+        });  
+    }  
+    //载入图表  
+    loadDrugs();  
+</script>  
+
+
+
+
+
+
+</html>

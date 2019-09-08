@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+	
+	<div id="view"></div>
+
+	</div>
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">关系ID：</label>
+								<div class="col-sm-8">
+									<input id="relativeId" name="relativeId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复名称：</label>
+								<div class="col-sm-8">
+									<input id="responseName" name="responseName" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复类型：</label>
+								<div class="col-sm-8">
+									<input id="responseType" name="responseType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复种类：</label>
+								<div class="col-sm-8">
+									<input id="responseKind" name="responseKind" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复科室：</label>
+								<div class="col-sm-8">
+									<input id="responseFrom" name="responseFrom" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复人：</label>
+								<div class="col-sm-8">
+									<input id="maker" name="maker" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复意见：</label>
+								<div class="col-sm-8">
+									<input id="opinion" name="opinion" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复结论：</label>
+								<div class="col-sm-8">
+									<input id="result" name="result" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">附件：</label>
+								<div class="col-sm-8">
+									<input id="paperPath" name="paperPath" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">批复金额：</label>
+								<div class="col-sm-8">
+									<input id="responseMoney" name="responseMoney" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建者：</label>
+								<div class="col-sm-8">
+									<input id="creatiedUser" name="creatiedUser" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建时间：</label>
+								<div class="col-sm-8">
+									<input id="creatiedTime" name="creatiedTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改者：</label>
+								<div class="col-sm-8">
+									<input id="modifiedUser" name="modifiedUser" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改时间：</label>
+								<div class="col-sm-8">
+									<input id="modifiedTime" name="modifiedTime" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/response/response/add.js">
+	</script>
+</body>
+</html>

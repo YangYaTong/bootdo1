@@ -1,0 +1,630 @@
+2019-09-06 00:00:11 -请求地址 : http://localhost:5555/index
+2019-09-06 00:00:11 -HTTP METHOD : GET
+2019-09-06 00:00:11 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2019-09-06 00:00:11 -参数 : [{}]
+2019-09-06 00:00:11 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2019-09-06 00:00:11 -==> Parameters: 1(Long)
+2019-09-06 00:00:11 -<==      Total: 52
+2019-09-06 00:00:11 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2019-09-06 00:00:11 -==> Parameters: 151(Long)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -耗时 : 19
+2019-09-06 00:00:11 -返回值 : index_v1
+2019-09-06 00:00:11 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-06 00:00:11 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 19(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-user-o","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"149","parentId":"148","text":"通知公告"},{"attributes":{"icon":"","url":"/myRemind/myRemind"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"150","parentId":"148","text":"我的提醒"},{"attributes":{"icon":"","url":"/todoTable/todotable/showMyapply"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"151","parentId":"148","text":"我的申请"},{"attributes":{"icon":"","url":"/todoTable/todotable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"152","parentId":"148","text":"我的待办工作"},{"attributes":{"icon":"","url":""},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"154","parentId":"148","text":"办公代理"},{"attributes":{"icon":"","url":"oa/notify\t"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"155","parentId":"148","text":"通知发布"},{"attributes":{"icon":"","url":"sys/online/showOnlineUser"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"158","parentId":"148","text":"在线用户"}],"hasChildren":true,"hasParent":false,"id":"148","parentId":"0","text":"个人工作助理"},{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-life-ring","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/project/project"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"113","text":"项目列表"}],"hasChildren":true,"hasParent":false,"id":"113","parentId":"0","text":"项目管理"},{"attributes":{"icon":"fa fa-object-ungroup","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractUpdae"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"115","parentId":"106","text":"合同变更"},{"attributes":{"icon":"","url":"contractMoule/mould"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"126","parentId":"106","text":"合同模板"},{"attributes":{"icon":"fa fa-clone","url":"/freeContract/contract"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"107","parentId":"106","text":"合同列表"},{"attributes":{"icon":"","url":"/freeContract/contract/contractcreate"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"146","parentId":"106","text":"创建合同"}],"hasChildren":true,"hasParent":false,"id":"106","parentId":"0","text":"合同管理"},{"attributes":{"icon":"fa fa-cogs","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/matter/matter"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"119","parentId":"118","text":"收付款计划"}],"hasChildren":true,"hasParent":false,"id":"118","parentId":"0","text":"合同事项"},{"attributes":{"icon":"fa fa-male","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user-circle-o","url":"/company/company"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"111","parentId":"110","text":"合同对方管理"},{"attributes":{"icon":"fa fa-address-book-o","url":"ourCompany/ourCompany"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"112","parentId":"110","text":"我方公司管理"}],"hasChildren":true,"hasParent":false,"id":"110","parentId":"0","text":"客商管理"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/searchlist"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"144","parentId":"97","text":"合同报表"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"统计分析"},{"attributes":{"icon":"fa fa-object-group","url":"/con/all"},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractFinsh"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"160","parentId":"120","text":"合同列表"}],"hasChildren":true,"hasParent":false,"id":"120","parentId":"0","text":"归档合同"},{"attributes":{"icon":"fa fa-calculator","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/payment/payment"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"124","parentId":"122","text":"合同付款"},{"attributes":{"icon":"","url":"/receive/receive"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"123","parentId":"122","text":"收款登记"},{"attributes":{"icon":"","url":"budget/budget"},"checked":false,"children":[],"hasChildren":false,"h(String), 127.0.0.1(String), 2019-09-06 00:00:11.594(Timestamp)
+2019-09-06 00:00:11 -<==    Updates: 1
+2019-09-06 00:00:11 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:00:11 -HTTP METHOD : GET
+2019-09-06 00:00:11 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:00:11 -参数 : [{}]
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:11 -<==      Total: 2
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:00:11 -==> Parameters: 1(Long)
+2019-09-06 00:00:11 -<==      Total: 1
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:00:11 -<==      Total: 2
+2019-09-06 00:00:11 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:00:11 -==> Parameters: 1(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:00:11 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:00:11 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:00:11 -<==      Total: 3
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:00:11 -<==      Total: 3
+2019-09-06 00:00:11 -耗时 : 24
+2019-09-06 00:00:11 -返回值 : /main
+2019-09-06 00:00:11 -请求地址 : http://localhost:5555/oa/notify/message
+2019-09-06 00:00:11 -HTTP METHOD : GET
+2019-09-06 00:00:11 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2019-09-06 00:00:11 -参数 : []
+2019-09-06 00:00:11 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2019-09-06 00:00:11 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2019-09-06 00:00:11 -==> Parameters: 1(Long), 0(String)
+2019-09-06 00:00:11 -<==      Total: 1
+2019-09-06 00:00:11 -耗时 : 9
+2019-09-06 00:00:11 -返回值 : com.bootdo.common.utils.PageUtils@650c7a1d
+2019-09-06 00:00:11 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:00:11 -HTTP METHOD : GET
+2019-09-06 00:00:11 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:00:11 -参数 : [{}]
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:11 -<==      Total: 2
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:00:11 -==> Parameters: 1(Long)
+2019-09-06 00:00:11 -<==      Total: 1
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:00:11 -<==      Total: 2
+2019-09-06 00:00:11 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:00:11 -==> Parameters: 1(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:00:11 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:00:11 -<==      Total: 0
+2019-09-06 00:00:11 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:00:11 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:00:11 -<==      Total: 3
+2019-09-06 00:00:11 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:11 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:00:11 -<==      Total: 3
+2019-09-06 00:00:11 -耗时 : 50
+2019-09-06 00:00:11 -返回值 : /main
+2019-09-06 00:00:33 -请求地址 : http://localhost:5555/login;JSESSIONID=c5a7972a-e9bb-427a-8ee1-9e488575b686
+2019-09-06 00:00:33 -HTTP METHOD : GET
+2019-09-06 00:00:33 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2019-09-06 00:00:33 -参数 : [{}]
+2019-09-06 00:00:33 -耗时 : 1
+2019-09-06 00:00:33 -返回值 : login
+2019-09-06 00:00:33 -请求地址 : http://localhost:5555/login
+2019-09-06 00:00:33 -HTTP METHOD : GET
+2019-09-06 00:00:33 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2019-09-06 00:00:33 -参数 : [{}]
+2019-09-06 00:00:33 -耗时 : 0
+2019-09-06 00:00:33 -返回值 : login
+2019-09-06 00:00:35 -请求地址 : http://localhost:5555/login
+2019-09-06 00:00:35 -HTTP METHOD : POST
+2019-09-06 00:00:35 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2019-09-06 00:00:35 -参数 : [admin, 111111]
+2019-09-06 00:00:35 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2019-09-06 00:00:35 -==> Parameters: admin(String)
+2019-09-06 00:00:35 -<==      Total: 1
+2019-09-06 00:00:35 -耗时 : 3
+2019-09-06 00:00:35 -返回值 : {msg=操作成功, code=0}
+2019-09-06 00:00:35 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-06 00:00:35 -==> Parameters: 1(Long), admin(String), 登录(String), 3(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2019-09-06 00:00:35.592(Timestamp)
+2019-09-06 00:00:35 -<==    Updates: 1
+2019-09-06 00:00:35 -请求地址 : http://localhost:5555/index
+2019-09-06 00:00:35 -HTTP METHOD : GET
+2019-09-06 00:00:35 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2019-09-06 00:00:35 -参数 : [{}]
+2019-09-06 00:00:35 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2019-09-06 00:00:35 -==> Parameters: 1(Long)
+2019-09-06 00:00:35 -<==      Total: 52
+2019-09-06 00:00:35 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2019-09-06 00:00:35 -==> Parameters: 151(Long)
+2019-09-06 00:00:35 -<==      Total: 0
+2019-09-06 00:00:35 -耗时 : 33
+2019-09-06 00:00:35 -返回值 : index_v1
+2019-09-06 00:00:35 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-06 00:00:35 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 33(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-user-o","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"149","parentId":"148","text":"通知公告"},{"attributes":{"icon":"","url":"/myRemind/myRemind"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"150","parentId":"148","text":"我的提醒"},{"attributes":{"icon":"","url":"/todoTable/todotable/showMyapply"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"151","parentId":"148","text":"我的申请"},{"attributes":{"icon":"","url":"/todoTable/todotable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"152","parentId":"148","text":"我的待办工作"},{"attributes":{"icon":"","url":""},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"154","parentId":"148","text":"办公代理"},{"attributes":{"icon":"","url":"oa/notify\t"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"155","parentId":"148","text":"通知发布"},{"attributes":{"icon":"","url":"sys/online/showOnlineUser"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"158","parentId":"148","text":"在线用户"}],"hasChildren":true,"hasParent":false,"id":"148","parentId":"0","text":"个人工作助理"},{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-life-ring","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/project/project"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"113","text":"项目列表"}],"hasChildren":true,"hasParent":false,"id":"113","parentId":"0","text":"项目管理"},{"attributes":{"icon":"fa fa-object-ungroup","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractUpdae"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"115","parentId":"106","text":"合同变更"},{"attributes":{"icon":"","url":"contractMoule/mould"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"126","parentId":"106","text":"合同模板"},{"attributes":{"icon":"fa fa-clone","url":"/freeContract/contract"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"107","parentId":"106","text":"合同列表"},{"attributes":{"icon":"","url":"/freeContract/contract/contractcreate"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"146","parentId":"106","text":"创建合同"}],"hasChildren":true,"hasParent":false,"id":"106","parentId":"0","text":"合同管理"},{"attributes":{"icon":"fa fa-cogs","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/matter/matter"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"119","parentId":"118","text":"收付款计划"}],"hasChildren":true,"hasParent":false,"id":"118","parentId":"0","text":"合同事项"},{"attributes":{"icon":"fa fa-male","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user-circle-o","url":"/company/company"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"111","parentId":"110","text":"合同对方管理"},{"attributes":{"icon":"fa fa-address-book-o","url":"ourCompany/ourCompany"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"112","parentId":"110","text":"我方公司管理"}],"hasChildren":true,"hasParent":false,"id":"110","parentId":"0","text":"客商管理"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/searchlist"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"144","parentId":"97","text":"合同报表"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"统计分析"},{"attributes":{"icon":"fa fa-object-group","url":"/con/all"},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractFinsh"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"160","parentId":"120","text":"合同列表"}],"hasChildren":true,"hasParent":false,"id":"120","parentId":"0","text":"归档合同"},{"attributes":{"icon":"fa fa-calculator","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/payment/payment"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"124","parentId":"122","text":"合同付款"},{"attributes":{"icon":"","url":"/receive/receive"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"123","parentId":"122","text":"收款登记"},{"attributes":{"icon":"","url":"budget/budget"},"checked":false,"children":[],"hasChildren":false,"h(String), 127.0.0.1(String), 2019-09-06 00:00:35.646(Timestamp)
+2019-09-06 00:00:35 -<==    Updates: 1
+2019-09-06 00:00:35 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:00:35 -HTTP METHOD : GET
+2019-09-06 00:00:35 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:00:35 -参数 : [{}]
+2019-09-06 00:00:35 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:35 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:35 -<==      Total: 2
+2019-09-06 00:00:35 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:35 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:00:35 -<==      Total: 0
+2019-09-06 00:00:35 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:00:35 -==> Parameters: 1(Long)
+2019-09-06 00:00:35 -<==      Total: 1
+2019-09-06 00:00:35 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:35 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:00:35 -<==      Total: 2
+2019-09-06 00:00:35 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:00:35 -==> Parameters: 1(String)
+2019-09-06 00:00:35 -<==      Total: 0
+2019-09-06 00:00:35 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:00:35 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:00:35 -<==      Total: 0
+2019-09-06 00:00:35 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:00:35 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:00:35 -<==      Total: 3
+2019-09-06 00:00:35 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:35 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:00:35 -<==      Total: 3
+2019-09-06 00:00:35 -耗时 : 30
+2019-09-06 00:00:35 -返回值 : /main
+2019-09-06 00:00:36 -请求地址 : http://localhost:5555/oa/notify/message
+2019-09-06 00:00:36 -HTTP METHOD : GET
+2019-09-06 00:00:36 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2019-09-06 00:00:36 -参数 : []
+2019-09-06 00:00:36 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2019-09-06 00:00:36 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2019-09-06 00:00:36 -<==      Total: 0
+2019-09-06 00:00:36 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2019-09-06 00:00:36 -==> Parameters: 1(Long), 0(String)
+2019-09-06 00:00:36 -<==      Total: 1
+2019-09-06 00:00:36 -耗时 : 8
+2019-09-06 00:00:36 -返回值 : com.bootdo.common.utils.PageUtils@7641ba2e
+2019-09-06 00:00:36 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:00:36 -HTTP METHOD : GET
+2019-09-06 00:00:36 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:00:36 -参数 : [{}]
+2019-09-06 00:00:36 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:36 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:36 -<==      Total: 2
+2019-09-06 00:00:36 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:36 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:00:36 -<==      Total: 0
+2019-09-06 00:00:36 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:00:36 -==> Parameters: 1(Long)
+2019-09-06 00:00:36 -<==      Total: 1
+2019-09-06 00:00:36 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:36 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:00:36 -<==      Total: 2
+2019-09-06 00:00:36 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:00:36 -==> Parameters: 1(String)
+2019-09-06 00:00:36 -<==      Total: 0
+2019-09-06 00:00:36 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:00:36 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:00:36 -<==      Total: 0
+2019-09-06 00:00:36 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:00:36 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:00:36 -<==      Total: 3
+2019-09-06 00:00:36 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:36 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:00:36 -<==      Total: 3
+2019-09-06 00:00:36 -耗时 : 29
+2019-09-06 00:00:36 -返回值 : /main
+2019-09-06 00:00:43 -请求地址 : http://localhost:5555/freeContract/contract
+2019-09-06 00:00:43 -HTTP METHOD : GET
+2019-09-06 00:00:43 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.Contract
+2019-09-06 00:00:43 -参数 : []
+2019-09-06 00:00:43 -耗时 : 0
+2019-09-06 00:00:43 -返回值 : freeContract/contract/contract
+2019-09-06 00:00:43 -请求地址 : http://localhost:5555/freeContract/contract/searchFulfillingContract
+2019-09-06 00:00:43 -HTTP METHOD : GET
+2019-09-06 00:00:43 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.searchFulfillingContract
+2019-09-06 00:00:43 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:00:43 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:43 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:43 -<==      Total: 2
+2019-09-06 00:00:43 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:00:43 -==> Parameters: 政府采购合同(String), contract_type(String)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:43 -==>  Preparing: select `collaboratorID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from contract_company where collaboratorID = ? 
+2019-09-06 00:00:43 -==> Parameters: 9(Integer)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:43 -==>  Preparing: select `ourCompanyID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from our_company where ourCompanyID = ? 
+2019-09-06 00:00:43 -==> Parameters: 9(Integer)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:43 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:00:43 -==> Parameters: out(String), contract_kind(String)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:43 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:00:43 -==> Parameters: 政府采购合同(String), contract_type(String)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:43 -==>  Preparing: select `collaboratorID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from contract_company where collaboratorID = ? 
+2019-09-06 00:00:43 -==> Parameters: 9(Integer)
+2019-09-06 00:00:43 -<==      Total: 1
+2019-09-06 00:00:44 -==>  Preparing: select `ourCompanyID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from our_company where ourCompanyID = ? 
+2019-09-06 00:00:44 -==> Parameters: 9(Integer)
+2019-09-06 00:00:44 -<==      Total: 1
+2019-09-06 00:00:44 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:00:44 -==> Parameters: out(String), contract_kind(String)
+2019-09-06 00:00:44 -<==      Total: 1
+2019-09-06 00:00:44 -耗时 : 34
+2019-09-06 00:00:44 -返回值 : com.bootdo.common.utils.PageUtils@e279189
+2019-09-06 00:00:44 -请求地址 : http://localhost:5555/freeContract/contract/gettotal
+2019-09-06 00:00:44 -HTTP METHOD : GET
+2019-09-06 00:00:44 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.gettotal
+2019-09-06 00:00:44 -参数 : []
+2019-09-06 00:00:44 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:44 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:00:44 -<==      Total: 2
+2019-09-06 00:00:44 -耗时 : 4
+2019-09-06 00:00:44 -返回值 : {msg=操作成功, code=0, map={payTotal=￥3,800, needReceive=￥0, receiveTotal=￥0, needPay=￥3,800}}
+2019-09-06 00:00:45 -请求地址 : http://localhost:5555/freeContract/contract/contractUpdae
+2019-09-06 00:00:45 -HTTP METHOD : GET
+2019-09-06 00:00:45 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.contractUpdae
+2019-09-06 00:00:45 -参数 : []
+2019-09-06 00:00:45 -耗时 : 1
+2019-09-06 00:00:45 -返回值 : freeContract/contract/contract_update
+2019-09-06 00:00:45 -请求地址 : http://localhost:5555/freeContract/contract/searchFulfillingAndUpdateContract
+2019-09-06 00:00:45 -HTTP METHOD : GET
+2019-09-06 00:00:45 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.searchFulfillingAndUpdateContract
+2019-09-06 00:00:45 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:00:45 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:00:45 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 88(Integer), 0(String)
+2019-09-06 00:00:45 -<==      Total: 1
+2019-09-06 00:00:45 -耗时 : 21
+2019-09-06 00:00:45 -返回值 : com.bootdo.common.utils.PageUtils@390ac2f1
+2019-09-06 00:01:21 -请求地址 : http://localhost:5555/contractMoule/mould
+2019-09-06 00:01:21 -HTTP METHOD : GET
+2019-09-06 00:01:21 -CLASS_METHOD : com.bootdo.contractMoule.controller.MouldController.Mould
+2019-09-06 00:01:21 -参数 : []
+2019-09-06 00:01:21 -耗时 : 1
+2019-09-06 00:01:21 -返回值 : contractMoule/mould/mould
+2019-09-06 00:01:21 -请求地址 : http://localhost:5555/contractMoule/mould/list
+2019-09-06 00:01:21 -HTTP METHOD : GET
+2019-09-06 00:01:21 -CLASS_METHOD : com.bootdo.contractMoule.controller.MouldController.list
+2019-09-06 00:01:21 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:01:21 -==>  Preparing: select `mould_id`,`mould_name`,`mould_desc`,`mould_path`,`maincontent`,`attorney_no`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`table_tag`,`mould_table`,`place`,`contract_type`,`contract_kind`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_mould order by mould_id desc limit ?, ? 
+2019-09-06 00:01:21 -==> Parameters: 0(Integer), 10(Integer)
+2019-09-06 00:01:21 -<==      Total: 1
+2019-09-06 00:01:21 -==>  Preparing: select count(*) from contract_mould 
+2019-09-06 00:01:21 -==> Parameters: 
+2019-09-06 00:01:21 -<==      Total: 1
+2019-09-06 00:01:21 -耗时 : 7
+2019-09-06 00:01:21 -返回值 : com.bootdo.common.utils.PageUtils@5644b6db
+2019-09-06 00:01:22 -请求地址 : http://localhost:5555/freeContract/contract/contractcreate
+2019-09-06 00:01:22 -HTTP METHOD : GET
+2019-09-06 00:01:22 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.contractCreate
+2019-09-06 00:01:22 -参数 : []
+2019-09-06 00:01:22 -耗时 : 0
+2019-09-06 00:01:22 -返回值 : freeContract/contract/contractcreate
+2019-09-06 00:01:22 -==>  Preparing: select distinct m.perms from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id = ur.role_id where ur.user_id = ? 
+2019-09-06 00:01:22 -==> Parameters: 1(Long)
+2019-09-06 00:01:22 -<==      Total: 63
+2019-09-06 00:01:26 -请求地址 : http://localhost:5555/ourCompany/ourCompany
+2019-09-06 00:01:26 -HTTP METHOD : GET
+2019-09-06 00:01:26 -CLASS_METHOD : com.bootdo.ourCompany.controller.OurCompanyController.OurCompany
+2019-09-06 00:01:26 -参数 : []
+2019-09-06 00:01:26 -耗时 : 0
+2019-09-06 00:01:26 -返回值 : /ourCompany/ourCompany/ourCompany
+2019-09-06 00:01:26 -请求地址 : http://localhost:5555/ourCompany/ourCompany/list
+2019-09-06 00:01:26 -HTTP METHOD : GET
+2019-09-06 00:01:26 -CLASS_METHOD : com.bootdo.ourCompany.controller.OurCompanyController.list
+2019-09-06 00:01:26 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:01:26 -==>  Preparing: select `ourCompanyID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from our_company order by ourCompanyID desc limit ?, ? 
+2019-09-06 00:01:26 -==> Parameters: 0(Integer), 10(Integer)
+2019-09-06 00:01:26 -<==      Total: 1
+2019-09-06 00:01:26 -==>  Preparing: select count(*) from our_company 
+2019-09-06 00:01:26 -==> Parameters: 
+2019-09-06 00:01:26 -<==      Total: 1
+2019-09-06 00:01:26 -耗时 : 19
+2019-09-06 00:01:26 -返回值 : com.bootdo.common.utils.PageUtils@7e8fbc1
+2019-09-06 00:01:27 -请求地址 : http://localhost:5555/company/company
+2019-09-06 00:01:27 -HTTP METHOD : GET
+2019-09-06 00:01:27 -CLASS_METHOD : com.bootdo.company.controller.CompanyController.Company
+2019-09-06 00:01:27 -参数 : []
+2019-09-06 00:01:27 -耗时 : 0
+2019-09-06 00:01:27 -返回值 : company/company/company
+2019-09-06 00:01:27 -请求地址 : http://localhost:5555/company/company/list
+2019-09-06 00:01:27 -HTTP METHOD : GET
+2019-09-06 00:01:27 -CLASS_METHOD : com.bootdo.company.controller.CompanyController.list
+2019-09-06 00:01:27 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:01:27 -==>  Preparing: select `collaboratorID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from contract_company order by collaboratorID desc limit ?, ? 
+2019-09-06 00:01:27 -==> Parameters: 0(Integer), 10(Integer)
+2019-09-06 00:01:27 -<==      Total: 3
+2019-09-06 00:01:27 -==>  Preparing: select count(*) from contract_company 
+2019-09-06 00:01:27 -==> Parameters: 
+2019-09-06 00:01:27 -<==      Total: 1
+2019-09-06 00:01:27 -耗时 : 14
+2019-09-06 00:01:27 -返回值 : com.bootdo.common.utils.PageUtils@430fb3b4
+2019-09-06 00:01:58 -请求地址 : http://localhost:5555/freeContract/contract/contractFinsh
+2019-09-06 00:01:58 -HTTP METHOD : GET
+2019-09-06 00:01:58 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.contractFinsh
+2019-09-06 00:01:58 -参数 : []
+2019-09-06 00:01:58 -耗时 : 1
+2019-09-06 00:01:58 -返回值 : freeContract/contract/contract_finsh
+2019-09-06 00:01:59 -请求地址 : http://localhost:5555/freeContract/contract/finshContract
+2019-09-06 00:01:59 -HTTP METHOD : GET
+2019-09-06 00:01:59 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.finshContract
+2019-09-06 00:01:59 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:01:59 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:01:59 -==> Parameters: 2019(Integer), 1(Long), 95(Integer), 95(Integer), 0(String)
+2019-09-06 00:01:59 -<==      Total: 1
+2019-09-06 00:01:59 -==>  Preparing: select count(*) from contract 
+2019-09-06 00:01:59 -==> Parameters: 
+2019-09-06 00:01:59 -<==      Total: 1
+2019-09-06 00:01:59 -耗时 : 31
+2019-09-06 00:01:59 -返回值 : com.bootdo.common.utils.PageUtils@5760c814
+2019-09-06 00:01:59 -请求地址 : http://localhost:5555/freeContract/contract/gettotal
+2019-09-06 00:01:59 -HTTP METHOD : GET
+2019-09-06 00:01:59 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.gettotal
+2019-09-06 00:01:59 -参数 : []
+2019-09-06 00:01:59 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:01:59 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:01:59 -<==      Total: 2
+2019-09-06 00:01:59 -耗时 : 2
+2019-09-06 00:01:59 -返回值 : {msg=操作成功, code=0, map={payTotal=￥3,800, needReceive=￥0, receiveTotal=￥0, needPay=￥3,800}}
+2019-09-06 00:02:53 -请求地址 : http://localhost:5555/index
+2019-09-06 00:02:53 -HTTP METHOD : GET
+2019-09-06 00:02:53 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2019-09-06 00:02:53 -参数 : [{}]
+2019-09-06 00:02:53 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2019-09-06 00:02:53 -==> Parameters: 1(Long)
+2019-09-06 00:02:53 -<==      Total: 52
+2019-09-06 00:02:53 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2019-09-06 00:02:53 -==> Parameters: 151(Long)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -耗时 : 48
+2019-09-06 00:02:53 -返回值 : index_v1
+2019-09-06 00:02:53 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2019-09-06 00:02:53 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 48(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-user-o","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"149","parentId":"148","text":"通知公告"},{"attributes":{"icon":"","url":"/myRemind/myRemind"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"150","parentId":"148","text":"我的提醒"},{"attributes":{"icon":"","url":"/todoTable/todotable/showMyapply"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"151","parentId":"148","text":"我的申请"},{"attributes":{"icon":"","url":"/todoTable/todotable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"152","parentId":"148","text":"我的待办工作"},{"attributes":{"icon":"","url":""},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"154","parentId":"148","text":"办公代理"},{"attributes":{"icon":"","url":"oa/notify\t"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"155","parentId":"148","text":"通知发布"},{"attributes":{"icon":"","url":"sys/online/showOnlineUser"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"158","parentId":"148","text":"在线用户"}],"hasChildren":true,"hasParent":false,"id":"148","parentId":"0","text":"个人工作助理"},{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-life-ring","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/project/project"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"113","text":"项目列表"}],"hasChildren":true,"hasParent":false,"id":"113","parentId":"0","text":"项目管理"},{"attributes":{"icon":"fa fa-object-ungroup","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractUpdae"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"115","parentId":"106","text":"合同变更"},{"attributes":{"icon":"","url":"contractMoule/mould"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"126","parentId":"106","text":"合同模板"},{"attributes":{"icon":"fa fa-clone","url":"/freeContract/contract"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"107","parentId":"106","text":"合同列表"},{"attributes":{"icon":"","url":"/freeContract/contract/contractcreate"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"146","parentId":"106","text":"创建合同"}],"hasChildren":true,"hasParent":false,"id":"106","parentId":"0","text":"合同管理"},{"attributes":{"icon":"fa fa-cogs","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/matter/matter"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"119","parentId":"118","text":"收付款计划"}],"hasChildren":true,"hasParent":false,"id":"118","parentId":"0","text":"合同事项"},{"attributes":{"icon":"fa fa-male","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user-circle-o","url":"/company/company"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"111","parentId":"110","text":"合同对方管理"},{"attributes":{"icon":"fa fa-address-book-o","url":"ourCompany/ourCompany"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"112","parentId":"110","text":"我方公司管理"}],"hasChildren":true,"hasParent":false,"id":"110","parentId":"0","text":"客商管理"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/searchlist"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"144","parentId":"97","text":"合同报表"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"统计分析"},{"attributes":{"icon":"fa fa-object-group","url":"/con/all"},"checked":false,"children":[{"attributes":{"icon":"","url":"/freeContract/contract/contractFinsh"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"160","parentId":"120","text":"合同列表"}],"hasChildren":true,"hasParent":false,"id":"120","parentId":"0","text":"归档合同"},{"attributes":{"icon":"fa fa-calculator","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/payment/payment"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"124","parentId":"122","text":"合同付款"},{"attributes":{"icon":"","url":"/receive/receive"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"123","parentId":"122","text":"收款登记"},{"attributes":{"icon":"","url":"budget/budget"},"checked":false,"children":[],"hasChildren":false,"h(String), 127.0.0.1(String), 2019-09-06 00:02:53.495(Timestamp)
+2019-09-06 00:02:53 -<==    Updates: 1
+2019-09-06 00:02:53 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:02:53 -HTTP METHOD : GET
+2019-09-06 00:02:53 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:02:53 -参数 : [{}]
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:02:53 -<==      Total: 2
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:02:53 -==> Parameters: 1(Long)
+2019-09-06 00:02:53 -<==      Total: 1
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:02:53 -<==      Total: 2
+2019-09-06 00:02:53 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:02:53 -==> Parameters: 1(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:02:53 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:02:53 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:02:53 -<==      Total: 3
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:02:53 -<==      Total: 3
+2019-09-06 00:02:53 -耗时 : 52
+2019-09-06 00:02:53 -返回值 : /main
+2019-09-06 00:02:53 -请求地址 : http://localhost:5555/oa/notify/message
+2019-09-06 00:02:53 -HTTP METHOD : GET
+2019-09-06 00:02:53 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2019-09-06 00:02:53 -参数 : []
+2019-09-06 00:02:53 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2019-09-06 00:02:53 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2019-09-06 00:02:53 -==> Parameters: 1(Long), 0(String)
+2019-09-06 00:02:53 -<==      Total: 1
+2019-09-06 00:02:53 -耗时 : 9
+2019-09-06 00:02:53 -返回值 : com.bootdo.common.utils.PageUtils@2df4fdeb
+2019-09-06 00:02:53 -请求地址 : http://localhost:5555/system/index/getIndexPageDate
+2019-09-06 00:02:53 -HTTP METHOD : GET
+2019-09-06 00:02:53 -CLASS_METHOD : com.bootdo.system.controller.IndexController.getIndexPageDate
+2019-09-06 00:02:53 -参数 : [{}]
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:02:53 -<==      Total: 2
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 1(Long), 88(Integer), 88(Integer), 0(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = ? 
+2019-09-06 00:02:53 -==> Parameters: 1(Long)
+2019-09-06 00:02:53 -<==      Total: 1
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and state <= ? and office = ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 2019(Integer), 40(Integer), 6(Long), 0(String)
+2019-09-06 00:02:53 -<==      Total: 2
+2019-09-06 00:02:53 -==>  Preparing: select `remind_id`,`remind_name`,`remind_type`,`user_id`,`contract_id`,`matter_id`,`remind_money`,`remind_date`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`project_id`,`remark` from contract_remind where user_id=? order by remind_id 
+2019-09-06 00:02:53 -==> Parameters: 1(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `todotable_id`,`todotable_name`,`todo_type`,`todo_desc`,`send_time`,`send_user`,`receive_user`,`open_time`,`done_time`,`retive_id`,`response_id`,`state`,`remark`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_todotable WHERE receive_user = ? and state = ? order by todotable_id desc 
+2019-09-06 00:02:53 -==> Parameters: 1(String), 0(String)
+2019-09-06 00:02:53 -<==      Total: 0
+2019-09-06 00:02:53 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE plan_date like concat(?,"%") and myself = ? and state != ? and `is_delete`=0 order by matter_id 
+2019-09-06 00:02:53 -==> Parameters: 2019(String), 1(String), 6(String)
+2019-09-06 00:02:53 -<==      Total: 3
+2019-09-06 00:02:53 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:02:53 -==> Parameters: 1(String), 40(String), 0(String)
+2019-09-06 00:02:53 -<==      Total: 3
+2019-09-06 00:02:53 -耗时 : 40
+2019-09-06 00:02:53 -返回值 : /main
+2019-09-06 00:03:05 -请求地址 : http://localhost:5555/freeContract/contract/contractFinsh
+2019-09-06 00:03:05 -HTTP METHOD : GET
+2019-09-06 00:03:05 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.contractFinsh
+2019-09-06 00:03:05 -参数 : []
+2019-09-06 00:03:05 -耗时 : 0
+2019-09-06 00:03:05 -返回值 : freeContract/contract/contract_finsh
+2019-09-06 00:03:05 -请求地址 : http://localhost:5555/freeContract/contract/finshContract
+2019-09-06 00:03:05 -HTTP METHOD : GET
+2019-09-06 00:03:05 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.finshContract
+2019-09-06 00:03:05 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:03:05 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state >= ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:03:05 -==> Parameters: 2019(Integer), 1(Long), 95(Integer), 95(Integer), 0(String)
+2019-09-06 00:03:05 -<==      Total: 1
+2019-09-06 00:03:05 -==>  Preparing: select count(*) from contract 
+2019-09-06 00:03:05 -==> Parameters: 
+2019-09-06 00:03:05 -<==      Total: 1
+2019-09-06 00:03:05 -耗时 : 3
+2019-09-06 00:03:05 -返回值 : com.bootdo.common.utils.PageUtils@237b6312
+2019-09-06 00:03:05 -请求地址 : http://localhost:5555/freeContract/contract/gettotal
+2019-09-06 00:03:05 -HTTP METHOD : GET
+2019-09-06 00:03:05 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.gettotal
+2019-09-06 00:03:05 -参数 : []
+2019-09-06 00:03:05 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE creatied_time like concat(?,"%") and myself = ? and state <= ? and is_delete = ? order by contract_id desc 
+2019-09-06 00:03:05 -==> Parameters: 2019(Integer), 1(Long), 40(Integer), 0(String)
+2019-09-06 00:03:05 -<==      Total: 2
+2019-09-06 00:03:05 -耗时 : 2
+2019-09-06 00:03:05 -返回值 : {msg=操作成功, code=0, map={payTotal=￥3,800, needReceive=￥0, receiveTotal=￥0, needPay=￥3,800}}
+2019-09-06 00:03:13 -请求地址 : http://localhost:5555/freeContract/contract/showDetauls
+2019-09-06 00:03:13 -HTTP METHOD : GET
+2019-09-06 00:03:13 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.showDetauls
+2019-09-06 00:03:13 -参数 : [102, {}]
+2019-09-06 00:03:13 -耗时 : 0
+2019-09-06 00:03:13 -返回值 : freeContract/contract/contractInfo
+2019-09-06 00:03:13 -请求地址 : http://localhost:5555/freeContract/contract/showBasicInfo
+2019-09-06 00:03:13 -HTTP METHOD : GET
+2019-09-06 00:03:13 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.showBasicInfo
+2019-09-06 00:03:13 -参数 : [102]
+2019-09-06 00:03:13 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`budget_id`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract where contract_id = ? 
+2019-09-06 00:03:13 -==> Parameters: 102(Integer)
+2019-09-06 00:03:13 -<==      Total: 1
+2019-09-06 00:03:13 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:03:13 -==> Parameters: 国有土地、滩涂、水域、森林、荒山、矿山等自然资源的租赁、发包、承包、出让合同(String), contract_type(String)
+2019-09-06 00:03:13 -<==      Total: 1
+2019-09-06 00:03:13 -==>  Preparing: select `collaboratorID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from contract_company where collaboratorID = ? 
+2019-09-06 00:03:13 -==> Parameters: 10(Integer)
+2019-09-06 00:03:13 -<==      Total: 1
+2019-09-06 00:03:13 -==>  Preparing: select `ourCompanyID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from our_company where ourCompanyID = ? 
+2019-09-06 00:03:13 -==> Parameters: 9(Integer)
+2019-09-06 00:03:13 -<==      Total: 1
+2019-09-06 00:03:13 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE value = ? and type = ? order by id desc 
+2019-09-06 00:03:13 -==> Parameters: in(String), contract_kind(String)
+2019-09-06 00:03:13 -<==      Total: 1
+2019-09-06 00:03:13 -耗时 : 39
+2019-09-06 00:03:13 -返回值 : {msg=操作成功, code=0, contract=ContractDO [contractId=102, contractName=东郊4-3区煤矿承包合同, contractType=国有土地、滩涂、水域、森林、荒山、矿山等自然资源的租赁、发包、承包、出让合同, contractNo=, projectId=, otherpartId=甘肃和风矿业有限公司, ourpartId=附属21局, maincontent=见附件, cost=￥6,000,000, budgetId=null, invatationNo=null, attorneyNo=, startIme=2019-08-27, endTime=2020-08-13, place=兰州市, paymentway=见附件, breach=, resolution=见附件, agrement=见附件, remark=contractFinsh, signDate=2019-08-28, parentId=101, myself=1, mainpaper=null, modelId=null, secondarypaper=null, otherpaper=null, needCost=￥6,000,000, actualCost=￥0, needBill=￥6,000,000, actualBill=￥0, moneyProgress=.00%, billProgress=.00%, charger=null, office=6, state=95, creatiedUser=张丰, creatiedTime=2019-08-27 14:25:46, modifiedUser=null, modifiedTime=null, needShengpi=1, contractKind=收入合同, documentPlace=null, isDelete=null]}
+2019-09-06 00:03:14 -请求地址 : http://localhost:5555/anexes/annexes/showContractAnnexesInfo
+2019-09-06 00:03:14 -HTTP METHOD : GET
+2019-09-06 00:03:14 -CLASS_METHOD : com.bootdo.anexes.controller.AnnexesController.showContractAnnexesInfo
+2019-09-06 00:03:14 -参数 : [102]
+2019-09-06 00:03:14 -==>  Preparing: select `annexes_id`,`project_id`,`contract_id`,`annexes_name`,`annexes_type`,`annexes_desc`,`annexes_path`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`parent_id` from annexes WHERE contract_id = ? order by annexes_id desc 
+2019-09-06 00:03:14 -==> Parameters: 102(Integer)
+2019-09-06 00:03:14 -<==      Total: 0
+2019-09-06 00:03:14 -耗时 : 16
+2019-09-06 00:03:14 -返回值 : {msg=操作成功, annexesList=[], code=0}
+2019-09-06 00:03:14 -请求地址 : http://localhost:5555/response/response/showContractResponseInfo
+2019-09-06 00:03:14 -HTTP METHOD : GET
+2019-09-06 00:03:14 -CLASS_METHOD : com.bootdo.response.controller.ResponseController.showContractResponseInfo
+2019-09-06 00:03:14 -参数 : [102]
+2019-09-06 00:03:14 -==>  Preparing: select `pay_id`,`payment_name`,`payType_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_bill`,`actual_bill`,`pay_no`,`plan_date`,`actual_date`,`accept_company`,`accept_account`,`accept_bankname`,`pay_company`,`pay_account`,`pay_bankname`,`pay_reason`,`under_taker`,`checker`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`approver`,`need_shengpi`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_payment where contract_id = ? and is_delete=0 
+2019-09-06 00:03:14 -==> Parameters: 102(Integer)
+2019-09-06 00:03:14 -请求地址 : http://localhost:5555/receive/receive/showContractReceiveInfo
+2019-09-06 00:03:14 -HTTP METHOD : GET
+2019-09-06 00:03:14 -CLASS_METHOD : com.bootdo.receive.controller.ReceiveController.showContractReceiveInfo
+2019-09-06 00:03:14 -参数 : [102]
+2019-09-06 00:03:14 -<==      Total: 0
+2019-09-06 00:03:14 -耗时 : 16
+2019-09-06 00:03:14 -返回值 : {msg=操作成功, code=0, responseList=null}
+2019-09-06 00:03:14 -==>  Preparing: select `receive_id`,`receive_name`,`receive_no`,`type_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_date`,`actual_date`,`plan_bill`,`actual_bill`,`pay_company`,`pay_account`,`pay_bankname`,`accept_account`,`accept_company`,`pay_reason`,`accpet_bank`,`under_taker`,`checker`,`approver`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_receive WHERE contract_id = ? order by receive_id desc 
+2019-09-06 00:03:14 -==> Parameters: 102(Integer)
+2019-09-06 00:03:14 -<==      Total: 0
+2019-09-06 00:03:14 -耗时 : 41
+2019-09-06 00:03:14 -返回值 : {msg=操作成功, code=0, receiveList=[]}
+2019-09-06 00:04:07 -请求地址 : http://localhost:5555/matter/matter
+2019-09-06 00:04:07 -HTTP METHOD : GET
+2019-09-06 00:04:07 -CLASS_METHOD : com.bootdo.matter.controller.MatterController.Matter
+2019-09-06 00:04:07 -参数 : []
+2019-09-06 00:04:07 -耗时 : 0
+2019-09-06 00:04:07 -返回值 : matter/matter/matter
+2019-09-06 00:04:07 -请求地址 : http://localhost:5555/matter/matter/list
+2019-09-06 00:04:07 -HTTP METHOD : GET
+2019-09-06 00:04:07 -CLASS_METHOD : com.bootdo.matter.controller.MatterController.list
+2019-09-06 00:04:07 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:04:07 -==>  Preparing: select `matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete` from contract_matter WHERE myself = ? and is_delete = ? order by matter_id desc limit ?, ? 
+2019-09-06 00:04:07 -==> Parameters: 1(Long), 0(String), 0(Integer), 10(Integer)
+2019-09-06 00:04:07 -<==      Total: 3
+2019-09-06 00:04:07 -==>  Preparing: select count(*) from contract_matter WHERE myself = ? and is_delete = ? 
+2019-09-06 00:04:07 -==> Parameters: 1(Long), 0(String)
+2019-09-06 00:04:07 -<==      Total: 1
+2019-09-06 00:04:07 -耗时 : 27
+2019-09-06 00:04:07 -返回值 : com.bootdo.common.utils.PageUtils@2e54e267
+2019-09-06 00:04:37 -请求地址 : http://localhost:5555/freeContract/contract/searchlist
+2019-09-06 00:04:37 -HTTP METHOD : GET
+2019-09-06 00:04:37 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.searchList
+2019-09-06 00:04:37 -参数 : []
+2019-09-06 00:04:37 -耗时 : 0
+2019-09-06 00:04:37 -返回值 : freeContract/contract/search_list
+2019-09-06 00:04:37 -请求地址 : http://localhost:5555/common/dict/list/contract_type
+2019-09-06 00:04:37 -HTTP METHOD : GET
+2019-09-06 00:04:37 -CLASS_METHOD : com.bootdo.common.controller.DictController.listByType
+2019-09-06 00:04:37 -参数 : [contract_type]
+2019-09-06 00:04:37 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc 
+2019-09-06 00:04:37 -==> Parameters: contract_type(String)
+2019-09-06 00:04:37 -<==      Total: 7
+2019-09-06 00:04:37 -耗时 : 15
+2019-09-06 00:04:37 -返回值 : [DictDO{id=143, name='政策信贷合同', value='政策信贷合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=142, name='行政事业单位借款合同', value='行政事业单位借款合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=141, name='行政事业单位委托的科研、咨询合同', value='行政事业单位委托的科研、咨询合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=140, name='国有土地、滩涂、水域、森林、荒山、矿山等自然资源的租赁、发包、承包、出让合同', value='国有土地、滩涂、水域、森林、荒山、矿山等自然资源的租赁、发包、承包、出让合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=127, name='其他合同', value='其他合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=124, name='国有资产的建设、养护、出租、承包、买卖合同', value='国有资产的建设、养护、出租、承包、买卖合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=123, name='政府采购合同', value='政府采购合同', type='contract_type', description='合同类型', sort=null, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}]
+2019-09-06 00:04:37 -请求地址 : http://localhost:5555/ourCompany/ourCompany/findAll
+2019-09-06 00:04:37 -HTTP METHOD : GET
+2019-09-06 00:04:37 -CLASS_METHOD : com.bootdo.ourCompany.controller.OurCompanyController.list
+2019-09-06 00:04:37 -参数 : []
+2019-09-06 00:04:37 -==>  Preparing: select `ourCompanyID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from our_company order by ourCompanyID desc 
+2019-09-06 00:04:37 -==> Parameters: 
+2019-09-06 00:04:37 -<==      Total: 1
+2019-09-06 00:04:37 -耗时 : 2
+2019-09-06 00:04:37 -返回值 : {msg=操作成功, code=0, ourCompanyList=[OurCompanyDO [ourcompanyid=9, name=附属21局, type=综合, state=, account=6999999999999, legalperson=马云云, address=中国杭州, orgnizeno=98888888888888, otherpaper=, registeredcapital=, phone=13111111111, registeredtime=2003, bankname=中国银行杭州分行, mainpaper=, creatieduser=, creatiedtime=, modifieduser=, modifiedtime=]]}
+2019-09-06 00:04:37 -请求地址 : http://localhost:5555/project/project/findAll
+2019-09-06 00:04:37 -HTTP METHOD : GET
+2019-09-06 00:04:37 -CLASS_METHOD : com.bootdo.project.controller.ProjectController.findAlllist
+2019-09-06 00:04:37 -参数 : []
+2019-09-06 00:04:37 -==>  Preparing: select `pID`,`PTypeID`,`projectName`,`projectTypeID`,`sourceID`,`projectDESC`,`planCost`,`mainPaper`,`secondaryPaper`,`otherPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime`,`actualCost`,`parentID`,`planStartTime`,`startTime`,`planEndTime`,`endTime`,`state`,`projectNO`,`office`,`leader`,`myself`,`host` from project order by ? 
+2019-09-06 00:04:37 -==> Parameters: null
+2019-09-06 00:04:37 -<==      Total: 2
+2019-09-06 00:04:37 -耗时 : 40
+2019-09-06 00:04:37 -返回值 : {msg=操作成功, projectList=[ProjectDO [pid=13, ptypeid=, projectname=KFC刷脸支付服务设计项目, projecttypeid=其他项目, sourceid=自筹经费, projectdesc=这是一个大项目, plancost=500000000, mainpaper=, secondarypaper=, otherpaper=, creatieduser=, creatiedtime=, modifieduser=, modifiedtime=, actualcost=, parentid=, planstarttime=2015-07-16, starttime=, planendtime=2019-07-25, endtime=, state=正常, projectno=0006, office=建设办, leader=张翠山, myself=, host=张三丰], ProjectDO [pid=14, ptypeid=, projectname=寺库电商, projecttypeid=拨款+自筹, sourceid=自筹经费, projectdesc=大项目, plancost=96845, mainpaper=, secondarypaper=, otherpaper=, creatieduser=, creatiedtime=, modifieduser=, modifiedtime=, actualcost=, parentid=, planstarttime=2019-07-10, starttime=, planendtime=2019-07-17, endtime=, state=, projectno=, office=, leader=, myself=, host=]], code=0}
+2019-09-06 00:04:37 -请求地址 : http://localhost:5555/company/company/findAll
+2019-09-06 00:04:37 -HTTP METHOD : GET
+2019-09-06 00:04:37 -CLASS_METHOD : com.bootdo.company.controller.CompanyController.list
+2019-09-06 00:04:37 -参数 : []
+2019-09-06 00:04:37 -==>  Preparing: select `collaboratorID`,`name`,`type`,`state`,`account`,`legalPerson`,`address`,`orgnizeNO`,`otherPaper`,`registeredcapital`,`phone`,`registeredTime`,`bankName`,`mainPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime` from contract_company order by collaboratorID desc 
+2019-09-06 00:04:37 -==> Parameters: 
+2019-09-06 00:04:37 -<==      Total: 3
+2019-09-06 00:04:37 -耗时 : 54
+2019-09-06 00:04:37 -返回值 : {msg=操作成功, code=0, companyList=[CompanyDO [collaboratorid=10, name=甘肃和风矿业有限公司, type=other, state=正常, account=6500043, legalperson=梅超, address=兰州市七里河区建西东路440号, orgnizeno=95800003222, otherpaper=null, registeredcapital=10000000, phone=13111117972, registeredtime=2019-1-1, bankname=65800000000675, mainpaper=null, creatieduser=null, creatiedtime=null, modifieduser=null, modifiedtime=null], CompanyDO [collaboratorid=9, name=甘肃赛博商贸公司, type=other, state=正常, account=98666666, legalperson=梅超, address=甘肃兰州, orgnizeno=06555555555555, otherpaper=null, registeredcapital=200000000, phone=11111111111, registeredtime=2018-1-1, bankname=658000000000, mainpaper=null, creatieduser=, creatiedtime=, modifieduser=null, modifiedtime=null], CompanyDO [collaboratorid=8, name=陕西零度网络科技有限公司, type=other, state=正常, account=988888888, legalperson=库克, address=美国, orgnizeno=98211561, otherpaper=null, registeredcapital=1, phone=110, registeredtime=2004, bankname=中国银行杭州分行, mainpaper=null, creatieduser=null, creatiedtime=null, modifieduser=null, modifiedtime=null]]}
+2019-09-06 00:04:42 -请求地址 : http://localhost:5555/receive/receive
+2019-09-06 00:04:42 -HTTP METHOD : GET
+2019-09-06 00:04:42 -CLASS_METHOD : com.bootdo.receive.controller.ReceiveController.Receive
+2019-09-06 00:04:42 -参数 : []
+2019-09-06 00:04:42 -耗时 : 0
+2019-09-06 00:04:42 -返回值 : receive/receive/receive
+2019-09-06 00:04:42 -请求地址 : http://localhost:5555/receive/receive/list
+2019-09-06 00:04:42 -HTTP METHOD : GET
+2019-09-06 00:04:42 -CLASS_METHOD : com.bootdo.receive.controller.ReceiveController.list
+2019-09-06 00:04:42 -参数 : [{limit=10, offset=0}]
+2019-09-06 00:04:42 -==>  Preparing: select `receive_id`,`receive_name`,`receive_no`,`type_id`,`matter_id`,`project_id`,`contract_id`,`plan_money`,`actual_money`,`plan_date`,`actual_date`,`plan_bill`,`actual_bill`,`pay_company`,`pay_account`,`pay_bankname`,`accept_account`,`accept_company`,`pay_reason`,`accpet_bank`,`under_taker`,`checker`,`approver`,`undertaker_office`,`main_paper`,`parent_id`,`remark`,`state`,`myself`,`office`,`is_delete`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_receive order by receive_id desc limit ?, ? 
+2019-09-06 00:04:42 -==> Parameters: 0(Integer), 10(Integer)
+2019-09-06 00:04:42 -<==      Total: 1
+2019-09-06 00:04:42 -==>  Preparing: select count(*) from contract_receive 
+2019-09-06 00:04:42 -==> Parameters: 
+2019-09-06 00:04:42 -<==      Total: 1
+2019-09-06 00:04:42 -耗时 : 11
+2019-09-06 00:04:42 -返回值 : com.bootdo.common.utils.PageUtils@25e3e211
+2019-09-06 00:04:45 -请求地址 : http://localhost:5555/receive/receive/add
+2019-09-06 00:04:45 -HTTP METHOD : GET
+2019-09-06 00:04:45 -CLASS_METHOD : com.bootdo.receive.controller.ReceiveController.add
+2019-09-06 00:04:45 -参数 : []
+2019-09-06 00:04:45 -耗时 : 0
+2019-09-06 00:04:45 -返回值 : receive/receive/add
+2019-09-06 00:04:45 -请求地址 : http://localhost:5555/common/dict/list/money_type
+2019-09-06 00:04:45 -HTTP METHOD : GET
+2019-09-06 00:04:45 -CLASS_METHOD : com.bootdo.common.controller.DictController.listByType
+2019-09-06 00:04:45 -参数 : [money_type]
+2019-09-06 00:04:45 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict WHERE type = ? order by id desc 
+2019-09-06 00:04:45 -==> Parameters: money_type(String)
+2019-09-06 00:04:45 -<==      Total: 3
+2019-09-06 00:04:45 -耗时 : 4
+2019-09-06 00:04:45 -返回值 : [DictDO{id=139, name='电汇', value='2', type='money_type', description='资金的支付方式', sort=3, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=138, name='转账', value='1', type='money_type', description='资金的支付方式', sort=2, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}, DictDO{id=137, name='现金', value='0', type='money_type', description='资金的支付方式', sort=1, parentId=null, createBy=null, createDate=null, updateBy=null, updateDate=null, remarks='', delFlag='null'}]
+2019-09-06 00:04:45 -请求地址 : http://localhost:5555/freeContract/contract/getMoneyInContract
+2019-09-06 00:04:45 -HTTP METHOD : GET
+2019-09-06 00:04:45 -CLASS_METHOD : com.bootdo.freeContract.controller.ContractController.getMoneyInContract
+2019-09-06 00:04:45 -参数 : []
+2019-09-06 00:04:45 -==>  Preparing: select `contract_id`,`contract_name`,`contract_type`,`contract_no`,`project_id`,`budget_id`, `otherpart_id`,`ourpart_id`,`maincontent`,`cost`,`invatation_no`,`attorney_no`,`start_ime`,`end_time`,`place`,`paymentway`,`breach`,`resolution`,`agrement`,`remark`,`sign_date`,`parent_id`,`myself`,`mainPaper`,`model_id`,`secondaryPaper`,`otherPaper`,`need_Cost`,`actual_Cost`,`need_bill`,`actual_bill`,`money_progress`,`bill_progress`,`charger`,`office`,`state`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time`,`need_shengpi`,`contract_kind`,`document_place`,`is_delete` from contract WHERE state in ( ? , ? , ? , ? ) and myself = ? and is_delete = ? and `contract_kind` = ? order by contract_id desc 
+2019-09-06 00:04:45 -==> Parameters: 40(String), 18(String), 4(String), 15(String), 1(Long), 0(String), in(String)
+2019-09-06 00:04:45 -<==      Total: 0
+2019-09-06 00:04:45 -耗时 : 12
+2019-09-06 00:04:45 -返回值 : {msg=操作成功, code=0, contractList=[]}
+2019-09-06 00:04:45 -请求地址 : http://localhost:5555/project/project/findAll
+2019-09-06 00:04:45 -HTTP METHOD : GET
+2019-09-06 00:04:45 -CLASS_METHOD : com.bootdo.project.controller.ProjectController.findAlllist
+2019-09-06 00:04:45 -参数 : []
+2019-09-06 00:04:45 -==>  Preparing: select `pID`,`PTypeID`,`projectName`,`projectTypeID`,`sourceID`,`projectDESC`,`planCost`,`mainPaper`,`secondaryPaper`,`otherPaper`,`creatiedUser`,`creatiedTime`,`modifiedUser`,`modifiedTime`,`actualCost`,`parentID`,`planStartTime`,`startTime`,`planEndTime`,`endTime`,`state`,`projectNO`,`office`,`leader`,`myself`,`host` from project order by ? 
+2019-09-06 00:04:45 -==> Parameters: null
+2019-09-06 00:04:45 -<==      Total: 2
+2019-09-06 00:04:45 -耗时 : 7
+2019-09-06 00:04:45 -返回值 : {msg=操作成功, projectList=[ProjectDO [pid=13, ptypeid=, projectname=KFC刷脸支付服务设计项目, projecttypeid=其他项目, sourceid=自筹经费, projectdesc=这是一个大项目, plancost=500000000, mainpaper=, secondarypaper=, otherpaper=, creatieduser=, creatiedtime=, modifieduser=, modifiedtime=, actualcost=, parentid=, planstarttime=2015-07-16, starttime=, planendtime=2019-07-25, endtime=, state=正常, projectno=0006, office=建设办, leader=张翠山, myself=, host=张三丰], ProjectDO [pid=14, ptypeid=, projectname=寺库电商, projecttypeid=拨款+自筹, sourceid=自筹经费, projectdesc=大项目, plancost=96845, mainpaper=, secondarypaper=, otherpaper=, creatieduser=, creatiedtime=, modifieduser=, modifiedtime=, actualcost=, parentid=, planstarttime=2019-07-10, starttime=, planendtime=2019-07-17, endtime=, state=, projectno=, office=, leader=, myself=, host=]], code=0}

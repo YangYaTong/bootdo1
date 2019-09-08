@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+ <link rel="stylesheet" href="/css/layui.css"  media="all">
+	 <script src="/js/layui.js" charset="utf-8"></script>
+<body class="gray-bg">
+
+<div class="layui-tab">
+  <ul class="layui-tab-title">
+    <li class="layui-this">基本信息</li>
+    <li>附件上传</li>
+    <li>合同收/付款计划</li>
+
+  </ul>
+  <div class="layui-tab-content">
+  <!-- 合同基本信息 -->
+    <div class="layui-tab-item layui-show">
+    <div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">合同名称：</label>
+								<div class="col-sm-8">
+									<input id="contractName" name="contractName" class="form-control" type="text" required>
+								</div>
+							</div>			
+										<div class="form-group">
+                            <label class="col-sm-3 control-label">合同类型：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--选择类型--" name="contractType" id="contract_type"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择类型--</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">	
+								<label class="col-sm-3 control-label">资金类型：</label>
+								<div class="col-sm-8">
+								<select data-placeholder="--选择资金类型--" name="contractKind" id="contractKind"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择类型--</option>
+                                </select>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">合同编号：</label>
+								<div class="col-sm-8">
+									<input id="cintractNo" name="cintractNo" class="form-control" type="text">
+								</div>
+							</div>
+							
+							<div class="form-group">
+                            <label class="col-sm-3 control-label">所属项目：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--选择类型--" name="projectId" id="projectId"
+                                        class="form-control chosen-select" tabindex="2" >
+                                    <option value="">--选择项目--</option>
+                                </select>
+                            </div>
+                        </div>
+							
+							<div class="form-group">
+                            <label class="col-sm-3 control-label">对方公司：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--选择类型--" name="otherpartId" id="opposite_company"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择公司--</option>
+                                </select>
+                            </div>
+                        </div>
+							<div class="form-group">
+                            <label class="col-sm-3 control-label">我方公司：</label>
+                            <div class="col-sm-8">
+                                <select data-placeholder="--选择类型--" name="ourpartId" id="our_company"
+                                        class="form-control chosen-select" tabindex="2" required>
+                                    <option value="">--选择公司--</option>
+                                </select>
+                            </div>
+                        </div>
+							
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">主要条款：</label>
+								<div class="col-sm-8">
+									<input id="maincontent" name="maincontent" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">金额：</label>
+								<div class="col-sm-8">
+									<input id="cost" name="cost" class="form-control"  onchange="this.value=cc(this.value)" type="text" required>
+								</div>
+							</div>
+							
+							
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">开始时间：</label>
+								<div class="col-sm-8">
+                                    <input type="text" class="laydate-icon  form-control" id="startIme" name="startIme"  placeholder="请选择开始时间"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly"/>
+                                </div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">结束时间：</label>
+								<div class="col-sm-8">
+                                    <input type="text" class="laydate-icon  form-control" id="endTime" name="endTime"  placeholder="请选择结束时间"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly"/>
+                                </div>
+							</div>
+							
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">约定履行地：</label>
+								<div class="col-sm-8">
+									<input id="place" name="place" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款方式：</label>
+								<div class="col-sm-8">
+									<input id="paymentway" name="paymentway" class="form-control" type="text">
+								</div>
+							</div>
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">争议解决方式：</label>
+								<div class="col-sm-8">
+									<input id="resolution" name="resolution" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">双方一直条款：</label>
+								<div class="col-sm-8">
+									<input id="agrement" name="agrement" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">备注：</label>
+								<div class="col-sm-8">
+									<input id="remark" name="remark" class="form-control" type="text">
+								</div>
+							</div>
+														
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">主要附件：</label>
+								<div class="col-sm-8">
+									<input id="mainpaper" name="mainpaper" class="form-control" type="text">
+								</div>
+							</div>
+							
+								<div class="form-group">	
+                                <label class="col-sm-3 control-label">是否需要审批：</label>
+                                <div class="col-sm-8" >
+                                
+                                        <label > 是<input id="checkbox1"
+                                                type="radio" name="needShengpi" value="1"  checked="checked"/>
+                                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label > 否<input id="checkbox2"
+                                                type="radio" name="needShengpi" value="0"  />
+                                        </label>
+                                
+                                   
+                                </div>
+                            </div>
+									<div class="form-group"  id="div_state" style="display:none;" >	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+    </div>
+    <!-- 合同附件上传 -->
+    <div class="layui-tab-item">
+<div class="layui-upload">
+  <button type="button" class="layui-btn layui-btn-normal" id="testList">选择多文件</button> 
+  <div class="layui-upload-list">
+    <table class="layui-table">
+      <thead>
+        <tr><th>文件名</th>
+        <th>大小</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr></thead>
+      <tbody id="demoList"></tbody>
+    </table>
+  </div>
+  <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+</div> 
+
+</div>
+
+
+
+
+
+  </div>
+</div>     
+      
+
+	<div th:include="include::footer"></div>
+
+	<script type="text/javascript" src="/js/appjs/freeContract/contract/add.js">
+	</script>
+	<!--  金额转换-->
+	  	<script>
+function cc(s){
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        s=s.replace(".",",");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s))
+                s=s.replace(re,"$1,$2");
+        s=s.replace(/,(\d\d)$/,".$1");
+        return "￥" + s.replace(/^\./,"0.")
+        }
+</script>
+		<script type="text/javascript">
+	
+		var pictureIds =[];
+	
+	layui.use('element', function(){
+		  var $ = layui.jquery
+		  ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+		  
+		  //触发事件
+		  var active = {
+		    tabAdd: function(){
+		      //新增一个Tab项
+		      element.tabAdd('demo', {
+		        title: '新选项'+ (Math.random()*1000|0) //用于演示
+		        ,content: '内容'+ (Math.random()*1000|0)
+		        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+		      })
+		    }
+		    
+		    ,tabChange: function(){
+		      //切换到指定Tab项
+		      element.tabChange('demo', '22'); //切换到：用户管理
+		    }
+		  };
+		  
+		  $('.site-demo-active').on('click', function(){
+		    var othis = $(this), type = othis.data('type');
+		    active[type] ? active[type].call(this, othis) : '';
+		  });
+		  
+		  //Hash地址的定位
+		  var layid = location.hash.replace(/^#test=/, '');
+		  element.tabChange('test', layid);
+		  
+		  element.on('tab(test)', function(elem){
+		    location.hash = 'test='+ $(this).attr('lay-id');
+		  });
+		  
+		});
+	
+	
+	</script>
+	
+<script type="text/javascript">
+	
+	//多文件列表示例
+layui.use('upload', function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+ 
+	  var demoListView = $('#demoList')
+	  ,uploadListIns = upload.render({
+	    elem: '#testList'
+	    ,url: '/anexes/annexes/upload/'
+	    ,accept: 'file'
+	    ,multiple: true
+	    ,auto: false
+	    ,bindAction: '#testListAction'
+	    ,choose: function(obj){   
+	      var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+	      //读取本地文件
+	      obj.preview(function(index, file, result){
+	        var tr = $(['<tr id="upload-'+ index +'">'
+	          ,'<td>'+ file.name +'</td>'
+	          ,'<td>'+ (file.size/1014).toFixed(1) +'kb</td>'
+	          ,'<td>等待上传</td>'
+	          ,'<td>'
+	            ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+	            ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+	          ,'</td>'
+	        ,'</tr>'].join(''));
+	        
+	        //单个重传
+	        tr.find('.demo-reload').on('click', function(){
+	          obj.upload(index, file);
+	        });
+	        
+	        //删除
+	        tr.find('.demo-delete').on('click', function(){
+	          delete files[index]; //删除对应的文件
+	          tr.remove();
+	          uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+	        });
+	        
+	        demoListView.append(tr);
+	      });
+	    }
+	    ,done: function(res, index, upload){
+	    	
+	      if(res.code == 0){ //上传成功
+	    	  pictureIds.push(res.id);
+	
+	        var tr = demoListView.find('tr#upload-'+ index)
+	        ,tds = tr.children();
+	        tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+	        var id = res.id;
+	        tds.eq(3).html('<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete" onclick="removeUpload('+id+')">删除</button>'); //清空操作
+	        
+	        return delete this.files[index]; //删除文件队列已经上传成功的文件
+	      }
+	      this.error(index, upload);
+	    }
+	    ,error: function(index, upload){
+	      var tr = demoListView.find('tr#upload-'+ index)
+	      ,tds = tr.children();
+	      tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+	      tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+	    }
+	  });
+	  
+});
+
+ function removeUpload(id) {
+	
+	 layer.confirm('确定要删除选中的记录？', {
+	        btn: ['确定', '取消']
+	    }, function () {
+	        $.ajax({
+	            url: "/anexes/annexes/remove",
+	            type: "post",
+	            data: {
+	                'id': id
+	            },
+	            success: function (r) {
+	            	pictureIds.splice(jQuery.inArray(id,pictureIds),1);
+	            	alert(pictureIds);
+	                if (r.code == 0) {
+	                   alert(r.msg);
+	                    //app.getData();
+	                } else {
+	                    layer.msg(r.msg);
+	                    //app.getData();
+	                }
+	            }
+	        });
+	    })
+}
+ 
+
+	
+/* 	
+removeUpload: function (id) {
+    layer.confirm('确定要删除选中的记录？', {
+        btn: ['确定', '取消']
+    }, function () {
+        $.ajax({
+            url: "/anexes/annexes/remove",
+            type: "post",
+            data: {
+                'id': id
+            },
+            success: function (r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                    app.getData();
+                } else {
+                    layer.msg(r.msg);
+                    app.getData();
+                }
+            }
+        });
+    })
+    
+} */
+</script>	
+	
+	
+	
+	
+	
+	
+
+</body>
+</html>

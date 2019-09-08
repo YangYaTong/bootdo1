@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar">
+						<div class="columns pull-left"></div>
+						<div class="columns pull-right">
+
+							<button class="btn btn-success" onclick="load()">查询</button>
+							<button type="button" class="btn btn-primary"
+								onclick="exportExcel()">
+								<i class="fa fa-export" aria-hidden="true"></i>导出数据
+							</button>
+						</div>
+					</div>
+
+
+					<div>
+
+						<br> <br> <br>
+						<form class="bs-example bs-example-form" role="form" id="search_form">
+							<span class="glyphicon glyphicon-search"></span> 请输入查询条件
+							<div class="input-group">
+								<span class="input-group-addon">合同名称</span> <input type="text"
+									class="form-control" id="search_name" name="search_name"
+									placeholder="请输入要查询的合同名称">
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">合同编号</span> <input type="text"
+									class="form-control" id="search_no" name="search_no"
+									placeholder="请输入要查询的合同编号">
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">开始时间</span> <input type="text"
+									class="laydate-icon  form-control" id="search_starttime"
+									name="search_starttime" placeholder="请选择开始时间"
+									onclick="laydate({istime: true, format: 'YYYY-MM-DD'})"
+									style="background-color: #fff;" readonly="readonly" />
+
+
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">结束时间</span> <input type="text"
+									class="laydate-icon  form-control" id="search_endtime"
+									name="search_endtime" placeholder="请选择开始时间"
+									onclick="laydate({istime: true, format: 'YYYY-MM-DD'})"
+									style="background-color: #fff;" readonly="readonly" />
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">合同金额（起）</span> <input
+									type="text" class="form-control" id="min_money"
+									name="min_money" placeholder="请输入要查询的合同金额（起）">
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">合同金额（止）</span> <input
+									type="text" class="form-control" id="max_money"
+									name="max_money" placeholder="请输入要查询的合同金额（止）">
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">甲方（我方）</span> <select
+									type="text" class="form-control" id="search_our"
+									name="search_our">
+									<option value="">----请选择要查询的合同主体（对方）----</option>
+								</select>
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">乙方（对方）</span> <select
+									type="text" class="form-control" id="search_opposite"
+									name="search_opposite">
+									<option value="">----请选择要查询的合同主体（对方）----</option>
+								</select>
+							</div>
+
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">所属项目</span> <select type="text"
+									class="form-control" id="search_project" name="search_project">
+									<option value="">----请选择要查询的合同所属项目----</option>
+								</select>
+							</div>
+
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">合同类型</span> <select type="text"
+									class="form-control" id="search_type" name="search_type">
+									<option value="">----请选择要查询的合同类型----</option>
+								</select>
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon">签署时间</span> <input type="text"
+									class="laydate-icon  form-control" id="sign_date"
+									name="sign_date" placeholder="请选择签署时间"
+									onclick="laydate({istime: true, format: 'YYYY-MM-DD'})"
+									style="background-color: #fff;" readonly="readonly" />
+							</div>
+
+						</form>
+					</div>
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--shiro控制bootstraptable行内按钮看见性 来自bootdo的创新方案 -->
+	<div>
+		<script type="text/javascript">
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_resetPwd_h = 'hidden';
+			</script>
+	</div>
+	<div>
+		<script type="text/javascript">
+				s_edit_h = '';
+			</script>
+	</div>
+	<div>
+		<script type="text/javascript">
+				 s_remove_h = '';
+			</script>
+	</div>
+	<div>
+		<script type="text/javascript">
+				 s_resetPwd_h = '';
+			</script>
+	</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript"
+		src="/js/appjs/freeContract/contract/search_list.js"></script>
+</body>
+</html>

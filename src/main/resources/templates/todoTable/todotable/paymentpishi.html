@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="pishiForm">
+						<input id="todotable_id" name="todotableId" th:value="${todotable.todotableId}"  type="hidden">
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<span class="text-primary" th:text="${payment.paymentName}" ></span>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款方式：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.paytypeId}" ></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">所属合同：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.contractId}" ></span>
+								
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划付款金额：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.planMoney}" ></span>
+								
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划付款日期：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.planDate}" ></span>
+									
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">收款公司：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.acceptCompany}" ></span>
+									
+								</div>
+							</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">付款原由：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${payment.payReason}" ></span>
+									
+								</div>
+							</div>
+														
+							
+														<div class="form-group">	
+								<label class="col-sm-3 control-label text-err">批复结论：</label>
+								<div class="col-sm-8">
+								<div class="radio">
+									<label>
+										<input type="radio" name="result" id="optionsRadios1" value="yes" checked>
+											同意
+										</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input type="radio" name="result" id="optionsRadios2" value="no">
+											不同意
+									</label>
+								</div>				
+			
+								
+								</div>
+							</div>
+							
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">批复意见：</label>
+								<div class="col-sm-8">
+								
+									<textarea class="form-control" id="opinion" name="opinion" rows="8" style="min-width: 90%"></textarea>
+								</div>
+							</div>
+							
+							<div class="form-group">	
+                                <label class="col-sm-3 control-label">是否需要继续上报：</label>
+                                <div class="col-sm-8" >
+                                
+                                        <label > 是<input id="checkbox1"
+                                                type="radio" name="needShengpi" value="1"  />
+                                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label > 否<input id="checkbox2"
+                                                type="radio" name="needShengpi" value="0" checked="checked" />
+                                        </label>
+                                
+                                   
+                                </div>
+                            </div>
+									
+	
+							 <div class="form-group" id="div_state" style="display:none;">
+                            <label class="col-sm-3 control-label">接收人：</label>
+                            <div class="col-sm-8">
+                                <input id="userIds" name="receiveUser" class="hidden">
+                                <input id="userNames" name="userNames" class="form-control"
+                                        type="text" onclick="openUser()"
+                                        readonly="readonly" placeholder="接收人">
+                            </div>
+                        </div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="button" class="btn btn-primary" onclick="pishi()">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/todoTable/todotable/paymentpishi.js">
+	</script>
+</body>
+</html>

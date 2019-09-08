@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="collaboratorID" name="collaboratorid" th:value="${company.collaboratorid}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">单位名称：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" th:value="${company.name}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单位类型：</label>
+								<div class="col-sm-8">
+									<input id="type" name="type" th:value="${company.type}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单位状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" th:value="${company.state}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单位对公账号：</label>
+								<div class="col-sm-8">
+									<input id="account" name="account" th:value="${company.account}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单位法定代表人：</label>
+								<div class="col-sm-8">
+									<input id="legalperson" name="legalperson" th:value="${company.legalperson}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">单位地址：</label>
+								<div class="col-sm-8">
+									<input id="address" name="address" th:value="${company.address}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">组织机构代码：</label>
+								<div class="col-sm-8">
+									<input id="orgnizeno" name="orgnizeno" th:value="${company.orgnizeno}" class="form-control" type="text">
+								</div>
+							</div>
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">注册资本：</label>
+								<div class="col-sm-8">
+									<input id="registeredcapital" name="registeredcapital" th:value="${company.registeredcapital}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系电话：</label>
+								<div class="col-sm-8">
+									<input id="phone" name="phone" th:value="${company.phone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">注册时间：</label>
+								<div class="col-sm-8">
+									<input id="registeredtime" name="registeredtime" th:value="${company.registeredtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">开户银行：</label>
+								<div class="col-sm-8">
+									<input id="bankname" name="bankname" th:value="${company.bankname}" class="form-control" type="text">
+								</div>
+							</div>
+													
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建人：</label>
+								<div class="col-sm-8">
+									<input id="creatieduser" name="creatieduser" th:value="${company.creatieduser}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建时间：</label>
+								<div class="col-sm-8">
+									<input id="creatiedtime" name="creatiedtime" th:value="${company.creatiedtime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/company/company/edit.js">
+	</script>
+</body>
+</html>

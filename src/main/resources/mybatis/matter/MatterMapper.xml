@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.matter.dao.MatterDao">
+
+	<select id="get" resultType="com.bootdo.matter.domain.MatterDO">
+		select
+		`matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete`
+		from contract_matter where matter_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.matter.domain.MatterDO">
+		select
+		`matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete`
+		from contract_matter
+		<where>
+			<if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+			<if test="matterName != null and matterName != ''"> and matter_name = #{matterName} </if>
+			<if test="matterDate != null and matterDate != ''"> and matter_date = #{matterDate} </if>
+			<if test="matterPlace != null and matterPlace != ''"> and matter_place = #{matterPlace} </if>
+			<if test="matterPeople != null and matterPeople != ''"> and matter_people = #{matterPeople} </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="office != null and office != ''"> and office = #{office} </if>
+			<if test="matterType != null and matterType != ''"> and matter_type = #{matterType} </if>
+			<if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+			<if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+			<if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+			<if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+			<if test="billCost != null and billCost != ''"> and bill_cost = #{billCost} </if>
+			<if test="matterCost != null and matterCost != ''"> and matter_cost = #{matterCost} </if>
+			<if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="planDate != null and planDate != ''"> and plan_date = #{planDate} </if>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+			<if test="needRemind != null and needRemind != ''"> and need_remind = #{needRemind} </if>
+			<if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by matter_id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from contract_matter
+		<where>
+			<if test="matterId != null and matterId != ''"> and matter_id = #{matterId} </if>
+			<if test="matterName != null and matterName != ''"> and matter_name = #{matterName} </if>
+			<if test="matterDate != null and matterDate != ''"> and matter_date = #{matterDate} </if>
+			<if test="matterPlace != null and matterPlace != ''"> and matter_place = #{matterPlace} </if>
+			<if test="matterPeople != null and matterPeople != ''"> and matter_people = #{matterPeople} </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="office != null and office != ''"> and office = #{office} </if>
+			<if test="matterType != null and matterType != ''"> and matter_type = #{matterType} </if>
+			<if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+			<if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+			<if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+			<if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+			<if test="billCost != null and billCost != ''"> and bill_cost = #{billCost} </if>
+			<if test="matterCost != null and matterCost != ''"> and matter_cost = #{matterCost} </if>
+			<if test="contractId != null and contractId != ''"> and contract_id = #{contractId} </if>
+			<if test="projectId != null and projectId != ''"> and project_id = #{projectId} </if>
+			<if test="planDate != null and planDate != ''"> and plan_date = #{planDate} </if>
+			<if test="state != null and state != ''"> and state = #{state} </if>
+			<if test="needRemind != null and needRemind != ''"> and need_remind = #{needRemind} </if>
+			<if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		</where>
+	</select>
+
+	<insert id="save"
+		parameterType="com.bootdo.matter.domain.MatterDO"
+		useGeneratedKeys="true" keyProperty="matterId">
+		insert into contract_matter
+		(
+		`matter_name`,
+		`matter_date`,
+		`matter_place`,
+		`matter_people`,
+		`myself`,
+		`office`,
+		`matter_type`,
+		`creatied_time`,
+		`creatied_user`,
+		`modified_time`,
+		`modified_user`,
+		`bill_cost`,
+		`matter_cost`,
+		`contract_id`,
+		`project_id`,
+		`plan_date`,
+		`state`,
+		`need_remind`,
+		`is_delete`
+		)
+		values
+		(
+		#{matterName},
+		#{matterDate},
+		#{matterPlace},
+		#{matterPeople},
+		#{myself},
+		#{office},
+		#{matterType},
+		#{creatiedTime},
+		#{creatiedUser},
+		#{modifiedTime},
+		#{modifiedUser},
+		#{billCost},
+		#{matterCost},
+		#{contractId},
+		#{projectId},
+		#{planDate},
+		#{state},
+		#{needRemind},
+		#{isDelete}
+		)
+	</insert>
+
+	<update id="update"
+		parameterType="com.bootdo.matter.domain.MatterDO">
+		update contract_matter
+		<set>
+			<if test="matterName != null">`matter_name` = #{matterName}, </if>
+			<if test="matterDate != null">`matter_date` = #{matterDate}, </if>
+			<if test="matterPlace != null">`matter_place` = #{matterPlace}, </if>
+			<if test="matterPeople != null">`matter_people` = #{matterPeople}, </if>
+			<if test="myself != null">`myself` = #{myself}, </if>
+			<if test="office != null">`office` = #{office}, </if>
+			<if test="matterType != null">`matter_type` = #{matterType}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="billCost != null">`bill_cost` = #{billCost}, </if>
+			<if test="matterCost != null">`matter_cost` = #{matterCost}, </if>
+			<if test="contractId != null">`contract_id` = #{contractId}, </if>
+			<if test="projectId != null">`project_id` = #{projectId}, </if>
+			<if test="planDate != null">`plan_date` = #{planDate}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="needRemind != null">`need_remind` = #{needRemind}, </if>
+			<if test="isDelete != null">`is_delete` = #{isDelete}</if>
+		</set>
+		where matter_id = #{matterId}
+	</update>
+
+	<delete id="remove">
+		delete from contract_matter where matter_id =
+		#{value}
+	</delete>
+
+	<delete id="batchRemove">
+		delete from contract_matter where matter_id in
+		<foreach item="matterId" collection="array" open="("
+			separator="," close=")">
+			#{matterId}
+		</foreach>
+	</delete>
+
+	<select id="listByNeedRemind"
+		resultType="com.bootdo.matter.domain.MatterDO">
+		select
+		`matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete`
+		from contract_matter
+		where
+		need_remind = #{needRemind}
+		and `is_delete`=0
+
+		order by
+		matter_id
+	</select>
+
+	<select id="listByContractId"
+		resultType="com.bootdo.matter.domain.MatterDO">
+		select
+		`matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete`
+		from contract_matter
+		where
+		contract_id = #{contractId}
+		and `is_delete`=0
+
+		order by
+		matter_id
+	</select>
+
+		<update id="batchRemoveByContractIds"
+		parameterType="com.bootdo.matter.domain.MatterDO">
+		update contract_matter
+		set `is_delete` = 1
+
+		 where contract_id =
+		<foreach item="contractId" collection="array" open="("
+			separator="," close=")">
+			#{contractId}
+		</foreach>
+	</update>
+
+	<select id="listUnfinishedMatterByYear"
+		resultType="com.bootdo.matter.domain.MatterDO">
+		select
+		`matter_id`,`matter_name`,`matter_date`,`matter_place`,`matter_people`,`myself`,`office`,`matter_type`,`creatied_time`,`creatied_user`,`modified_time`,`modified_user`,`bill_cost`,`matter_cost`,`contract_id`,`project_id`,`plan_date`,`state`,`need_remind`,`is_delete`
+		from contract_matter
+		<where>
+			<if test="time != null and time != ''"> and plan_date like concat(#{time},"%") </if>
+			<if test="myself != null and myself != ''"> and myself = #{myself} </if>
+			<if test="state != null and state != ''"> and state != #{state} </if>
+			<if test="deptId != null and deptId != ''"> and office = #{deptId} </if>
+			and `is_delete`=0
+		</where>
+
+
+		order by
+		matter_id
+	</select>
+
+	<update id="isDeleteRemove"
+		parameterType="com.bootdo.matter.domain.MatterDO">
+		update contract_matter
+		set `is_delete` = 1
+
+		where matter_id = #{matterId}
+	</update>
+
+	<update id="isDeletebatchRemove"
+		parameterType="com.bootdo.matter.domain.MatterDO">
+		update contract_matter
+		set `is_delete` = 1
+
+		where matter_id in
+		<foreach item="matterId" collection="array" open="("
+			separator="," close=")">
+			#{matterId}
+		</foreach>
+	</update>
+
+</mapper>

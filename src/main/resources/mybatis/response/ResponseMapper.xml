@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.response.dao.ResponseDao">
+
+	<select id="get" resultType="com.bootdo.response.domain.ResponseDO">
+		select `response_id`,`relative_id`,`response_name`,`response_type`,`response_kind`,`response_from`,`maker`,`opinion`,`result`,`state`,`paper_path`,`need_shengpi`,`parent_id`,`response_Money`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_response where response_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.response.domain.ResponseDO">
+		select `response_id`,`relative_id`,`response_name`,`response_type`,`response_kind`,`response_from`,`maker`,`opinion`,`result`,`state`,`paper_path`,`need_shengpi`,`parent_id`,`response_Money`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_response
+        <where>  
+		  		  <if test="responseId != null and responseId != ''"> and response_id = #{responseId} </if>
+		  		  <if test="relativeId != null and relativeId != ''"> and relative_id = #{relativeId} </if>
+		  		  <if test="responseName != null and responseName != ''"> and response_name = #{responseName} </if>
+		  		  <if test="responseType != null and responseType != ''"> and response_type = #{responseType} </if>
+		  		  <if test="responseKind != null and responseKind != ''"> and response_kind = #{responseKind} </if>
+		  		  <if test="responseFrom != null and responseFrom != ''"> and response_from = #{responseFrom} </if>
+		  		  <if test="maker != null and maker != ''"> and maker = #{maker} </if>
+		  		  <if test="opinion != null and opinion != ''"> and opinion = #{opinion} </if>
+		  		  <if test="result != null and result != ''"> and result = #{result} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="paperPath != null and paperPath != ''"> and paper_path = #{paperPath} </if>
+		  		  <if test="needShengpi != null and needShengpi != ''"> and need_shengpi = #{needShengpi} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="responseMoney != null and responseMoney != ''"> and response_Money = #{responseMoney} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by response_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from contract_response
+		 <where>  
+		  		  <if test="responseId != null and responseId != ''"> and response_id = #{responseId} </if>
+		  		  <if test="relativeId != null and relativeId != ''"> and relative_id = #{relativeId} </if>
+		  		  <if test="responseName != null and responseName != ''"> and response_name = #{responseName} </if>
+		  		  <if test="responseType != null and responseType != ''"> and response_type = #{responseType} </if>
+		  		  <if test="responseKind != null and responseKind != ''"> and response_kind = #{responseKind} </if>
+		  		  <if test="responseFrom != null and responseFrom != ''"> and response_from = #{responseFrom} </if>
+		  		  <if test="maker != null and maker != ''"> and maker = #{maker} </if>
+		  		  <if test="opinion != null and opinion != ''"> and opinion = #{opinion} </if>
+		  		  <if test="result != null and result != ''"> and result = #{result} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="paperPath != null and paperPath != ''"> and paper_path = #{paperPath} </if>
+		  		  <if test="needShengpi != null and needShengpi != ''"> and need_shengpi = #{needShengpi} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="responseMoney != null and responseMoney != ''"> and response_Money = #{responseMoney} </if>
+		  		  <if test="creatiedUser != null and creatiedUser != ''"> and creatied_user = #{creatiedUser} </if>
+		  		  <if test="creatiedTime != null and creatiedTime != ''"> and creatied_time = #{creatiedTime} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.response.domain.ResponseDO" useGeneratedKeys="true" keyProperty="responseId">
+		insert into contract_response
+		(
+			`relative_id`, 
+			`response_name`, 
+			`response_type`, 
+			`response_kind`, 
+			`response_from`, 
+			`maker`, 
+			`opinion`, 
+			`result`, 
+			`state`, 
+			`paper_path`, 
+			`need_shengpi`, 
+			`parent_id`, 
+			`response_Money`, 
+			`creatied_user`, 
+			`creatied_time`, 
+			`modified_user`, 
+			`modified_time`
+		)
+		values
+		(
+			#{relativeId}, 
+			#{responseName}, 
+			#{responseType}, 
+			#{responseKind}, 
+			#{responseFrom}, 
+			#{maker}, 
+			#{opinion}, 
+			#{result}, 
+			#{state}, 
+			#{paperPath}, 
+			#{needShengpi}, 
+			#{parentId}, 
+			#{responseMoney}, 
+			#{creatiedUser}, 
+			#{creatiedTime}, 
+			#{modifiedUser}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.response.domain.ResponseDO">
+		update contract_response 
+		<set>
+			<if test="relativeId != null">`relative_id` = #{relativeId}, </if>
+			<if test="responseName != null">`response_name` = #{responseName}, </if>
+			<if test="responseType != null">`response_type` = #{responseType}, </if>
+			<if test="responseKind != null">`response_kind` = #{responseKind}, </if>
+			<if test="responseFrom != null">`response_from` = #{responseFrom}, </if>
+			<if test="maker != null">`maker` = #{maker}, </if>
+			<if test="opinion != null">`opinion` = #{opinion}, </if>
+			<if test="result != null">`result` = #{result}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="paperPath != null">`paper_path` = #{paperPath}, </if>
+			<if test="needShengpi != null">`need_shengpi` = #{needShengpi}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="responseMoney != null">`response_Money` = #{responseMoney}, </if>
+			<if test="creatiedUser != null">`creatied_user` = #{creatiedUser}, </if>
+			<if test="creatiedTime != null">`creatied_time` = #{creatiedTime}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where response_id = #{responseId}
+	</update>
+	
+	<delete id="remove">
+		delete from contract_response where response_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from contract_response where response_id in 
+		<foreach item="responseId" collection="array" open="(" separator="," close=")">
+			#{responseId}
+		</foreach>
+	</delete>
+	<select id="listByResponseKindAndRetiveId" resultType="com.bootdo.response.domain.ResponseDO">
+		select `response_id`,`relative_id`,`response_name`,`response_type`,`response_kind`,`response_from`,`maker`,`opinion`,`result`,`state`,`paper_path`,`need_shengpi`,`parent_id`,`response_Money`,`creatied_user`,`creatied_time`,`modified_user`,`modified_time` from contract_response
+        where relative_id=#{relativeId}
+        and response_kind = #{responseKind}
+        order by response_id desc
+	</select>
+	
+	
+	
+	
+
+</mapper>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">月份（-1表示改数据是年度数据）：</label>
+								<div class="col-sm-8">
+									<input id="month" name="month" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度：</label>
+								<div class="col-sm-8">
+									<input id="year" name="year" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际发生额：</label>
+								<div class="col-sm-8">
+									<input id="actualMoney" name="actualMoney" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划发生额：</label>
+								<div class="col-sm-8">
+									<input id="planMoney" name="planMoney" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资金流入：</label>
+								<div class="col-sm-8">
+									<input id="in" name="in" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资金流出：</label>
+								<div class="col-sm-8">
+									<input id="out" name="out" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际流入总额：</label>
+								<div class="col-sm-8">
+									<input id="actualTotalIn" name="actualTotalIn" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划流入总额：</label>
+								<div class="col-sm-8">
+									<input id="planTotalIn" name="planTotalIn" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">实际流出总额：</label>
+								<div class="col-sm-8">
+									<input id="actualTotalOut" name="actualTotalOut" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划流出总额：</label>
+								<div class="col-sm-8">
+									<input id="planTotalOut" name="planTotalOut" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度预算总收入额：</label>
+								<div class="col-sm-8">
+									<input id="budgetIn" name="budgetIn" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">年度预算总支出额：</label>
+								<div class="col-sm-8">
+									<input id="budgetOut" name="budgetOut" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">分类1：</label>
+								<div class="col-sm-8">
+									<input id="classify1" name="classify1" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">分类2：</label>
+								<div class="col-sm-8">
+									<input id="classify2" name="classify2" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">经费原由-合同：</label>
+								<div class="col-sm-8">
+									<input id="contractid" name="contractid" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">运费原由-计划事项：</label>
+								<div class="col-sm-8">
+									<input id="matterId" name="matterId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">经费原由-工程：</label>
+								<div class="col-sm-8">
+									<input id="parojectId" name="parojectId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建者：</label>
+								<div class="col-sm-8">
+									<input id="creatiedUser" name="creatiedUser" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录创建时间：</label>
+								<div class="col-sm-8">
+									<input id="creatiedTime" name="creatiedTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改者：</label>
+								<div class="col-sm-8">
+									<input id="modifiedUser" name="modifiedUser" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">记录修改时间：</label>
+								<div class="col-sm-8">
+									<input id="modifiedTime" name="modifiedTime" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/moneyPool/moneyPool/add.js">
+	</script>
+</body>
+</html>

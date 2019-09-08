@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="matterId" name="matterId" th:value="${matter.matterId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">事项名：</label>
+								<div class="col-sm-8">
+									<input id="matterName" name="matterName" th:value="${matter.matterName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">地点：</label>
+								<div class="col-sm-8">
+									<input id="matterPlace" name="matterPlace" th:value="${matter.matterPlace}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">执行人：</label>
+								<div class="col-sm-8">
+									<input id="matterPeople" name="matterPeople" th:value="${matter.matterPeople}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">事项类型：</label>
+								<div class="col-sm-8">
+									<input id="matterType" name="matterType" th:value="${matter.matterType}" class="form-control" type="text">
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">计划时间：</label>
+								<div class="col-sm-8">
+									 <input type="text" class="laydate-icon  form-control" id="planDate" name="planDate"  placeholder="请选择开始时间"
+                                           onclick="laydate({istime: true, format: 'YYYY-MM-DD'})" style="background-color: #fff;" readonly="readonly"/>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">金额：</label>
+								<div class="col-sm-8">
+								
+									<input id="matterCost" name="matterCost" th:value="${matter.matterCost}"  onchange="this.value=cc(this.value)" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">所属合同：</label>
+								<div class="col-sm-8">
+									<input id="contractId" name="contractId" th:value="${matter.contractId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">所属项目：</label>
+								<div class="col-sm-8">
+									<input id="projectId" name="projectId" th:value="${matter.projectId}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/matter/matter/edit.js">
+	</script>
+		<script>
+function cc(s){
+        if(/[^0-9\.]/.test(s)) return "invalid value";
+        s=s.replace(/^(\d*)$/,"$1.");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
+        s=s.replace(".",",");
+        var re=/(\d)(\d{3},)/;
+        while(re.test(s))
+                s=s.replace(re,"$1,$2");
+        s=s.replace(/,(\d\d)$/,".$1");
+        return "￥" + s.replace(/^\./,"0.")
+        }
+</script>
+</body>
+</html>

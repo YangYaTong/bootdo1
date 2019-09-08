@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="remind_id" name="remindId" th:value="${remind.remindId}"  type="hidden">
+						<input id="remind_remark" name="remindRemark" th:value="${remind.remark}"  type="hidden">
+						<input id="remind_type" name="remindType" th:value="${remind.remindType}"  type="hidden">
+						<input id="matter_id" name="matterId" th:value="${remind.matterId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label text-success">消息名称：</label>
+							
+								<div class="col-sm-8">
+									<span class="text-primary" th:text="${remind.remindName}"></span>
+									
+								</div>
+							</div>
+														
+														<div class="form-group">	
+								<label class="col-sm-3 control-label text-success">所属合同：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${remind.contractId}"></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label text-success">所属合同计划：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${remind.matterId}"></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label text-success">金额：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${remind.remindMoney}"></span>
+									
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label text-success">提醒时间：</label>
+								<div class="col-sm-8">
+								<span class="text-primary" th:text="${remind.remindDate}"></span>
+									
+								</div>
+							</div>
+							
+								<div class="form-group">
+									<div class="col-sm-8">
+								   <span class="input-group-add99on">
+       						 <input type="checkbox" name="noRemind" id="noRemind" >取消提醒
+     							 </span>
+     							 </div>
+								
+								</div>
+							
+							<div class="form-group">
+									<div class="col-sm-8">
+								   <span class="input-group-add99on">
+       						 <input type="checkbox" name="toPage" id="toPage"  >跳转至执行页面
+     							 </span>
+     							 </div>
+								
+								</div>
+   
+    
+     
+  
+														
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="button" class="btn btn-primary" onclick="dosome()">确定</button> 
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/contractRemind/remind/toSee.js">
+	</script>
+</body>
+</html>

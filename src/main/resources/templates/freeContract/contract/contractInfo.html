@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+				<!-- 	<div class="fixed-table-toolbar">
+						<div class="columns pull-left">
+							<button  type="button" class="btn  btn-primary" onclick="add()">
+								<i class="fa fa-plus" aria-hidden="true"></i>添加
+							</button>
+							<button  type="button" class="btn  btn-danger"
+								onclick="batchRemove()">
+								<i class="fa fa-trash" aria-hidden="true"></i>删除
+							</button>
+						</div>
+						<div class="columns pull-right">
+						<button type="button" class="btn btn-primary" onclick="exportExcel()">
+								<i class="fa fa-export" aria-hidden="true" ></i>导出数据
+							</button>
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+						</div>
+						<div class="columns pull-right col-md-2 nopadding">
+							<input id="searchName" type="text" class="form-control"
+								placeholder="">
+						</div>
+
+					</div> -->
+											
+				
+				
+					
+				
+					
+
+				</div>
+			</div>
+		</div>
+		 <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-primary">
+                                 
+                                    <div class="wigdet-two-content text-white">
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">本部门全年【收入型合同】总金额：</p>
+                                        <h2 class="text-white"><span data-plugin="counterup" >52410 </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+										<p class="m-0"><b>预算剩余：</b> 30.4k</p> 
+                                    </div>
+                                </div>
+                            </div>
+		
+		<div id ="contract_info_div">
+			<table id="contract_info"  border="1px solid #ccc"  >
+					</table>	
+		</div>
+		<div id="contract_annexes_div">
+			<table id="contract_annexes"  border="1px solid #ccc"   >
+					<caption>附件列表</caption>
+					<thead id="annexes_thead">
+					
+					</thead>
+					<tbody id="annexes_tbody"></tbody>
+					
+					</table>
+		
+		</div>
+		
+		
+		
+		<div id="contract_response_div">
+			<table id="response_table"  border="1px solid #ccc"   >
+					<caption>批示详情列表</caption>
+					<thead id="response_thead">
+					</thead>
+					<tbody id="response_tbody"></tbody>
+					</table>
+		</div>
+		
+		
+		<div id="contract_Money_div">
+			<table id="response_table"  border="1px solid #ccc"   >
+					<caption>收付款详情列表</caption>
+					<thead id="money_thead">
+					</thead>
+					<tbody id="money_tbody"></tbody>
+					</table>
+		</div>
+	</div>
+
+	
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/freeContract/contract/contractInfo.js"></script>
+</body>
+	<script th:inline="javascript">
+
+var contractId=[[${contractId}]];
+
+</script>
+</html>
