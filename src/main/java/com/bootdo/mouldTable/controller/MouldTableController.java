@@ -122,10 +122,7 @@ public class MouldTableController extends BaseController {
 	@ResponseBody
 	@RequestMapping("/tablesave/")
 	public R tablesave(TableVO table ,String mouldId){
-		System.err.println("mouldId->"+mouldId);
-		System.err.println(table);
 
-		
 		 if(mouldTableService.tablesave(table ,mouldId,getUserId())>0){
 			 return R.ok();
 			 }

@@ -67,15 +67,15 @@ public class ProjectController {
 	@GetMapping("/list")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
-		System.out.println("param-->"+params);
+
         Query query = new Query(params);
-        System.out.println("query-->"+query);
+
 		List<ProjectDO> projectList = projectService.list(query);
 		resultList=projectList;
 		int total = projectService.count(query);
-		System.err.println("查询的统计条数"+total);
+
 		PageUtils pageUtils = new PageUtils(projectList, total);
-		System.err.println("查询了项目"+projectList);
+
 		return pageUtils;
 	}
 	
@@ -84,7 +84,6 @@ public class ProjectController {
 	public R findAlllist(){
 		//查询列表数据
 		List<ProjectDO> projectList = projectService.findAll();
-	    System.out.println("findAll"+projectList);
 		 return R.ok().put("projectList", projectList);
 	}
 	
@@ -165,10 +164,9 @@ public class ProjectController {
 			File myPath = new File(path2);
 			  if (!myPath.exists()){//若此目录不存在，则创建之// 这个东西只能简历一级文件夹，两级是无法建立的。。。。。
 				  myPath.mkdir();
-		           System.out.println("创建文件夹路径为："+ path2 );
+
 		}
 			InputStream is = new FileInputStream(new File(path2+ "PROJECT_LIST_EXECL.xls"));
-			System.err.println("path2"+path2);
 			
 			Workbook wb = new HSSFWorkbook(is);		//打开一个模板文件，工作簿
 			Sheet sheet = wb.getSheetAt(0);			//获取到第一个工作表
@@ -238,18 +236,13 @@ public class ProjectController {
 			
 			//List<ProjectDO> projectList = projectService.list(query);
 			//查询列表数据
-			System.out.println("param------>"+params);
 	        Query query = new Query(params);
-	        System.out.println("query------->"+query);
 			//List<ProjectDO> projectList = projectService.list(query);
 	        List<ProjectDO> projectList= resultList;
 			int total = projectService.count(query);
-			System.out.println("要打印统计条数-"+total);
-			System.err.println("要打印的合同列表-"+projectList);
 			for(int j=0;j<projectList.size();j++){
 				colNo = 0;				//初始化
 				ProjectDO op = projectList.get(j);
-				System.err.println(op);
 				nRow = sheet.createRow(rowNo++);
 				nRow.setHeightInPoints(24);
 				

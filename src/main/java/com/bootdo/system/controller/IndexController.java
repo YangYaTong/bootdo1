@@ -43,7 +43,6 @@ public class IndexController extends BaseController {
 	 */
 	@GetMapping("/getIndexPageDate")
 	public String getIndexPageDate(Model model) {
-		System.out.println("进入indexController  --getIndexPageDate");
 		Long userId = getUserId();
 		Map<String, Object> map = new HashMap<>();
 		try {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>详情页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #body,#tablle{
+            font-size:12px;
+        }
+        #tablle{
+            position: absolute;
+            top: 30%;
+            left: 25%;
+            empty-cells:show;
+            border-collapse: collapse;
+            margin:0 auto;
+            margin-top: 10px;
+        }
+
+        #tablle td{
+            height:40px;
+            line-height:30px;
+        }
+        #tablle h1,h2,h3{
+            font-size:12px;
+            margin:0;
+            padding:0;
+        }
+        #tablle{
+            border:1px solid #cad9ea;
+            color:#666;
+        }
+        #tablle th {
+            background-repeat:repeat-x;
+            height:30px;
+            line-height:30px;
+        }
+        #tablle td,#tablle th{
+            border:1px solid #cad9ea;
+            padding:0 1em 0;
+        }
+
+        #tablle tr{
+            height: 35px;
+            line-height:35px;
+        }
+    </style>
+
+</head>
+
+<body>
+<table id="tablle">
+    <tr ><th colspan="8" style="color: black; font-size: 16px" >扶贫培训详情页面</th></tr>
+    <tr >
+        <th width="80">姓名</th><td width="180" colspan="2"align="left" ><span th:text="${result.poorname}"></span></td>
+        <th width="80">身份证</th><td  width="180" colspan="4"align="left" ><span th:text="${result.idnumber}"></span></td>
+    </tr>
+
+
+    <tr >
+
+        <th width="80">性别</th><td width="180" colspan="2"align="left"><span th:if="${result.gender} eq 1 ">男</span> <span th:if="${result.gender} eq 0 ">女</span></td>
+        <th width="80">年龄</th><td width="180" colspan="2"align="left"><span th:text="${result.age}"></span></td>
+        <th width="80">职业</th><td  width="180" colspan="2"align="left"><span th:text="${result.profession}"></span></td>
+    </tr>
+    <tr>
+        <th width="80">学历</th><td width="180" colspan="2"align="left"><span th:text="${result.edu}"></span></td>
+        <th width="80">电话</th><td width="180" colspan="2"align="left"><span th:text="${result.phone}"></span></td>
+        <th width="80">地址</th><td width="180" colspan="2"align="left"><span th:text="${result.address}"></span></td>
+    </tr>
+
+    <tr>
+        <th width="80">是否参加培训</th><td width="180" colspan="2"align="left"><span th:if="${result.trainflag} eq 1 ">是</span> <span th:if="${result.trainflag} eq 0 ">否</span></td>
+        <th width="80">培训次数</th><td width="180" colspan="2"align="left"><span th:text="${result.trainnum}"></span></td>
+        <th width="80">出售额</th><td width="180" colspan="2"align="left"><span th:text="${result.sellmoney}"></span></td>
+    </tr>
+
+    <tr>
+        <th width="80">增收额</th><td width="180" colspan="2"align="left"><span th:text="${result.augmentmoney}"></span></td>
+        <th width="80">是否带动就业</th><td width="180" colspan="2"align="left"><span th:if="${result.employedflag} eq 1 ">是</span> <span th:if="${result.employedflag} eq 0 ">否</span></td>
+        <th width="80">商铺名称</th><td width="180" colspan="2"align="left"><span th:text="${result.poorname}"></span></td>
+    </tr>
+    <tr>
+        <th width="80 "  rowspan="2" >培训内容</th><td  width="180" rowspan="2" colspan="8"align="left"><span th:text="${result.traincontent}"></span></td>
+    </tr>
+    <tr></tr>
+
+</table>
+
+</body>
+
+</html>

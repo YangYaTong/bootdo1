@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.pooredu.dao.PooreduDao">
+
+	<select id="get" resultType="com.bootdo.pooredu.domain.PooreduDO">
+		select `id`,`idNumber`,`poorname`,`gender`,`age`,`profession`,`edu`,`phone`,`address`,`trainFlag`,`trainNum`,`trainContent`,`augmentMoney`,`sellMoney`,`employedFlag`,`shop` from pooredu where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.pooredu.domain.PooreduDO">
+		select `id`,`idNumber`,`poorname`,`gender`,`age`,`profession`,`edu`,`phone`,`address`,`trainFlag`,`trainNum`,`trainContent`,`augmentMoney`,`sellMoney`,`employedFlag`,`shop` from pooredu
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="idnumber != null and idnumber != ''"> and idNumber = #{idnumber} </if>
+		  		  <if test="poorname != null and poorname != ''"> and poorname = #{poorname} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="age != null and age != ''"> and age = #{age} </if>
+		  		  <if test="profession != null and profession != ''"> and profession = #{profession} </if>
+		  		  <if test="edu != null and edu != ''"> and edu = #{edu} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="trainflag != null and trainflag != ''"> and trainFlag = #{trainflag} </if>
+		  		  <if test="trainnum != null and trainnum != ''"> and trainNum = #{trainnum} </if>
+		  		  <if test="traincontent != null and traincontent != ''"> and trainContent = #{traincontent} </if>
+		  		  <if test="augmentmoney != null and augmentmoney != ''"> and augmentMoney = #{augmentmoney} </if>
+		  		  <if test="sellmoney != null and sellmoney != ''"> and sellMoney = #{sellmoney} </if>
+		  		  <if test="employedflag != null and employedflag != ''"> and employedFlag = #{employedflag} </if>
+		  		  <if test="shop != null and shop != ''"> and shop = #{shop} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+
+
+
+	<!--<select id="findById" resultType="com.bootdo.pooredu.domain.PooreduDO">
+		select `id`,`idNumber`,`poorname`,`gender`,`age`,`profession`,`edu`,`phone`,`address`,`trainFlag`,`trainNum`,`trainContent`,`augmentMoney`,`sellMoney`,`employedFlag`,`shop` from pooredu
+		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+		</where>
+	</select>
+-->
+
+
+	
+ 	<select id="count" resultType="int">
+		select count(*) from pooredu
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="idnumber != null and idnumber != ''"> and idNumber = #{idnumber} </if>
+		  		  <if test="poorname != null and poorname != ''"> and poorname = #{poorname} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="age != null and age != ''"> and age = #{age} </if>
+		  		  <if test="profession != null and profession != ''"> and profession = #{profession} </if>
+		  		  <if test="edu != null and edu != ''"> and edu = #{edu} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="trainflag != null and trainflag != ''"> and trainFlag = #{trainflag} </if>
+		  		  <if test="trainnum != null and trainnum != ''"> and trainNum = #{trainnum} </if>
+		  		  <if test="traincontent != null and traincontent != ''"> and trainContent = #{traincontent} </if>
+		  		  <if test="augmentmoney != null and augmentmoney != ''"> and augmentMoney = #{augmentmoney} </if>
+		  		  <if test="sellmoney != null and sellmoney != ''"> and sellMoney = #{sellmoney} </if>
+		  		  <if test="employedflag != null and employedflag != ''"> and employedFlag = #{employedflag} </if>
+		  		  <if test="shop != null and shop != ''"> and shop = #{shop} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.pooredu.domain.PooreduDO" useGeneratedKeys="true" keyProperty="id">
+		insert into pooredu
+		(
+			`idNumber`, 
+			`poorname`, 
+			`gender`, 
+			`age`, 
+			`profession`, 
+			`edu`, 
+			`phone`, 
+			`address`, 
+			`trainFlag`, 
+			`trainNum`, 
+			`trainContent`, 
+			`augmentMoney`, 
+			`sellMoney`, 
+			`employedFlag`, 
+			`shop`
+		)
+		values
+		(
+			#{idnumber}, 
+			#{poorname}, 
+			#{gender}, 
+			#{age}, 
+			#{profession}, 
+			#{edu}, 
+			#{phone}, 
+			#{address}, 
+			#{trainflag}, 
+			#{trainnum}, 
+			#{traincontent}, 
+			#{augmentmoney}, 
+			#{sellmoney}, 
+			#{employedflag}, 
+			#{shop}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.pooredu.domain.PooreduDO">
+		update pooredu 
+		<set>
+			<if test="idnumber != null">`idNumber` = #{idnumber}, </if>
+			<if test="poorname != null">`poorname` = #{poorname}, </if>
+			<if test="gender != null">`gender` = #{gender}, </if>
+			<if test="age != null">`age` = #{age}, </if>
+			<if test="profession != null">`profession` = #{profession}, </if>
+			<if test="edu != null">`edu` = #{edu}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="trainflag != null">`trainFlag` = #{trainflag}, </if>
+			<if test="trainnum != null">`trainNum` = #{trainnum}, </if>
+			<if test="traincontent != null">`trainContent` = #{traincontent}, </if>
+			<if test="augmentmoney != null">`augmentMoney` = #{augmentmoney}, </if>
+			<if test="sellmoney != null">`sellMoney` = #{sellmoney}, </if>
+			<if test="employedflag != null">`employedFlag` = #{employedflag}, </if>
+			<if test="shop != null">`shop` = #{shop}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from pooredu where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from pooredu where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

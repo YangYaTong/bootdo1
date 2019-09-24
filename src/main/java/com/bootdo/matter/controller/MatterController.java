@@ -87,7 +87,6 @@ public class MatterController extends BaseController {
 		String userId = getUser().getUserId().toString();
 		matter.setCreatiedUser(userId);
 		matter.setCreatiedTime(DateUtil.getDateTime());
-		System.err.println(matter);
 		if(matterService.save(matter , userId)>0){
 			return R.ok();
 		}
@@ -101,8 +100,6 @@ public class MatterController extends BaseController {
 	@ResponseBody
 	@PostMapping("/batchsave")
 	public R batchsave(String[] planDate, String[] matterCost ,String[] billCost ,String[] matterPeople,String contractId ){
-		System.err.println("matter 的contractId-->"+contractId);
-	
 		String userId = getUser().getUserId().toString();
 		
 		

@@ -37,7 +37,6 @@ public class OurCompanyController {
 	
 	@GetMapping()
 	String OurCompany(){
-		System.err.println("dddd");
 	    return "/ourCompany/ourCompany/ourCompany";
 	}
 	

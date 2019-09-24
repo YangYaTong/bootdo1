@@ -63,7 +63,6 @@ public class RemindController extends BaseController {
 	@GetMapping("/getMyRemind")
 
 	public List<RemindDO> getMyRemind(){
-		System.err.println("进入了getmyremind Controller---");
 	
 		List<RemindDO> remindList = remindService.getByUseId(getUserId().toString());
 	

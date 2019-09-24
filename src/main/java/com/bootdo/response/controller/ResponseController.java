@@ -185,7 +185,7 @@ public class ResponseController extends BaseController {
 	@ResponseBody
 	@RequestMapping(value = "/downloadResponsePaper", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public void download(String contractId, HttpServletResponse response) {
-		System.err.println("contractId-->" + contractId);
+
 
 		try {
 			responseService.downloadResponsePaper(contractId, response);

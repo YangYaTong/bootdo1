@@ -65,14 +65,12 @@ public class TodotableController extends BaseController {
         Query query = new Query(params);
 		List<TodotableDO> todotableList = todotableService.list(query,userId);
 		int total = todotableService.count(query,userId);
-		System.err.println("total"+total);
 		PageUtils pageUtils = new PageUtils(todotableList, total);
 		return pageUtils;
 	}
 	
 	@GetMapping("/showMyapply")
 	String showMyapplyPage(){
-		System.err.println("todoTable:todotable:myapply");
 	    return "todoTable/todotable/myapply";
 	}
 	
@@ -80,12 +78,10 @@ public class TodotableController extends BaseController {
 	@GetMapping("/myapply")
 	public PageUtils myapply(@RequestParam Map<String, Object> params){
 		//查询列表数据
-		System.err.println("myapply"+params);
 		String userId=getUserId().toString();
         Query query = new Query(params);
 		List<TodotableDO> todotableList = todotableService.myapply(query,userId);
 		int total = todotableService.countMyapply(query,userId);
-		System.err.println("total"+total);
 		PageUtils pageUtils = new PageUtils(todotableList, total);
 		return pageUtils;
 	}
@@ -132,7 +128,6 @@ public class TodotableController extends BaseController {
 	
 	@GetMapping("/chakan/{todotableId}")
 	String chakan(@PathVariable("todotableId") Integer todotableId,Model model){
-		System.err.println("chankanController");
 		ResponseDO response = todotableService.getResponse(todotableId);
 		model.addAttribute("response", response);
 	    return "todoTable/todotable/chakan";
@@ -216,7 +211,6 @@ public class TodotableController extends BaseController {
 	@PostMapping("/savepaymentTodo")
 
 	public R savepaymentTodo(TodotableDO  todo) {
-		System.err.println("todo:"+todo);
 		todo.setSendUser(getUserId().toString());
 		if (todotableService.savepaymentTodo(todo) > 0) {
 			return R.ok();

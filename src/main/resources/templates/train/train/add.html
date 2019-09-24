@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">姓名：</label>
+							<div class="col-sm-8">
+								<select data-placeholder="--请选择--" name="username" id="username"
+										class="form-control chosen-select" tabindex="2" required>
+									<option value="">--请选择--</option>
+								</select>
+							</div>
+						</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label" >是否参加培训：</label>
+								<div class="col-sm-8">
+
+									<label class="radio-inline">
+										<input type="radio" value="1" name="trainflag" >是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" value="0" name="trainflag" >否
+									</label>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">培训次数：</label>
+								<div class="col-sm-8">
+									<input id="trainnum" name="trainnum" class="form-control" type="text" placeholder="请输入培训次数">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">培训内容：</label>
+								<div class="col-sm-8">
+									<input id="traincontent" name="traincontent" class="form-control" type="text"  placeholder="请输入培训内容">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">增收金额：</label>
+								<div class="col-sm-8">
+									<input id="addmoney" name="addmoney" class="form-control" type="text" placeholder="请输入增收金额">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">销售额：</label>
+								<div class="col-sm-8">
+									<input id="sales" name="sales" class="form-control" type="text" placeholder="请输入销售额">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">是否带动就业：</label>
+								<div class="col-sm-8">
+
+									<label class="radio-inline">
+										<input type="radio" value="1" name="jobflag" >是
+									</label>
+									<label class="radio-inline">
+										<input type="radio" value="0" name="jobflag" >否
+									</label>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">商铺名称：</label>
+								<div class="col-sm-8">
+									<input id="shop" name="shop" class="form-control" type="text" placeholder="请输入商铺名称">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/train/train/add.js">
+</script>
+</body>
+</html>

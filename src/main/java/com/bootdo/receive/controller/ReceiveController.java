@@ -64,10 +64,9 @@ public class ReceiveController extends BaseController {
 	@GetMapping("/showContractReceiveInfo")
 	public R showContractReceiveInfo(Integer contractId) {
 		// 查询列表数据
-		System.err.println("contractId----" + contractId);
 		
 		List<ReceiveDO> receiveList=receiveService.listByContractId(contractId);
-		System.err.println("返回前端的收款List"+receiveList);
+
 		return R.ok().put("receiveList", receiveList);
 
 	}
@@ -95,7 +94,7 @@ public class ReceiveController extends BaseController {
 	@GetMapping("/toReceive/{matterId}")
 
 	String toReceive(@PathVariable("matterId") Integer matterId,Model model){
-		System.err.println("进入了receiveController,matterId="+matterId);
+
 		ReceiveDO receive = receiveService.toRecive(matterId);
 		model.addAttribute("receive", receive);
 	    return "receive/receive/toReceive";

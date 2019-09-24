@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.poor.dao.PoorDao">
+
+	<select id="get" resultType="com.bootdo.poor.domain.PoorDO">
+		select `id`,`username`,`gender`,`idNum`,`age`,`edu`,`profession`,`phone`,`address`,`created_user_id`,`modified_user`,`created_time`,`modified_time` from poor where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.poor.domain.PoorDO">
+		select `id`,`username`,`gender`,`idNum`,`age`,`edu`,`profession`,`phone`,`address`,`created_user_id`,`modified_user`,`created_time`,`modified_time` from poor
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="idnum != null and idnum != ''"> and idNum = #{idnum} </if>
+		  		  <if test="age != null and age != ''"> and age = #{age} </if>
+		  		  <if test="edu != null and edu != ''"> and edu = #{edu} </if>
+		  		  <if test="profession != null and profession != ''"> and profession = #{profession} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="createdUserId != null and createdUserId != ''"> and created_user_id = #{createdUserId} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createdTime != null and createdTime != ''"> and created_time = #{createdTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from poor
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="gender != null and gender != ''"> and gender = #{gender} </if>
+		  		  <if test="idnum != null and idnum != ''"> and idNum = #{idnum} </if>
+		  		  <if test="age != null and age != ''"> and age = #{age} </if>
+		  		  <if test="edu != null and edu != ''"> and edu = #{edu} </if>
+		  		  <if test="profession != null and profession != ''"> and profession = #{profession} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="createdUserId != null and createdUserId != ''"> and created_user_id = #{createdUserId} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createdTime != null and createdTime != ''"> and created_time = #{createdTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.poor.domain.PoorDO" useGeneratedKeys="true" keyProperty="id">
+		insert into poor
+		(
+			`username`, 
+			`gender`, 
+			`idNum`, 
+			`age`, 
+			`edu`, 
+			`profession`, 
+			`phone`, 
+			`address`, 
+			`created_user_id`, 
+			`modified_user`, 
+			`created_time`, 
+			`modified_time`
+		)
+		values
+		(
+			#{username}, 
+			#{gender}, 
+			#{idnum}, 
+			#{age}, 
+			#{edu}, 
+			#{profession}, 
+			#{phone}, 
+			#{address}, 
+			#{createdUserId}, 
+			#{modifiedUser}, 
+			#{createdTime}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.poor.domain.PoorDO">
+		update poor 
+		<set>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="gender != null">`gender` = #{gender}, </if>
+			<if test="idnum != null">`idNum` = #{idnum}, </if>
+			<if test="age != null">`age` = #{age}, </if>
+			<if test="edu != null">`edu` = #{edu}, </if>
+			<if test="profession != null">`profession` = #{profession}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="createdUserId != null">`created_user_id` = #{createdUserId}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="createdTime != null">`created_time` = #{createdTime}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from poor where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from poor where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="findAll" resultType="com.bootdo.poor.domain.PoorDO">
+		select * from poor
+
+                order by id desc
+
+	</select>
+
+</mapper>

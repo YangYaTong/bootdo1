@@ -29,8 +29,7 @@ public class TestController {
 	
 	@RequestMapping("/removecauses")  
 	@ResponseBody
-	public  R removecauses() throws Exception {  
-		System.err.println("testController");
+	public  R removecauses() throws Exception {
 	    R result = new R();  
 
 	    Option option = new Option();

@@ -59,7 +59,6 @@ public class CompanyController {
 	public R list(){
 		//查询列表数据
 		List<CompanyDO> companyList= companyService.findAll();
-	   System.out.println("findAll"+companyList);
 		 return R.ok().put("companyList", companyList);
 	}
 	

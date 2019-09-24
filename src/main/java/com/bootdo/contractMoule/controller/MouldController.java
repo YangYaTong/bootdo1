@@ -81,7 +81,6 @@ public class MouldController extends BaseController {
 		//查询列表数据
         Query query = new Query(params);
 		List<MouldDO> mouldList = mouldService.list(query);
-		System.err.println("mouldList:"+mouldList);
 		int total = mouldService.count(query);
 		PageUtils pageUtils = new PageUtils(mouldList, total);
 		return pageUtils;
@@ -106,8 +105,6 @@ public class MouldController extends BaseController {
 	@ResponseBody
 	@PostMapping("/exportDoc")
 	public R exportDoc(@RequestParam Map<String,Object> map){
-		System.err.println("后台收到的"+map);
-		
 		try {
 			if(mouldService.exportDoc(map)) {
 				return R.ok();
@@ -149,7 +146,6 @@ public class MouldController extends BaseController {
 	@ResponseBody
 	@PostMapping("/save")
 	public R save( MouldDO mould){
-		System.err.println("提交的mould:"+mould);
 		if(mouldService.save(mould)>0){
 			return R.ok();
 		}
@@ -192,9 +188,7 @@ public class MouldController extends BaseController {
 	R upload(@RequestParam("file")MultipartFile file, HttpServletRequest request,
 			String mouldName,String mouldDesc,String maincontent,String attorneyNo,String paymentway,String breach,
 			String resolution,String agrement,String remark,String tableTag,String place,String mouldTable) {
-		System.err.println("mouldName:"+mouldName);
 		String fileName = file.getOriginalFilename();
-		System.err.println("fileName"+fileName);
 
 		// 检查是否选择了有效的文件提交请求
 				if (file.isEmpty()) {
@@ -202,7 +196,6 @@ public class MouldController extends BaseController {
 				}
 				// 检查文件大小是否超标
 				long size = file.getSize();
-				System.err.println(size);
 
 				if (size > UPLOAD_PICTURE_MAX_SIZE) {
 					// 抛出异常：FileSizeException
@@ -210,8 +203,6 @@ public class MouldController extends BaseController {
 				}
 				// 检查文件类型是否在允许的范围内
 				String contentType = file.getContentType();
-				System.err.println("contentType-->"+contentType);
-				System.err.println("----->"+UPLOAD_PICTURE_TYPES.contains(contentType));
 				if (!UPLOAD_PICTURE_TYPES.contains(contentType)) {
 					// 抛出异常：FileTypeException
 					return R.error().put("msg", "仅允许上传word和execl文件");
@@ -257,7 +248,6 @@ public class MouldController extends BaseController {
 				
 				
 				mouldService.save(mould);
-				System.out.println(mould);
 				// 返回成功
 				
 		 return R.ok();

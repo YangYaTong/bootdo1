@@ -493,8 +493,9 @@ public class ContractController extends BaseController {
 		InputStream in = file.getInputStream();
 		List<ContractDTO> list = ExcelImportUtil.importExcel(in, ContractDTO.class, params);
 		for (ContractDTO contractDTO : list) {
-			System.err.println("导入的contractDTO" +contractDTO);
 		}
+
+
 		
 		list.forEach(e -> System.out.println(e));
 
@@ -566,7 +567,6 @@ public class ContractController extends BaseController {
 	 */
 		@RequestMapping("/exportExcel")
 		public void printHSSF(@RequestParam Map<String, Object> params, HttpServletRequest request, HttpServletResponse response) throws IOException{
-		System.err.println("params-->"+params);
 			contractService.exportExcel(params, request, response);
 		}
 

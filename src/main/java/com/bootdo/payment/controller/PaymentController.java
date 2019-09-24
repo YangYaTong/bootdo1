@@ -127,7 +127,6 @@ public class PaymentController extends BaseController  {
 	@GetMapping("/toPayment/{matterId}")
 
 	String toPayment(@PathVariable("matterId") Integer matterId,Model model){
-		System.err.println("进入了toPaymentController,matterId="+matterId);
 		PaymentDO payment = paymentService.toPayment(matterId);
 		model.addAttribute("payment", payment);
 	    return "/payment/payment/toPayment";
