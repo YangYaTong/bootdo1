@@ -1,6 +1,7 @@
 package com.bootdo.train.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -104,6 +105,9 @@ public class TrainController extends BaseController {
 	public R save(TrainDO train){
 		//获取登陆者的id设置为创建者
 		train.setCreatedUser(getUserId());
+		//设置当前时间为创建时间
+		train.setCreatedTime(new Date());
+
 		int i=trainService.save(train);
 		if(i>0){
 			return R.ok();

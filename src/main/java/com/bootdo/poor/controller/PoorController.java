@@ -121,6 +121,10 @@ public class PoorController extends BaseController {
 		return R.ok();
 	}
 
+	/**
+	 * 查用户数据的
+	 * @return
+	 */
 
 	@ResponseBody
 	@GetMapping("/findAll")
@@ -133,6 +137,8 @@ public class PoorController extends BaseController {
 		List<PoorDO> lists=new ArrayList<>();
 		for(PoorDO p:poorList){
 			if("admin".equals(getUsername())){
+				//判断是不是admin登录的
+				//是 -给拼接创建者
 				/*lists=poorList;*/
 				p.setUsername(userService.get(p.getCreatedUserId()).getName()+"-"+p.getUsername());
 				lists.add(p);
